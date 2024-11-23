@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-width {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.border-style-1 {
+    border-bottom: 1px solid #eee;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
