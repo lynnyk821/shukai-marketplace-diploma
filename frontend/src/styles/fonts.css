@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/src/assets/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/src/assets/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('/src/assets/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-noto-sans {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.font-weight-450 {
+    font-weight: 450;
+}

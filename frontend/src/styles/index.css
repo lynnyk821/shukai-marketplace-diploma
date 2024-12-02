@@ -2,16 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.container-width {
+.main-container {
     width: 100%;
     max-width: 1200px;
 }
 
-.border-style-1 {
-    border-bottom: 1px solid #eee;
+.border-style-r {
+    border-right: 1px solid #eee;
+}
+.border-style-r:hover {
+    transition: border-color 350ms ease-in-out;
+    border-right: 1px solid #9ca3af;
 }
 
-.centered-container {
+.border-style-l {
+    border-left: 1px solid #eee;
+}
+
+.centered {
     display: flex;
     justify-content: center;
     align-items: center;
