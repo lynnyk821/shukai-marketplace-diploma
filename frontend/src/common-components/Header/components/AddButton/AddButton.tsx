@@ -1,9 +1,6 @@
-type Props = {
-    onClick?: () => void;
-};
+import {MyButtonProps} from "../../../../types/my-button-props.ts";
 
-export default function AddButton({onClick}: Props) {
-
+export default function AddButton({onClick}: MyButtonProps) {
     return (
         <button
             className={
@@ -11,6 +8,7 @@ export default function AddButton({onClick}: Props) {
                  hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out`
             }
             onClick={onClick}
+            style={{ userSelect: "none" }}
         >
             Додати товар
         </button>

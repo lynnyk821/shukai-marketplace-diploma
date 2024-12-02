@@ -1,6 +1,6 @@
-import {ChildComp} from "../../../../types/child-comp.ts";
+import {MyContainerProps} from "../../../../types/my-container-props.ts";
 
-export default function AdditionalButtonsLayout({children}: ChildComp) {
+export default function AdditionalButtonsLayout({children}: MyContainerProps) {
     return (
         <div className={"gap-3 flex-1 flex justify-end items-center"}>
             {children}

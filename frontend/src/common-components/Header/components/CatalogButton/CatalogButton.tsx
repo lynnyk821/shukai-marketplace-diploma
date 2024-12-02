@@ -1,10 +1,10 @@
 import {Icon} from "@iconify/react";
+import {MyButtonProps} from "../../../../types/my-button-props.ts";
+import {useAppStore} from "../../../../utils/state-management/useAppStore.ts";
 
-type Props = {
-    onClick?: () => void;
-}
+export default function CatalogButton({onClick}: MyButtonProps) {
+    const {isCatalogOpen} = useAppStore();
 
-export default function CatalogButton({onClick}: Props) {
     return (
         <button
             className={
@@ -12,8 +12,12 @@ export default function CatalogButton({onClick}: Props) {
                  hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out`
             }
             onClick={onClick}
+            style={{ userSelect: "none" }}
         >
-            <Icon icon="ic:round-menu" width="24" height="24"/>
+            {isCatalogOpen
+                ? <Icon icon="lets-icons:close-round" width="24" height="24" />
+                : <Icon icon="ic:round-menu" width="24" height="24"/>
+            }
             Каталог
         </button>
     );

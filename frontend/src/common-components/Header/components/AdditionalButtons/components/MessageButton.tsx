@@ -1,18 +1,17 @@
 import {Icon} from "@iconify/react";
+import TiltShake from "../../../../../utils/animations/TiltShake.tsx";
+import {MyButtonProps} from "../../../../../types/my-button-props.ts";
 
-type Props = {
-    onClick?: () => void;
-};
-
-export default function MessageButton({onClick}: Props) {
-
+export default function MessageButton({onClick}: MyButtonProps) {
     return (
-        <button
-            className={"h-full w-7 centered relative text-[#414141] hover:text-yellow-600"}
-            onClick={onClick}
-        >
-            <div className={"w-2 h-2 right-[3.2px] top-[8.8px] absolute bg-yellow-600 rounded-full duration-200 ease-in-out"}/>
-            <Icon icon="solar:letter-unread-linear" width="24" height="24"/>
-        </button>
+        <TiltShake>
+            <button
+                className={"h-full w-7 centered relative text-[#414141] hover:text-yellow-600"}
+                onClick={onClick}
+            >
+                <span className={"w-2 h-2 right-[3.1px] top-[1px] absolute bg-yellow-600 rounded-full duration-200 ease-in-out"}/>
+                <Icon icon="solar:letter-unread-linear" width="24" height="24"/>
+            </button>
+        </TiltShake>
     );
 };
