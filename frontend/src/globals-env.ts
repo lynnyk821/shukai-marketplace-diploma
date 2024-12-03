@@ -48,5 +48,15 @@ export const USER_LOGO_LIST: UserLogoItemProps[] = [
     { icon: "iconoir:profile-circle",    text: "Профіль",          href: "4" },
     { icon: "lsicon:thumb-up-outline",   text: "Мої відгуки",      href: "5" },
     { icon: "solar:settings-outline",    text: "Мої налаштування", href: "6" },
-    { icon: "fluent-mdl2:product",       text: "Вихід",            href: "7" },
+    { icon: "ion:exit-outline",       text: "Вихід",            href: "7" },
+]
+
+export const APP_DESCRIPTION =
+    "Shukai — це сучасна онлайн-платформа оголошень для зручного пошуку товарів, послуг та пропозицій. " +
+    "Тут ви можете швидко знайти цікаві пропозиції, купити або продати потрібні речі, орендувати житло чи знайти роботу."
+
+export const SLOGAN = [
+    "Від гусей до мерседесів – тут є все!",
+    "Тут навіть холодильник знайде нову сім’ю.",
+    "Не треба кричати на базарі – напишіть тут.",
 ]

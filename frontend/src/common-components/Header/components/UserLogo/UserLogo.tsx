@@ -3,12 +3,17 @@ import {useState} from "react";
 import AnimatedRotation from "../../../../utils/animations/AnimatedRotation.tsx";
 import UserLogoLayout from "./UserLogoLayout.tsx";
 import DropdownUserList from "./components/DropdownUserList.tsx";
+import {useClickOutside} from "../../../../utils/hooks/useClickOutside.ts";
 
 export default function UserLogo() {
     const [isActive, setIsActive] = useState<boolean>(false);
 
+    const dropdownRef = useClickOutside<HTMLUListElement>(() => {
+        setIsActive(false);
+    });
+
     return (
-        <UserLogoLayout>
+        <UserLogoLayout ref={dropdownRef}>
             <button
                 className={"h-full gap-1 centered flex text-[#414141]"}
                 onClick={() => setIsActive(!isActive)}

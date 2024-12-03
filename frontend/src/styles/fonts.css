@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'Montserrat';
-    src: url('/src/utils/assets/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+    src: url('/src/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('/src/utils/assets/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    src: url('/src/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/src/utils/assets/Poppins/Poppins-Regular.ttf') format('truetype');
+    src: url('/src/assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Noto Sans';
-    src: url('/src/utils/assets/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('/src/assets/fonts/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf') format('truetype');
 }
 
 .font-poppins {
