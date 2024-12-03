@@ -1,13 +1,12 @@
 import {HeaderLayout} from "./HeaderLayout.tsx";
-import {Logo} from "./components/Logo/Logo.tsx";
-import {LOGO_NAME} from "../../globals-env.ts";
+import {Logo} from "../Logo/Logo.tsx";
 import CatalogButton from "./components/CatalogButton/CatalogButton.tsx";
-import {CategoriesInput} from "./components/CategoriesInput/CategoriesInput.tsx";
+import {InputWithCategories} from "./components/InputWithCategories/InputWithCategories.tsx";
 import AddButton from "./components/AddButton/AddButton.tsx";
 import AdditionalButtons from "./components/AdditionalButtons/AdditionalButtons.tsx";
 import UserLogo from "./components/UserLogo/UserLogo.tsx";
-import {useAppStore} from "../../utils/state-management/useAppStore.ts";
-import CatalogCategories from "./components/CatalogCategories/CatalogCategories.tsx";
+import {useAppStore} from "../../utils/hooks/useAppStore.ts";
+import CatalogCategories from "./components/CatalogButton/components/CatalogCategories/CatalogCategories.tsx";
 
 export function Header() {
     const {isCatalogOpen, setIsCatalogOpen} = useAppStore();
@@ -15,11 +14,9 @@ export function Header() {
     return (
         <>
             <HeaderLayout>
-                <Logo>{LOGO_NAME}</Logo>
-                <CatalogButton
-                    onClick={() => setIsCatalogOpen(!isCatalogOpen)}
-                />
-                <CategoriesInput />
+                <Logo></Logo>
+                <CatalogButton onClick={() => setIsCatalogOpen(!isCatalogOpen)}/>
+                <InputWithCategories />
                 <AddButton />
                 <AdditionalButtons />
                 <UserLogo />

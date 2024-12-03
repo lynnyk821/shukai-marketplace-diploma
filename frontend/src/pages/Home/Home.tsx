@@ -1,10 +1,10 @@
+import PageLayout from "../../common-components/PageLayout/PageLayout.tsx";
 import {HomeLayout} from "./HomeLayout.tsx";
-import {Header} from "../../common-components/Header/Header.tsx";
 
 export function Home() {
     return (
-        <HomeLayout>
-            <Header></Header>
-        </HomeLayout>
+        <PageLayout>
+            <HomeLayout>Hello</HomeLayout>
+        </PageLayout>
     );
 };

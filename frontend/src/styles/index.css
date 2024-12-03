@@ -2,29 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.main-container {
-    width: 100%;
-    max-width: 1200px;
-}
-
-.border-style-r {
-    border-right: 1px solid #eee;
-}
-.border-style-r:hover {
-    transition: border-color 350ms ease-in-out;
-    border-right: 1px solid #9ca3af;
-}
-
-.border-style-l {
-    border-left: 1px solid #eee;
-}
-
 .centered {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.color-yellow-600 {
-    color: yellow;
 }

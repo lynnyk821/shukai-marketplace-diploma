@@ -4,8 +4,8 @@ export default function AddButton({onClick}: MyButtonProps) {
     return (
         <button
             className={
-                `px-2.5 centered text-[#414141] font-inter border-[#414141] border-[1px] rounded-lg
-                 hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out`
+                `px-2.5 centered text-[#414141] font-inter border-[#414141] border-[1px] rounded-lg 
+                 hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out border-opacity-70`
             }
             onClick={onClick}
             style={{ userSelect: "none" }}

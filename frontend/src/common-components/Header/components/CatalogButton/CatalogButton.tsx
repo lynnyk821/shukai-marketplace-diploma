@@ -1,6 +1,6 @@
 import {Icon} from "@iconify/react";
 import {MyButtonProps} from "../../../../types/my-button-props.ts";
-import {useAppStore} from "../../../../utils/state-management/useAppStore.ts";
+import {useAppStore} from "../../../../utils/hooks/useAppStore.ts";
 
 export default function CatalogButton({onClick}: MyButtonProps) {
     const {isCatalogOpen} = useAppStore();
@@ -9,7 +9,7 @@ export default function CatalogButton({onClick}: MyButtonProps) {
         <button
             className={
                 `h-full px-2.5 gap-4 centered text-[#414141] font-inter border-[#414141] border-[1px] rounded-lg
-                 hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out`
+                 hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out border-opacity-70`
             }
             onClick={onClick}
             style={{ userSelect: "none" }}

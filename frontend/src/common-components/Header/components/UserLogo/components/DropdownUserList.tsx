@@ -7,9 +7,10 @@ export default function DropdownUserList() {
     return (
         <SlideDown bottom={-10} duration={0.6}>
             <ul className={
-                "w-52 h-fit mt-2 absolute right-0 bg-white " +
-                "border-[1px] border-solid border-[#414141] border-opacity-20"
-            }>
+                    "w-52 h-fit mt-2 absolute right-0 bg-white " +
+                    "border-[1px] border-solid border-[#414141] border-opacity-20"
+                }
+            >
                 {USER_LOGO_LIST.map((item, key) => (
                     <UserListItem
                         key={key}
@@ -22,4 +23,4 @@ export default function DropdownUserList() {
             </ul>
         </SlideDown>
     );
-};
+}
