@@ -7,7 +7,7 @@ type Props = {
 
 export default function CategoriesGrid({items}: Props) {
     return (
-        <div className={"w-full h-full grid grid-cols-8 place-items-center"}>
+        <div className={"w-full h-full grid grid-cols-8 place-items-center bg-white overflow-hidden"}>
             {items.map((item, key) => (
                 <CategoryItem
                     key={key}

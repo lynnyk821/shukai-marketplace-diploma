@@ -1,5 +1,6 @@
 import {CategoryItemProps} from "./types/category-item-props.ts";
 import {UserLogoItemProps} from "./types/user-logo-item-props.ts";
+import {HomeProductItemProps} from "./types/home-product-item-props.ts";
 
 export const LOGO_NAME = "Shukai!"
 
@@ -22,22 +23,22 @@ export const SEARCH_CATEGORIES = ["Всі категорії",
 ]
 
 export const CATALOG_CATEGORIES: CategoryItemProps[] = [
-    { color: COLORS[0].code,  name: "Жінкам"    },
-    { color: COLORS[1].code,  name: "Чоловікам" },
-    { color: COLORS[2].code,  name: "Дітям"     },
-    { color: COLORS[3].code,  name: "Одяг"      },
-    { color: COLORS[4].code,  name: "Жінкам"    },
-    { color: COLORS[5].code,  name: "Чоловікам" },
-    { color: COLORS[6].code,  name: "Дітям"     },
-    { color: COLORS[7].code,  name: "Одяг"      },
-    { color: COLORS[8].code,  name: "Жінкам"    },
-    { color: COLORS[7].code,  name: "Чоловікам" },
-    { color: COLORS[4].code,  name: "Дітям"     },
-    { color: COLORS[5].code,  name: "Одяг"      },
-    { color: COLORS[6].code,  name: "Жінкам"    },
-    { color: COLORS[0].code,  name: "Чоловікам" },
-    { color: COLORS[2].code,  name: "Дітям"     },
-    { color: COLORS[9].code,  name: "Одяг"      },
+    { color: COLORS[0].code,  name: "Електроніка"               },
+    { color: COLORS[1].code,  name: "Нерухомість"               },
+    { color: COLORS[2].code,  name: "Транспорт"                 },
+    { color: COLORS[3].code,  name: "Робота"                    },
+    { color: COLORS[4].code,  name: "Автотовари"                },
+    { color: COLORS[5].code,  name: "Дитячі товари"             },
+    { color: COLORS[6].code,  name: "Мода та стиль"             },
+    { color: COLORS[7].code,  name: "Краса та здоров'я"         },
+    { color: COLORS[8].code,  name: "Хобі та відпочинок"        },
+    { color: COLORS[4].code,  name: "Тварини"                   },
+    { color: COLORS[5].code,  name: "Послуги"                   },
+    { color: COLORS[6].code,  name: "Будівництво"               },
+    { color: COLORS[7].code,  name: "Навчання та розвиток"      },
+    { color: COLORS[2].code,  name: "Інструменти та техніка"    },
+    { color: COLORS[0].code,  name: "Продукти харчування"       },
+    { color: COLORS[9].code,  name: "Зоотовари"                 },
 ]
 
 export const USER_LOGO_LIST: UserLogoItemProps[] = [
@@ -59,4 +60,17 @@ export const SLOGAN = [
     "Від гусей до мерседесів – тут є все!",
     "Тут навіть холодильник знайде нову сім’ю.",
     "Не треба кричати на базарі – напишіть тут.",
+]
+
+export const PRODUCT_ITEMS: HomeProductItemProps[] = [
+    {id: 0, name: "Зимові термочоботи", date: "Опубліковано о 11:45", price: 100},
+    {id: 1, name: "Шуба крута, натуральна, короткострижена, довга kepka",  date: "Опубліковано о 11:45", price: 200},
+    {id: 2, name: "Металопластикові вікна та двері, установка вікон Шепетівка.",  date: "Опубліковано о 11:45", price: 300},
+    {id: 3, name: "Шезлонг-люлька для малюка",  date: "Опубліковано о 11:45", price: 400},
+    {id: 4, name: "Тканевые ролеты (рулонные шторы) от производителя",  date: "Опубліковано о 11:45", price: 500},
+    {id: 5, name: "Кухні стандартні та під замовлення. Гардеробні, шафи-купе та распашні.",  date: "Опубліковано о 11:45", price: 600},
+    {id: 6, name: "Арка крила Tesla Model Y накладка крыла молдинг перед зад",  date: "Опубліковано о 11:45", price: 700},
+    {id: 7, name: "Электронные чacы SKMEI 1167 ARMY GREEN вoдoнепроницаемый и пpoтивоудар",  date: "Опубліковано о 11:45", price: 800},
+    {id: 8, name: "Кухні стандартні та під замовлення. Гардеробні, шафи-купе та распашні.",  date: "Опубліковано о 11:45", price: 900},
+    {id: 9, name: "Английский язык, переводы, переписка,,реклама на маркетплэйсах",  date: "Опубліковано о 11:45", price: 0},
 ]

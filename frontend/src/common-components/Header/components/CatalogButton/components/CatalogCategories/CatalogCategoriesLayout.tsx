@@ -2,11 +2,8 @@ import {MyContainerProps} from "../../../../../../types/my-container-props.ts";
 
 export default function CatalogCategoriesLayout({children}: MyContainerProps) {
     return (
-        <div className={
-            "w-full h-72 flex items-center justify-center " +
-            "border-solid border-b-[1px] border-[#414141] border-opacity-10"
-        }>
-            <div className={"w-full h-full max-w-[1200px]"}>
+        <div className={"w-screen centered border-b-[1px] border-solid border-opacity-15 border-[#414141]"}>
+            <div className={"w-full h-72 max-w-container centered "}>
                 {children}
             </div>
         </div>

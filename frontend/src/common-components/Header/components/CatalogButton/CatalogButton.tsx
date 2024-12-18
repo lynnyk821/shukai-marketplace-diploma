@@ -1,24 +1,27 @@
 import {Icon} from "@iconify/react";
-import {MyButtonProps} from "../../../../types/my-button-props.ts";
 import {useAppStore} from "../../../../utils/hooks/useAppStore.ts";
+import CatalogButtonLayout from "./CatalogButtonLayout.tsx";
+import CatalogCategories from "./components/CatalogCategories/CatalogCategories.tsx";
+import {useClickOutside} from "../../../../utils/hooks/useClickOutside.ts";
+import {LegacyRef} from "react";
 
-export default function CatalogButton({onClick}: MyButtonProps) {
-    const {isCatalogOpen} = useAppStore();
+export default function CatalogButton() {
+    const { isCatalogOpen, setIsCatalogOpen } = useAppStore();
+
+    const ref = (useClickOutside(() => {
+        setIsCatalogOpen(false);
+    })) as LegacyRef<HTMLDivElement> | undefined;
 
     return (
-        <button
-            className={
-                `h-full px-2.5 gap-4 centered text-[#414141] font-inter border-[#414141] border-[1px] rounded-lg
-                 hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out border-opacity-70`
-            }
-            onClick={onClick}
-            style={{ userSelect: "none" }}
-        >
-            {isCatalogOpen
-                ? <Icon icon="lets-icons:close-round" width="24" height="24" />
-                : <Icon icon="ic:round-menu" width="24" height="24"/>
-            }
-            Каталог
-        </button>
+        <div ref={ref}>
+            <CatalogButtonLayout onClick={() => setIsCatalogOpen(!isCatalogOpen)}>
+                {isCatalogOpen
+                    ? <Icon icon="lets-icons:close-round" width="24" height="24" />
+                    : <Icon icon="ic:round-menu" width="24" height="24"/>
+                }
+                Каталог
+            </CatalogButtonLayout>
+            <CatalogCategories />
+        </div>
     );
 };
