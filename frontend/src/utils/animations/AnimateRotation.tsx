@@ -6,7 +6,7 @@ type Props = MyContainerProps & {
     isActive: boolean,
 };
 
-export default function AnimatedRotation({isActive, degree, children}: Props) {
+export default function AnimateRotation({isActive, degree, children}: Props) {
     return (
         <motion.div
             transition={{

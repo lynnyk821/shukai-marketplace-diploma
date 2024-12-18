@@ -1,29 +1,31 @@
-import { motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {MyContainerProps} from "../../types/my-container-props.ts";
 
 type Props = MyContainerProps & {
     bottom: number,
     duration: number,
+    opacity: number,
+    isOpen?: boolean,
 }
 
-export default function SlideDown({bottom, duration, children}: Props) {
+export default function SlideDown({bottom, duration, children, opacity, isOpen}: Props) {
     return (
-        <motion.div
-            className={"w-full h-full"}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={{
-                hidden: { y: bottom, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-                exit: { y: -bottom, opacity: 1 },
-            }}
-            transition={{
-                duration: duration,
-                ease: "easeInOut"
-            }}
-        >
-            {children}
-        </motion.div>
+        <AnimatePresence>
+            {isOpen ? (
+                <motion.div
+                    initial={{ y: bottom, opacity: opacity }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: bottom, opacity: opacity }}
+                    transition={{
+                        duration: duration,
+                        ease: "easeInOut"
+                    }}
+                >
+                    {children}
+                </motion.div>
+            ) : null}
+        </AnimatePresence>
     );
 };
+
+/**/
