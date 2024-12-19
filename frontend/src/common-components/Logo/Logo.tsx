@@ -1,17 +1,8 @@
 import {LOGO_NAME} from "../../globals-env.ts";
-import { useNavigate } from "react-router-dom";
+import {useNavigateWithScrollBehavior} from "../../utils/hooks/useNavigateWithScrollBehavior.ts";
 
 export function Logo() {
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-
-        navigate("/")
-    };
+    const navigate = useNavigateWithScrollBehavior("/", "smooth");
 
     return (
         <button
@@ -21,7 +12,7 @@ export function Logo() {
                 "hover:text-yellow-600 transition duration-200 ease-in-out"
             }
             style={{ userSelect: "none" }}
-            onClick={handleClick}
+            onClick={navigate}
         >
             {LOGO_NAME}
         </button>

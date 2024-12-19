@@ -1,12 +1,12 @@
 import {MyContainerProps} from "../../../../../types/my-container-props.ts";
-import {useNavigate} from "react-router-dom";
+import {useNavigateWithScrollBehavior} from "../../../../../utils/hooks/useNavigateWithScrollBehavior.ts";
 
 type Props = MyContainerProps & {
     id: string,
 }
 
 export default function HomeProductItemLayout({id, children}: Props) {
-    const navigate = useNavigate();
+    const navigate = useNavigateWithScrollBehavior(`/products/${id}`, "instant");
 
     return (
         <button className={
@@ -14,7 +14,7 @@ export default function HomeProductItemLayout({id, children}: Props) {
                 "border-b-[1px] border-solid border-[#414141] border-opacity-30 " +
                 "hover:border-yellow-600 transition duration-300 ease-in-out"
             }
-            onClick={() => navigate(`/products/${id}`)}
+            onClick={navigate}
         >
             {children}
         </button>

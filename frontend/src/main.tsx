@@ -10,13 +10,18 @@ import '@mantine/core/styles.css'
 import '@mantine/carousel/styles.css'
 
 import Product from "./pages/Product/Product.tsx";
+import {Messages} from "./pages/Messages/Messages.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <MantineProvider>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/products/:id" element={<Product />} />
+                <Route path="/messages" element={<Messages />} />
+                <Route path="/favorites" element={<Product />} />
+                <Route path="/cart" element={<Product />} />
             </Routes>
         </BrowserRouter>
     </MantineProvider>
