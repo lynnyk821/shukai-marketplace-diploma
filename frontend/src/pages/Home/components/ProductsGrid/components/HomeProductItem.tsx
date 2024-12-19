@@ -7,7 +7,7 @@ import HomeProductItemLayout from "./HomeProductItemLayout.tsx";
 
 export default function HomeProductItem({ id, image, name, date, price }: HomeProductItemProps) {
     return (
-        <HomeProductItemLayout id={id}>
+        <HomeProductItemLayout id={String(id)}>
             <HomeProductImage size={"lg"} image={image} />
             <HomeProductName size={"lg"} name={name} />
             <HomeProductPrice price={price} />
