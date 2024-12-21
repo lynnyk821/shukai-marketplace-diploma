@@ -1,4 +1,4 @@
-import {truncateProductName} from "../../utils/helpers/helpers.ts";
+import {truncateStringWithN} from "../../utils/helpers/helpers.ts";
 
 type Props = {
     size: "sm" | "lg";
@@ -12,7 +12,7 @@ export default function HomeProductName({ size, name }: Props) {
                 size === "sm" ? "h-10 text-sm" : "h-12 text-[16px]"
             }`}
         >
-            {size === "lg" ? truncateProductName(name, 40) : truncateProductName(name, 30)}
+            {size === "lg" ? truncateStringWithN(name, 40) : truncateStringWithN(name, 30)}
         </p>
     );
 }

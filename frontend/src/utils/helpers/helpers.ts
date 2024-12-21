@@ -1,5 +1,5 @@
-export function truncateProductName(productName: string, n: number): string {
-    return productName.length > n
-        ? productName.slice(0, n).replace(/[\s.,!?;:]+$/g, '') + '...'
-        : productName;
+export function truncateStringWithN(stringData: string, n: number): string {
+    return stringData.length > n
+        ? stringData.slice(0, n).replace(/[\s.,!?;:]+$/g, '') + '...'
+        : stringData;
 }

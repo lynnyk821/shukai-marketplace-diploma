@@ -74,3 +74,26 @@ export const PRODUCT_ITEMS: HomeProductItemProps[] = [
     {id: 8, name: "Кухні стандартні та під замовлення. Гардеробні, шафи-купе та распашні.",  date: "Опубліковано о 11:45", price: 900},
     {id: 9, name: "Английский язык, переводы, переписка,,реклама на маркетплэйсах",  date: "Опубліковано о 11:45", price: 0},
 ]
+
+export const MESSAGES = [
+    { username: "You", avatar: { color: "#eee" },   text: "Hello, how are you doing today?", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "I'm doing well, thank you! How about you?", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "I’m great! Just finishing up some work.", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "Nice! What kind of work are you doing?", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "I'm working on a project for school.", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "That sounds interesting! What’s the project about?", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "It’s about web development, actually.", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "That’s awesome! I love web development.", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "Yeah, I’m learning React right now!", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "Oh, nice! React is great.", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "It’s a bit tricky, but I’m getting the hang of it.", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "It takes time, but you’ll do great.", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "Thanks! I appreciate the support.", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "Anytime! Do you have any questions?", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "I’m actually curious about React hooks.", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "Ah, hooks are a great feature in React!", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "How do they work exactly?", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "They let you use state and other React features without writing a class.", isMe: false },
+    { username: "You", avatar: { color: "#eee" },   text: "That sounds really useful!", isMe: true },
+    { username: "UserTwo", avatar: { color: "#414141" }, text: "It definitely is! Give them a try.", isMe: false }
+];

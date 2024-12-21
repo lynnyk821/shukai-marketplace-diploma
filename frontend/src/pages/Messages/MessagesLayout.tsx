@@ -6,9 +6,11 @@ export function MessagesLayout({children}: MyContainerProps) {
         <PageLayout>
             <main className={"w-full mt-32 flex-1 flex justify-center"}>
                 <div className={"w-full h-full max-w-container"}>
-                    {children}
+                    <div className={"w-full h-[44rem] flex gap-6"}>
+                        {children}
+                    </div>
                 </div>
             </main>
         </PageLayout>
-    );
+);
 };
