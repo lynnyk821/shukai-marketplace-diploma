@@ -5,7 +5,7 @@ export default function SearchButton() {
     const [isMouseEnter, setIsMouseEnter] = useState<boolean>(false);
 
     return (
-        <button className="h-full w-[15%] centered"
+        <button className="h-full w-1/6 centered"
                 onMouseEnter={() => setIsMouseEnter(true)}
                 onMouseLeave={() => setIsMouseEnter(false)}
                 type="submit"

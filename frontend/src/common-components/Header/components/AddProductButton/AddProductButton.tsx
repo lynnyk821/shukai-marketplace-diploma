@@ -1,6 +1,6 @@
 import {MyButtonProps} from "../../../../types/my-button-props.ts";
 
-export default function AddButton({onClick}: MyButtonProps) {
+export default function AddProductButton({onClick}: MyButtonProps) {
     return (
         <button
             className={

@@ -1,23 +1,19 @@
 import AdditionalSellerProductsLayout from "./AdditionalSellerProductsLayout.tsx";
+import {Title} from "../../../../../../common-components/Title/Title.tsx";
+import ProductItem from "../../../../../../common-components/ProductItem/ProductItem.tsx";
+import {PRODUCT_ITEMS} from "../../../../../../globals-env.ts";
 
 type Props = {
     title: string,
-    products: string[],
 }
 
-export default function AdditionalSellerProducts({title, products}: Props) {
+export default function AdditionalSellerProducts({title}: Props) {
     return (
         <AdditionalSellerProductsLayout>
-            <p className={"text-xl mb-8 text-[#414141] font-medium font-inter"}>{title}</p>
+            <Title text={title} />
             <ul className={"grid grid-cols-6 gap-x-4"}>
-                {products.map((product, index) =>
-                    <li
-                        className={"h-56 flex flex-col cursor-pointer"}
-                        key={index}
-                    >
-                        <div className={"h-3/4 bg-[#eee]"}></div>
-                        <div className={"h-1/4 bg-amber-200"}>{product}</div>
-                    </li>
+                {PRODUCT_ITEMS.slice(0, 6).map((product) =>
+                    <ProductItem className={"w-full h-60"} product={product} size={"sm"}/>
                 )}
             </ul>
 
