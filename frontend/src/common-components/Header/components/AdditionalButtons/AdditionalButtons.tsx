@@ -13,9 +13,7 @@ export default function AdditionalButtons() {
             <FavoriteButton
                 onClick={useNavigateWithScrollBehavior("/favorites", "smooth")}
             />
-            <CartButton
-                onClick={useNavigateWithScrollBehavior("/cart", "smooth")}
-            />
+            <CartButton />
         </AdditionalButtonsLayout>
     );
 };

@@ -2,7 +2,7 @@ import {MyContainerProps} from "../../../../types/my-container-props.ts";
 
 export default function MessageContainerLayout({children}: MyContainerProps) {
     return (
-        <div className={"w-2/3 flex flex-col rounded-md"}>
+        <div className={"w-2/3 max-h-[49.6rem] flex flex-col rounded-md"}>
             {children}
         </div>
     );

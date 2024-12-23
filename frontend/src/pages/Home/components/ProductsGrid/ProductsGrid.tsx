@@ -1,25 +1,18 @@
-import {HomeProductItemProps} from "../../../../types/home-product-item-props.ts";
-import HomeProductItem from "./components/HomeProductItem.tsx";
-import noImage from "../../../../assets/jpg/no-image.jpg"
+import {ProductItemProps} from "../../../../types/product-item-props.ts";
 import ProductsGridLayout from "./ProductsGridLayout.tsx";
+import ProductItem from "../../../../common-components/ProductItem/ProductItem.tsx";
 
 type Props = {
     text: string,
-    products: HomeProductItemProps[],
+    products: ProductItemProps[],
 };
 
 export default function ProductsGrid({text, products}: Props) {
     return (
         <ProductsGridLayout text={text}>
             <ul className={`grid grid-cols-5 gap-y-8 gap-x-4`}>
-                {products.map((product: HomeProductItemProps) => (
-                    <HomeProductItem
-                        id={product.id}
-                        date={product.date}
-                        name={product.name}
-                        price={product.price}
-                        image={noImage}
-                    />
+                {products.map((product: ProductItemProps) => (
+                    <ProductItem className={"w-full h-[21rem]"} product={product} size={"md"} />
                 ))}
             </ul>
         </ProductsGridLayout>

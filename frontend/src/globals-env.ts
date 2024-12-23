@@ -1,6 +1,6 @@
 import {CategoryItemProps} from "./types/category-item-props.ts";
 import {UserLogoItemProps} from "./types/user-logo-item-props.ts";
-import {HomeProductItemProps} from "./types/home-product-item-props.ts";
+import {ProductItemProps} from "./types/product-item-props.ts";
 
 export const LOGO_NAME = "Shukai!"
 
@@ -18,8 +18,8 @@ export const COLORS = [
 ];
 
 export const SEARCH_CATEGORIES = ["Всі категорії",
-    "Жінкам", "Чоловікам", "Дітям", "Аксесуари", "Для дому", "Краса і здоров'я",
-    "Електроніка", "Автовари", "Зоотовари", "Будівництво", "Транспорт", "Дача та сад"
+    "Мода та стиль", "Аксесуари", "Для дому", "Краса і здоров'я",
+    "Електроніка", "Автовари", "Будівництво", "Транспорт",
 ]
 
 export const CATALOG_CATEGORIES: CategoryItemProps[] = [
@@ -62,7 +62,7 @@ export const SLOGAN = [
     "Не треба кричати на базарі – напишіть тут.",
 ]
 
-export const PRODUCT_ITEMS: HomeProductItemProps[] = [
+export const PRODUCT_ITEMS: ProductItemProps[] = [
     {id: 0, name: "Зимові термочоботи", date: "Опубліковано о 11:45", price: 100},
     {id: 1, name: "Шуба крута, натуральна, короткострижена, довга kepka",  date: "Опубліковано о 11:45", price: 200},
     {id: 2, name: "Металопластикові вікна та двері, установка вікон Шепетівка.",  date: "Опубліковано о 11:45", price: 300},

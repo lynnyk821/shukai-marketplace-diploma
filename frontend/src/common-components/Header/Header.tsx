@@ -1,18 +1,19 @@
 import {HeaderLayout} from "./HeaderLayout.tsx";
 import {Logo} from "../Logo/Logo.tsx";
-import CatalogButton from "./components/CatalogButton/CatalogButton.tsx";
+import CategoryButton from "./components/CategoryButton/CategoryButton.tsx";
 import {InputWithCategories} from "./components/InputWithCategories/InputWithCategories.tsx";
-import AddButton from "./components/AddButton/AddButton.tsx";
+import AddProductButton from "./components/AddProductButton/AddProductButton.tsx";
 import AdditionalButtons from "./components/AdditionalButtons/AdditionalButtons.tsx";
 import UserLogoButton from "./components/UserLogoButton/UserLogoButton.tsx";
+import {useNavigateWithScrollBehavior} from "../../utils/hooks/useNavigateWithScrollBehavior.ts";
 
 export function Header() {
     return (
         <HeaderLayout>
             <Logo></Logo>
-            <CatalogButton />
+            <CategoryButton />
             <InputWithCategories />
-            <AddButton />
+            <AddProductButton onClick={useNavigateWithScrollBehavior("/add-product", "smooth")} />
             <AdditionalButtons />
             <UserLogoButton />
         </HeaderLayout>
