@@ -1,0 +1,42 @@
+services:
+  # 🦉 Zookeeper - сервіс для керування метаданими Kafka (обов’язковий)
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest  # Використовуємо офіційний образ Zookeeper
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181  # Zookeeper працює на порту 2181
+    ports:
+      - "2181:2181"  # Проксіюємо порт на хост, щоб Kafka могла підключитися
+
+  # 🦄 Kafka - основний брокер, який приймає та відправляє повідомлення
+  kafka:
+    image: confluentinc/cp-kafka:latest  # Офіційний образ Kafka
+    container_name: kafka
+    depends_on:
+      - zookeeper  # Kafka запускається після Zookeeper
+    ports:
+      - "9092:9092"  # Порт для підключення з локального комп'ютера (зовні Docker)
+      - "29092:29092" # Порт для підключення з інших контейнерів Docker
+    environment:
+      KAFKA_BROKER_ID: 1  # ID брокера (якщо є кілька брокерів, кожен має свій унікальний ID)
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"  # Вказуємо Kafka, де шукати Zookeeper
+      # 🔽 Два способи підключення:
+      # 1. PLAINTEXT://localhost:9092 - для підключення з хоста (наприклад, з твоєї IDE)
+      # 2. PLAINTEXT_INTERNAL://kafka:29092 - для підключення з інших контейнерів у мережі Docker
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL  # Використовується для зв'язку між брокерами (якщо їх більше одного)
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1  # Реплікація топіків (1, бо у нас тільки один брокер)
+
+  # 📊 Kafka UI - веб-інтерфейс для перегляду топіків та повідомлень у Kafka
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest  # Офіційний образ Kafka UI
+    container_name: kafka-ui
+    depends_on:
+      - kafka  # UI запускається після Kafka
+    ports:
+      - "8181:8080"  # Проксіюємо порт 8080, щоб мати доступ до UI через браузер
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local  # Назва кластера Kafka
+      KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS: kafka:29092  # Вказуємо, де знайти Kafka (через внутрішню мережу Docker)
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181  # Вказуємо, де знайти Zookeeper
