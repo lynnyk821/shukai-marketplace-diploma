@@ -1,5 +1,0 @@
-rootProject.name = 'shukai-microservice-app'
-
-includeBuild 'eureka-server'
-includeBuild 'catalogue-service'
-includeBuild 'api-gateway'

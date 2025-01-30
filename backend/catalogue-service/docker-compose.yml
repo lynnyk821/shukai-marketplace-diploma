@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: shukai_catalogue_db
+    restart: always
+    environment:
+      POSTGRES_USER: shukai_catalogue
+      POSTGRES_PASSWORD: shukai_catalogue
+      POSTGRES_DB: shukai_catalogue
+    ports:
+      - "5132:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
+    driver: local

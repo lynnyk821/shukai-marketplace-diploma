@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3648baaf-f8d7-4d1b-9af5-ca16bfaa92b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/CatalogueController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/AdEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/CategoryEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/DeliveryMethodEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/ImageEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/PaymentMethodEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/AdRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/DeliveryMethodEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/ImagesEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/PaymentMethodEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/KafkaProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/AdService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/ImagesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/AdServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/client/CatalogueClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/controller/SearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/kafka/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/service/SearchService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/service/impl/SearchServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/src/main/java/ua/shukai/microservice/app/apigateway/ApiGatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/api-gateway/src/test/java/ua/shukai/microservice/app/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/CatalogueServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/CatalogueController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/catalogue-service/src/test/java/ua/shukai/microservice/app/catalogueservice/CatalogueServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/src/main/java/ua/shukai/microservice/app/eurekaserver/EurekaServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/eureka-server/src/test/java/ua/shukai/microservice/app/eurekaserver/EurekaServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shukai-microservice-app/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Dropdown/DropdownLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Dropdown/DropdownLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/HeaderLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/HeaderLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/CategoryButton/components/CatalogCategories/CatalogCategories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/CategoryButton/components/CatalogCategories/CatalogCategories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/ProductItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductName.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Title/Title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Title/Title.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Favorites/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Favorites/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Favorites/components/SearchAndDropdown/SearchAndDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Favorites/components/SearchAndDropdown/SearchAndDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Favorites/components/SearchAndDropdown/SearchAndDropdownLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Favorites/components/SearchAndDropdown/SearchAndDropdownLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/BigPictureBanner/BigPictureBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/BigPictureBanner/BigPictureBanner.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/ProductsGrid/ProductsGridLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/ProductsGrid/ProductsGridLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/RecentlyWatched/RecentlyWatchedLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/RecentlyWatched/RecentlyWatchedLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Messages/components/MessageContainer/components/MessageInputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Messages/components/MessageContainer/components/MessageInputField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/NewProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/NewProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductCategory/NewProductCategory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductCategory/NewProductCategory.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductCategory/NewProductCategoryLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductCategory/NewProductCategoryLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductDescription/NewProductDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductDescription/NewProductDescription.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductDescription/NewProductDescriptionLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductDescription/NewProductDescriptionLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductName/NewProductName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductName/NewProductName.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductName/NewProductNameLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductName/NewProductNameLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/NewProductPictures.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/NewProductPictures.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/NewProductPicturesLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/NewProductPicturesLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/BigPicture/BigPicture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/BigPicture/BigPicture.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/BigPicture/BigPictureLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/BigPicture/BigPictureLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/PicturesGrid/PicturesGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/PicturesGrid/PicturesGrid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/PicturesGrid/PicturesGridLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/PicturesGrid/PicturesGridLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/PicturesGrid/components/PicturesGridItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewProduct/components/NewProductPictures/components/PicturesGrid/components/PicturesGridItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Product/components/BottomSide/components/AdditionalSellerProducts/AdditionalSellerProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Product/components/BottomSide/components/AdditionalSellerProducts/AdditionalSellerProducts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Product/components/BottomSide/components/DeliveryAndPayment/DeliveryAndPayment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Product/components/BottomSide/components/DeliveryAndPayment/DeliveryAndPayment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Product/components/BottomSide/components/ProductDescription/components/DescriptionTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Product/components/BottomSide/components/ProductDescription/components/DescriptionTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/styles/index.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/api-gateway">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/catalogue-service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/eureka-server">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/search-service">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/catalogue-service">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+                <item name="catalogue-service" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+                <item name="catalogue-service" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+                <item name="catalogue-service" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Dockerfile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2sGAlIYxEJzq0SsTYE5P2wTh4Up" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build api-gateway.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build catalogue-service.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build eureka-server.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build search-service.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.catalogue-service [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.catalogue-service [dependencyManagement].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CatalogueServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.SearchServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend/feature/main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/mnt/hardisk/Projects/diploma/backend/search-service/src/main/java/ua/shukai/microservice/app/searchservice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice" />
+      <recent name="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/search" />
+      <recent name="$PROJECT_DIR$/catalogue-service/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker-compose-files" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CatalogueServiceApplication">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ua.shukai.microservice.app.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogueServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="catalogue-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ua.shukai.microservice.app.catalogueservice.CatalogueServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ua.shukai.microservice.app.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="search-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ua.shukai.microservice.app.searchservice.SearchServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.117" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3648baaf-f8d7-4d1b-9af5-ca16bfaa92b2" name="Changes" comment="" />
+      <created>1738071686144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738071686144</updated>
+      <workItem from="1738071687201" duration="330000" />
+      <workItem from="1738072027675" duration="21770000" />
+      <workItem from="1738145640322" duration="1709000" />
+      <workItem from="1738148684185" duration="88000" />
+      <workItem from="1738148780823" duration="70000" />
+      <workItem from="1738148867743" duration="10181000" />
+      <workItem from="1738234311760" duration="4731000" />
+      <workItem from="1738249287580" duration="2423000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

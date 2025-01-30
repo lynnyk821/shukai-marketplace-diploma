@@ -1,0 +1,37 @@
+server:
+  port: 0
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: catalogue-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: search-group
+      auto-offset-reset: earliest
+    producer:
+      retries: 3
+      acks: all
+
+  datasource:
+    url: jdbc:postgresql://localhost:5132/shukai_catalogue
+    username: shukai_catalogue
+    password: shukai_catalogue
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8861/eureka
+
