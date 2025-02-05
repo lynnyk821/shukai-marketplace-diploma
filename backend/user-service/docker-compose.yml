@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: shukai_user_db
+    restart: always
+    environment:
+      POSTGRES_USER: shukai_user
+      POSTGRES_PASSWORD: shukai_user
+      POSTGRES_DB: shukai_user
+    ports:
+      - "5134:5432"
+    volumes:
+      - /database:/var/lib/postgresql/data
+
+volumes:
+  database:
+    driver: local

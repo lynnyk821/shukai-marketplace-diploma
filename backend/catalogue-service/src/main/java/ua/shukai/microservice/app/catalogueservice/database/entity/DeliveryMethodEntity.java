@@ -1,6 +1,5 @@
 package ua.shukai.microservice.app.catalogueservice.database.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,13 +7,13 @@ import lombok.*;
 @Table(name="delivery_methods")
 @Builder
 @Getter @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class DeliveryMethodEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String deliveryMethod;
+    @Column(nullable = false)
+    private String method;
 }

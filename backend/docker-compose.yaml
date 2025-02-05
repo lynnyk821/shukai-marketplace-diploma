@@ -3,6 +3,7 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest  # Використовуємо офіційний образ Zookeeper
     container_name: zookeeper
+    restart: always
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181  # Zookeeper працює на порту 2181
     ports:
@@ -12,6 +13,7 @@ services:
   kafka:
     image: confluentinc/cp-kafka:latest  # Офіційний образ Kafka
     container_name: kafka
+    restart: always
     depends_on:
       - zookeeper  # Kafka запускається після Zookeeper
     ports:
@@ -32,6 +34,7 @@ services:
   kafka-ui:
     image: provectuslabs/kafka-ui:latest  # Офіційний образ Kafka UI
     container_name: kafka-ui
+    restart: always
     depends_on:
       - kafka  # UI запускається після Kafka
     ports:

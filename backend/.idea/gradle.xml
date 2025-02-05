@@ -22,6 +22,16 @@
                   <project path="$PROJECT_DIR$/eureka-server" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/search-service" name="search-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/search-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/user-service" name="user-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/user-service" />
+                </projects>
+              </build>
             </builds>
           </compositeBuild>
         </compositeConfiguration>
@@ -30,41 +40,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/api-gateway" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/catalogue-service" />
             <option value="$PROJECT_DIR$/eureka-server" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/api-gateway" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/api-gateway" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/catalogue-service" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/catalogue-service" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/eureka-server" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/eureka-server" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/search-service" />
-        <option name="modules">
-          <set>
             <option value="$PROJECT_DIR$/search-service" />
+            <option value="$PROJECT_DIR$/user-service" />
           </set>
         </option>
       </GradleProjectSettings>
