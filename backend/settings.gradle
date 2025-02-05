@@ -3,9 +3,10 @@ plugins {
 }
 
 rootProject.name = 'backend'
-include('app')
 
 includeBuild "eureka-server"
 includeBuild "api-gateway"
 
 includeBuild "catalogue-service"
+includeBuild "search-service"
+includeBuild "user-service"

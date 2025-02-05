@@ -6,15 +6,14 @@ import lombok.*;
 @Entity
 @Table(name="payment_methods")
 @Builder
-@Getter
-@Setter
-@AllArgsConstructor
+@Getter @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class PaymentMethodEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String paymentMethod;
+    @Column(nullable = false)
+    private String method;
 }
