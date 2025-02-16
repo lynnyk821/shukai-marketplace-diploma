@@ -1,4 +1,4 @@
-import {MyContainerProps} from "../../../../../../types/my-container-props.ts";
+import {MyContainerProps} from "../../../../../types/my-container-props.ts";
 
 export default function MoveBackLinksBarLayout({children}: MyContainerProps) {
     return (

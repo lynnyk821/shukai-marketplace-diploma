@@ -8,10 +8,10 @@ services:
       POSTGRES_PASSWORD: shukai_user
       POSTGRES_DB: shukai_user
     ports:
-      - "5134:5432"
+      - "5133:5432"
     volumes:
-      - /database:/var/lib/postgresql/data
+      - user_data:/var/lib/postgresql/data
 
 volumes:
-  database:
+  user_data:
     driver: local

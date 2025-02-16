@@ -4,19 +4,16 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "contacts")
+@Table(name = "images")
 @Builder
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContactEntity {
+public class ImageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String phoneNumber;
+    @Column(name = "image", nullable = false)
+    private String imageBase64;
 }

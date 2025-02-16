@@ -1,22 +1,6 @@
-server:
-  port: 0
-  servlet:
-    context-path: /api
-
 spring:
-  application:
-    name: user-service
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      group-id: user-group
-      auto-offset-reset: earliest
-    producer:
-      retries: 3
-      acks: all
-
   datasource:
-    url: jdbc:postgresql://localhost:5134/shukai_user
+    url: jdbc:postgresql://localhost:5133/shukai_user
     username: shukai_user
     password: shukai_user
 
@@ -34,4 +18,3 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8861/eureka
-

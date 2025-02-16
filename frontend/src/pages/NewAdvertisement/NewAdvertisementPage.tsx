@@ -1,11 +1,11 @@
-import AddProductLayout from "./NewProductLayout.tsx";
+import AddProductLayout from "./NewProductPageLayout.tsx";
 import {Title} from "../../common-components/Title/Title.tsx";
 import {NewProductName} from "./components/NewProductName/NewProductName.tsx";
 import NewProductPictures from "./components/NewProductPictures/NewProductPictures.tsx";
 import NewProductDescription from "./components/NewProductDescription/NewProductDescription.tsx";
 import NewProductCategory from "./components/NewProductCategory/NewProductCategory.tsx";
 
-export default function NewProduct() {
+export default function NewAdvertisementPage() {
     return (
         <AddProductLayout>
             <Title size={"2xl"} text={"Створення оголошення"}/>
