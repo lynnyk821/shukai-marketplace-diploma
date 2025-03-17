@@ -1,4 +1,4 @@
-import {MyButtonProps} from "../../../../../../types/my-button-props.ts";
+import {MyButtonProps} from "../../../../../../types/common/my-button-props.ts";
 
 type Props = MyButtonProps & {
     text: string,

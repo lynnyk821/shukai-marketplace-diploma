@@ -15,7 +15,7 @@ export default function UserLogoButton() {
     return (
         <UserLogoButtonLayout ref={dropdownRef}>
             <button
-                className={"h-full gap-1 centered flex text-[#414141]"}
+                className={"h-full centered flex gap-1 text-[#414141]"}
                 onClick={() => setIsActive(!isActive)}
                 style={{userSelect: "none"}}
             >

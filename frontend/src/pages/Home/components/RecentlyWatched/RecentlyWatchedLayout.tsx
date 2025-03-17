@@ -1,10 +1,12 @@
-import {MyContainerProps} from "../../../../types/my-container-props.ts";
-import {Title} from "../../../../common-components/Title/Title.tsx";
+import {MyContainerProps} from "../../../../types/common/my-container-props.ts";
+import {MainTitle} from "../../../../common-components/Titles/MainTitle/MainTitle.tsx";
 
 export default function RecentlyWatchedLayout({children}: MyContainerProps) {
     return (
         <div className={"flex flex-col"}>
-            <Title text={"Недавно переглянуті"} />
+            <div className={"w-full h-fit pb-6"}>
+                <MainTitle text={"Недавно переглянуті"} size={"xl"} />
+            </div>
             <ul className={"w-full grid gap-x-4 grid-cols-6"}>{children}</ul>
         </div>
     );

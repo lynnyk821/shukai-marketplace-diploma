@@ -29,8 +29,13 @@ public class GetAdvertisementDTO {
     private Integer favoritesCount;
 
     @NotNull
+    @Size(min = 1, message = "Поле images повинно містити принаймні один елемент")
     private List<String> images;
 
+    @NotNull
+    private Region region;
+
+    @NotNull
     private User user;
 
     @NotNull
@@ -41,6 +46,13 @@ public class GetAdvertisementDTO {
 
     @NotNull
     private List<String> paymentMethods;
+
+    @Getter @Setter
+    @AllArgsConstructor
+    public static class Region {
+        private String cityName;
+        private String regionName;
+    }
 
     @Getter @Setter
     @AllArgsConstructor

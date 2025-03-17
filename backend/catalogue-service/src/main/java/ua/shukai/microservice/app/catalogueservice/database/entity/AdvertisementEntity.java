@@ -19,9 +19,6 @@ public class AdvertisementEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
-
     @Column(nullable = false)
     private String name;
 
@@ -32,13 +29,21 @@ public class AdvertisementEntity {
     private String description;
 
     @Column(nullable = false)
-    private Integer favoritesCount = 0;
+    private Integer favoritesCount;
 
     @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
 
     @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AdImageEntity> images;
+
+    @ManyToOne
+    @JoinColumn(name = "region_id", nullable = false)
+    private RegionEntity region;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
@@ -53,6 +58,7 @@ public class AdvertisementEntity {
     @PrePersist
     protected void onCreate() {
         this.createdAt = Timestamp.from(Instant.now());
+        this.favoritesCount = 0;
     }
 }
 

@@ -1,16 +1,10 @@
-import {MyButtonProps} from "../../../../types/my-button-props.ts";
+import ButtonWithoutBackground from "../../../Buttons/ButtonWithoutBackground/ButtonWithoutBackground.tsx";
+import {useNavigateWithScrollBehavior} from "../../../../utils/hooks/useNavigateWithScrollBehavior.ts";
 
-export default function AddProductButton({onClick}: MyButtonProps) {
+export default function AddProductButton() {
     return (
-        <button
-            className={
-                `px-2.5 centered text-[#414141] font-inter border-[#414141] border-[1px] rounded-lg 
-                 hover:text-yellow-600 hover:border-yellow-600 duration-200 ease-in-out border-opacity-70`
-            }
-            onClick={onClick}
-            style={{ userSelect: "none" }}
-        >
+        <ButtonWithoutBackground onClick={useNavigateWithScrollBehavior("/add-product", "smooth")}>
             Додати товар
-        </button>
+        </ButtonWithoutBackground>
     );
 };

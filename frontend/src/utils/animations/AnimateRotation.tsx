@@ -1,14 +1,16 @@
-import {MyContainerProps} from "../../types/my-container-props.ts";
+import {MyContainerProps} from "../../types/common/my-container-props.ts";
 import {easeInOut, motion} from "framer-motion";
 
 type Props = MyContainerProps & {
     degree: number,
     isActive: boolean,
+    className?: string,
 };
 
-export default function AnimateRotation({isActive, degree, children}: Props) {
+export default function AnimateRotation({className, isActive, degree, children}: Props) {
     return (
         <motion.div
+            className={className}
             transition={{
                 duration: 0.3,
                 ease: easeInOut,

@@ -1,5 +1,5 @@
 type Props = {
-    price: string
+    price: number
 };
 
 export default function Price({price}: Props) {

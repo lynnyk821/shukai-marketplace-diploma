@@ -1,7 +1,6 @@
 package ua.shukai.microservice.app.searchservice.service.impl;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
-import co.elastic.clients.elasticsearch._types.query_dsl.NumberRangeQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -37,15 +36,9 @@ public class SearchServiceImpl implements SearchService {
         BoolQuery.Builder boolQueryBuilder = new BoolQuery.Builder();
 
         if(value != null) {
-            boolQueryBuilder.must(m -> m
-                .multiMatch(mm -> mm
-                    .query(value)
-                    .fields("name")
-                    .fuzziness("2")
-                    .prefixLength(2)
-                    .maxExpansions(10)
-                )
-            );
+            BoolQuery.Builder termsQueryBuilder = getBuilder(value);
+
+            boolQueryBuilder.must(termsQueryBuilder.build()._toQuery());
         }
 
         if(category != null) {
@@ -75,5 +68,25 @@ public class SearchServiceImpl implements SearchService {
         SearchHits<Advertisement> searchHits = this.elasticsearchOperations.search(nativeQuery, Advertisement.class);
 
         return searchHits.getSearchHits().stream().map(hit -> this.advertisementMapper.map(hit.getContent())).toList();
+    }
+
+    private static BoolQuery.Builder getBuilder(String value) {
+        String[] terms = value.split("\\s+");
+        BoolQuery.Builder termsQueryBuilder = new BoolQuery.Builder();
+
+        for (String term : terms) {
+            String fuzziness = term.length() > 3 ? "1" : "0";
+
+            termsQueryBuilder.must(s -> s
+                    .multiMatch(mm -> mm
+                            .query(term)
+                            .fields("name")
+                            .fuzziness(fuzziness)
+                            .prefixLength(2)
+                            .maxExpansions(10)
+                    )
+            );
+        }
+        return termsQueryBuilder;
     }
 }

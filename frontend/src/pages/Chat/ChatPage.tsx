@@ -1,11 +1,11 @@
-import { MessagesLayout } from "./MessagesLayout.tsx";
+import { ChatPageLayout } from "./ChatPageLayout.tsx";
 import MessageCategories from "./components/MessageCategories/MessageCategories.tsx";
 import MessageList from "./components/MessageList/MessageList.tsx";
 import MessageContainer from "./components/MessageContainer/MessageContainer.tsx";
 
 export function ChatPage() {
     return (
-        <MessagesLayout>
+        <ChatPageLayout>
             {/* Левая панель с категориями */}
             <div className={"w-1/3 h-full flex flex-col flex-1"}>
                 <MessageCategories />
@@ -13,6 +13,6 @@ export function ChatPage() {
             </div>
             {/* Правая панель */}
             <MessageContainer />
-        </MessagesLayout>
+        </ChatPageLayout>
     );
 }

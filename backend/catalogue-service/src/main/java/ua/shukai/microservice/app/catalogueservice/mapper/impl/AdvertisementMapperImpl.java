@@ -19,18 +19,19 @@ public class AdvertisementMapperImpl {
     private final PaymentMethodMapper paymentMethodMapper;
     private final DeliveryMethodMapper deliveryMethodMapper;
 
-    public GetAdvertisementDTO map(AdvertisementEntity entity) {
-        GetAdvertisementDTO.User user = new GetAdvertisementDTO.User(
-            "name", "image", "phoneNumber"
-        );
+    public GetAdvertisementDTO mapToGetAdvertisementDTO(AdvertisementEntity entity) {
+        var user = new GetAdvertisementDTO.User("name", "image", "phoneNumber");
+        var category = new GetAdvertisementDTO.Category(entity.getCategory().getName(), entity.getCategory().getPath());
+        var region = new GetAdvertisementDTO.Region(entity.getRegion().getCityName(), entity.getRegion().getRegionName());
 
-        GetAdvertisementDTO.Category category = new GetAdvertisementDTO.Category(
-            entity.getCategory().getName(), entity.getCategory().getPath()
-        );
-
-        List<String> paymentMethods = this.paymentMethodMapper.toStringList(entity.getPaymentMethods());
-        List<String> deliveryMethods = this.deliveryMethodMapper.toStringList(entity.getDeliveryMethods());
         List<String> images = this.imageMapper.toStringList(entity.getImages());
+
+        List<String> deliveryMethods = entity.getDeliveryMethods().stream().map(
+            deliveryMethod -> deliveryMethod.getDeliveryMethod().getMethod()
+        ).toList();
+        List<String> paymentMethods = entity.getPaymentMethods().stream().map(
+                deliveryMethod -> deliveryMethod.getPaymentMethod().getMethod()
+        ).toList();
 
         return GetAdvertisementDTO.builder()
                 .createdAt(entity.getCreatedAt().toString())
@@ -38,43 +39,44 @@ public class AdvertisementMapperImpl {
                 .price(entity.getPrice())
                 .description(entity.getDescription())
                 .favoritesCount(entity.getFavoritesCount())
+                .region(region)
                 .user(user)
                 .images(images)
                 .category(category)
-                .paymentMethods(paymentMethods)
                 .deliveryMethods(deliveryMethods)
+                .paymentMethods(paymentMethods)
         .build();
     }
 
-    public AdvertisementEntity map(
-            CreateAdvertisementDTO dto, CategoryEntity category, List<ImageEntity> images,
-            List<DeliveryMethodEntity> deliveryMethods, List<PaymentMethodEntity> paymentMethods
+    public AdvertisementEntity mapToCreateAdvertisementDTO(CreateAdvertisementDTO dto, List<ImageEntity> images,
+                                                           CategoryEntity category, UserEntity user, RegionEntity region,
+                                                           List<PaymentMethodEntity> payments, List<DeliveryMethodEntity> deliveries
     ) {
         List<AdImageEntity> adImages = this.imageMapper.toListAdImage(images);
-        List<AdPaymentMethodEntity> adPaymentMethods = this.paymentMethodMapper.map(paymentMethods);
-        List<AdDeliveryMethodEntity> adDeliveryMethods = this.deliveryMethodMapper.map(deliveryMethods);
+        List<AdPaymentMethodEntity> adPaymentMethods = this.paymentMethodMapper.map(payments);
+        List<AdDeliveryMethodEntity> adDeliveryMethods = this.deliveryMethodMapper.map(deliveries);
 
         AdvertisementEntity advertisement = AdvertisementEntity.builder()
                 .name(dto.getName())
                 .description(dto.getDescription())
                 .price(dto.getPrice())
-                .favoritesCount(dto.getFavoritesCount())
-                .userId(dto.getUserId())
                 .images(adImages)
                 .category(category)
-                .deliveryMethods(adDeliveryMethods)
+                .user(user)
+                .region(region)
                 .paymentMethods(adPaymentMethods)
+                .deliveryMethods(adDeliveryMethods)
         .build();
 
-        adDeliveryMethods.forEach(method -> method.setAdvertisement(advertisement));
-        adPaymentMethods.forEach(method -> method.setAdvertisement(advertisement));
         adImages.forEach(image -> image.setAdvertisement(advertisement));
+        adPaymentMethods.forEach(method -> method.setAdvertisement(advertisement));
+        adDeliveryMethods.forEach(method -> method.setAdvertisement(advertisement));
 
         return advertisement;
     }
 
 
-    public AdvertisementEntity map(UpdateAdvertisementDTO dto) {
+    public AdvertisementEntity mapToUpdateAdvertisementDTO(UpdateAdvertisementDTO dto) {
         return AdvertisementEntity.builder()
                 .id(dto.getId())
                 .name(dto.getName())

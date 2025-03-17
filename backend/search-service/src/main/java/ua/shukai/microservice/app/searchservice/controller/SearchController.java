@@ -25,15 +25,15 @@ public class SearchController {
     public ResponseEntity<List<SearchAdvertisementDTO>> search(
             @RequestParam(required = false) String value,
             @RequestParam(required = false) String category,
-            @RequestParam(required = false) @Min(1) Integer priceTo,
-            @RequestParam(required = false) @Min(1) Integer priceFrom,
-            @RequestParam(required = false, defaultValue = "Найновіші") String sortType,
+            @RequestParam(required = false) @Min(1) Integer from,
+            @RequestParam(required = false) @Min(1) Integer to,
+            @RequestParam(required = false, defaultValue = "price_desc") String sortBy,
             @RequestParam(required = false, defaultValue = "1") @Min(0) Integer page,
             @RequestParam(required = false, defaultValue = "25") @Min(0) Integer limit
     ) {
-        Pageable pageable = PageRequest.of(page, limit, SortType.of(sortType));
+        Pageable pageable = PageRequest.of(page, limit, SortType.of(sortBy));
         List<SearchAdvertisementDTO> searchResult = this.searchService.findAll(
-            value, category, priceFrom, priceTo, pageable
+            value, category, from, to, pageable
         );
         return ResponseEntity.ok().body(searchResult);
     }

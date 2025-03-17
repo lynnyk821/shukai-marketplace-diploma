@@ -1,9 +1,9 @@
-import {MyContainerProps} from "../../types/my-container-props.ts";
+import {MyContainerProps} from "../../types/common/my-container-props.ts";
 
 export default function ProductItemLayout({children}: MyContainerProps) {
     return (
-        <div className={"w-full h-fit flex flex-col"}>
+        <li className={"w-full h-fit flex flex-col"}>
             {children}
-        </div>
+        </li>
     );
 };

@@ -25,22 +25,20 @@ public class UpdateAdvertisementDTO {
     @Min(value = 0, message = "Мінімальне price значення може бути 0!")
     private Integer price;
 
-    @Min(value = 0, message = "Мінімальне favoritesCount значення може бути 0!")
-    private Integer favoritesCount;
-
     @NotNull
+    @Size(min = 1, message = "Поле images повинно містити принаймні один елемент")
     private List<String> images;
 
-    @Min(value = 1, message = "Мінімальне userId значення може бути 1!")
-    private Long userId;
+    @NotNull
+    private Long regionId;
 
     @Min(value = 1, message = "Мінімальне categoryId значення може бути 1!")
     private Long categoryId;
 
-    @Min(value = 1, message = "Мінімальне deliveryMethodId значення може бути 1!")
-    private Long deliveryMethodId;
+    @NotNull
+    private List<Long> deliveryMethodIds;
 
-    @Min(value = 1, message = "Мінімальне paymentMethodId значення може бути 1!")
-    private Long paymentMethodId;
+    @NotNull
+    private List<Long> paymentMethodIds;
 }
 

@@ -1,4 +1,4 @@
-import {MyContainerProps} from "../../../../../../../../types/my-container-props.ts";
+import {MyContainerProps} from "../../../../../../../../types/common/my-container-props.ts";
 
 export default function SellerLayout({children}: MyContainerProps) {
     return (

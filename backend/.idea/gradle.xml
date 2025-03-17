@@ -17,6 +17,11 @@
                   <project path="$PROJECT_DIR$/catalogue-service" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/chat-service" name="chat-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/chat-service" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/eureka-server" name="eureka-server">
                 <projects>
                   <project path="$PROJECT_DIR$/eureka-server" />
@@ -41,9 +46,26 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/api-gateway" />
             <option value="$PROJECT_DIR$/catalogue-service" />
+            <option value="$PROJECT_DIR$/chat-service" />
             <option value="$PROJECT_DIR$/eureka-server" />
             <option value="$PROJECT_DIR$/search-service" />
             <option value="$PROJECT_DIR$/user-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/chat-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/chat-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/order-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/order-service" />
           </set>
         </option>
       </GradleProjectSettings>

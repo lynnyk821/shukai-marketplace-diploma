@@ -1,10 +1,11 @@
 import DeliveryAndPaymentLayout from "./DeliveryAndPaymentLayout.tsx";
 
-export default function DeliveryAndPayment() {
-    const paymentMethods = ["Після плата", "Продавцю на карту"]
-    const deliveryMethods = ["Новапошта", "Укрпошта", "Meest"]
+type Props = {
+    paymentMethods: string[],
+    deliveryMethods: string[],
+}
 
-
+export default function DeliveryAndPayment({ paymentMethods, deliveryMethods }: Props) {
     return (
         <DeliveryAndPaymentLayout>
             <ul className={"h-fit flex flex-col gap-2 text-[#414141] font-inter text-lg"}>
