@@ -1,9 +1,12 @@
-import {MyContainerProps} from "../../types/my-container-props.ts";
+import {MyContainerProps} from "../../types/common/my-container-props.ts";
+import PageLayout from "../../common-components/PageLayout/PageLayout.tsx";
 
-export default function SearchLayout({children}: MyContainerProps) {
+export default function SearchPageLayout({children}: MyContainerProps) {
     return (
-        <div>
-            {children}
-        </div>
+        <PageLayout>
+            <main className={"w-full mt-32 flex-1 flex justify-center"}>
+                <div className={"w-full max-w-container"}>{children}</div>
+            </main>
+        </PageLayout>
     );
 };

@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,21 +25,30 @@ public class CreateAdvertisementDTO {
     @Min(value = 0, message = "Мінімальне price значення може бути 0!")
     private Integer price;
 
-    @Min(value = 0, message = "Мінімальне favoritesCount значення може бути 0!")
-    private Integer favoritesCount;
-
     @NotNull
+    @Size(min = 1, message = "Поле images повинно містити принаймні один елемент")
     private List<String> images;
 
     @NotNull
-    private Long userId;
+    private String categoryName;
 
-    @Min(value = 1, message = "Мінімальне categoryId значення може бути 1!")
-    private Long categoryId;
+    @NotNull
+    private Region region;
+
+    @NotNull
+    private Long userId;
 
     @NotNull
     private List<Long> deliveryMethodIds;
 
     @NotNull
     private List<Long> paymentMethodIds;
+
+    @Getter @Setter
+    @AllArgsConstructor
+    public static class Region {
+        private String cityName;
+        private String regionName;
+        private String description;
+    }
 }

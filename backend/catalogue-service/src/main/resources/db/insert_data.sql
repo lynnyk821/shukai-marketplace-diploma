@@ -14,7 +14,7 @@ INSERT INTO categories (name, path) VALUES
                                         ('Оренда та прокат', '13'),
                                         ('Ігри та геймінг', '14'),
                                         ('Обмін та безкоштовні оголошення', '15'),
-                                        ('Колекціонування та антикваріат', '16');
+                                        ('Продукти харчування', '16');
 
 INSERT INTO payment_methods (method) VALUES
                                          ('На карту'),
@@ -25,3 +25,15 @@ INSERT INTO delivery_methods (method) VALUES
                                           ('Новапошта'),
                                           ('Укрпошта'),
                                           ('Meest');
+
+INSERT INTO users (username, phone_number, region, image, visiting_time) VALUES
+    ('user1', '1234567890', 'Kyiv', 'image1.jpg', '2023-10-01 10:00:00'),
+    ('user2', '2345678901', 'Lviv', 'image2.jpg', '2023-10-02 11:00:00'),
+    ('user3', '3456789012', 'Odesa', 'image3.jpg', '2023-10-03 12:00:00'),
+    ('user4', '4567890123', 'Kharkiv', 'image4.jpg', '2023-10-04 13:00:00'),
+    ('user5', '5678901234', 'Dnipro', 'image5.jpg', '2023-10-05 14:00:00'),
+    ('user6', '6789012345', 'Zaporizhzhia', 'image6.jpg', '2023-10-06 15:00:00'),
+    ('user7', '7890123456', 'Vinnytsia', 'image7.jpg', '2023-10-07 16:00:00'),
+    ('user8', '8901234567', 'Ivano-Frankivsk', 'image8.jpg', '2023-10-08 17:00:00'),
+    ('user9', '9012345678', 'Ternopil', 'image9.jpg', '2023-10-09 18:00:00'),
+    ('user10', '0123456789', 'Chernivtsi', 'image10.jpg', '2023-10-10 19:00:00');

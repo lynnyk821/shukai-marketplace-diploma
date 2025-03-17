@@ -7,8 +7,8 @@ export default function FavoriteProductsGrid() {
         <FavoriteProductsGridLayout>
             {PRODUCT_ITEMS.map((product) =>
                 <ProductItem
-                    className={"w-full h-96"}
-                    size={"xl"}
+                    className={"w-full h-[22rem]"}
+                    size={"lg"}
                     product={product}
                 />
             )}

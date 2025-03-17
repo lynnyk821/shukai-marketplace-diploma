@@ -22,13 +22,11 @@ export default function MoveBackLinksBar() {
         <MoveBackLinksBarLayout>
             {breadcrumbs.map((breadcrumb, index) => (
                 <div
-                    className="text-[#414141] text-[16px] font-inter"
+                    className="w-full py-2 flex items-center text-[#414141] text-[16px] font-inter"
                     key={index}
                 >
                     <button
-                        className={
-                            "hover:text-yellow-600 transition duration-300 ease-in-out"
-                        }
+                        className={"hover:text-yellow-600 transition duration-300 ease-in-out"}
                         onClick={() => handleGoTo(breadcrumb.path)}
                     >
                         {breadcrumb.name}

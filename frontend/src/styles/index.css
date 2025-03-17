@@ -26,7 +26,7 @@ html, body {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background-color: #eee; /* Цвет бегунка */
+    background-color: hsla(0, 0%, 0%, 0.15); /* Цвет бегунка */
     border-radius: 8px;
 }
 

@@ -1,4 +1,4 @@
-import {CategoryItemProps} from "../../../../../../../types/category-item-props.ts";
+import {CategoryItemProps} from "../../../../../../../types/common/category-item-props.ts";
 import CategoryItem from "./CategoryItem.tsx";
 
 type Props = {

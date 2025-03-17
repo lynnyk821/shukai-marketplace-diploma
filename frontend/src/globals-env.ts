@@ -1,6 +1,8 @@
-import {CategoryItemProps} from "./types/category-item-props.ts";
-import {UserLogoItemProps} from "./types/user-logo-item-props.ts";
-import {ProductItemProps} from "./types/product-item-props.ts";
+import {CategoryItemProps} from "./types/common/category-item-props.ts";
+import {UserLogoItemProps} from "./types/common/user-logo-item-props.ts";
+import {ProductItemProps} from "./types/common/product-item-props.ts";
+
+export const BACKEND_URL = "http://localhost:8080";
 
 export const LOGO_NAME = "Shukai!"
 
@@ -97,3 +99,5 @@ export const MESSAGES = [
     { username: "You", avatar: { color: "#eee" },   text: "That sounds really useful!", isMe: true },
     { username: "UserTwo", avatar: { color: "#414141" }, text: "It definitely is! Give them a try.", isMe: false }
 ];
+
+export const REGIONS = ["Київ", "Черкаси", "Вільховець"]

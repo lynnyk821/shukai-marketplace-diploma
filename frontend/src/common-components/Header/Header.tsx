@@ -5,7 +5,6 @@ import {InputWithCategories} from "./components/InputWithCategories/InputWithCat
 import AddProductButton from "./components/AddProductButton/AddProductButton.tsx";
 import AdditionalButtons from "./components/AdditionalButtons/AdditionalButtons.tsx";
 import UserLogoButton from "./components/UserLogoButton/UserLogoButton.tsx";
-import {useNavigateWithScrollBehavior} from "../../utils/hooks/useNavigateWithScrollBehavior.ts";
 
 export function Header() {
     return (
@@ -13,7 +12,7 @@ export function Header() {
             <Logo></Logo>
             <CategoryButton />
             <InputWithCategories />
-            <AddProductButton onClick={useNavigateWithScrollBehavior("/add-product", "smooth")} />
+            <AddProductButton />
             <AdditionalButtons />
             <UserLogoButton />
         </HeaderLayout>

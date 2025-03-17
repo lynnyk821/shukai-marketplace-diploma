@@ -1,5 +1,5 @@
 import {easeInOut, motion} from "framer-motion";
-import {MyContainerProps} from "../../types/my-container-props.ts";
+import {MyContainerProps} from "../../types/common/my-container-props.ts";
 
 export default function TiltShake({children}: MyContainerProps) {
     return (

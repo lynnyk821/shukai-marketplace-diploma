@@ -5,13 +5,25 @@ import DateInfo from "./components/DateInfo/DateInfo.tsx";
 import BuyAndFavoriteButton from "./components/BuyAndCartButton/BuyAndFavoriteButton.tsx";
 import MessageBox from "./components/MessageBox/MessageBox.tsx";
 import PriceAndFavoriteButton from "./components/PriceAndFavoriteButton/PriceAndFavoriteButton.tsx";
+import {Advertisement} from "../../../../../../types/advertisement/advertisement.ts";
 
-export default function ProductInfo() {
+type Props = {
+    advertisement: Advertisement;
+}
+
+export default function ProductInfo({advertisement}: Props) {
     return (
         <ProductInfoLayout>
-            <DateInfo date={"14 грудня 2024 р."} />
-            <ProductName name={"2к квартира поруч із Майданом та Софією, вул. Мала Житомирська, 17 'fb; opdfbj bgnf"} />
-            <PriceAndFavoriteButton />
+            <DateInfo
+                date={String(advertisement.createdAt)}
+            />
+            <ProductName
+                name={advertisement.name}
+            />
+            <PriceAndFavoriteButton
+                price={advertisement.price}
+                favorites={advertisement.favoritesCount}
+            />
             <BuyAndFavoriteButton />
             <Seller />
             <MessageBox placeholder={"Написати повідомлення продавцю..."} />

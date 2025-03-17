@@ -1,14 +1,14 @@
-import {FavoritesPageLayout} from "./FavoritesPageLayout.tsx";
-import SearchAndDropdown from "./components/SearchAndDropdown/SearchAndDropdown.tsx";
-import FavoriteProductsGrid from "./components/FavoriteProductsGrid/FavoriteProductsGrid.tsx";
+import {FeaturedAdvertisementsPageLayout} from "./FeaturedAdvertisementsPageLayout.tsx";
+import TitleAndDropdown from "./components/TitleAndDropdown/TitleAndDropdown.tsx";
+import FavoriteProductsGrid from "./components/FeaturedAdvertisementsGrid/FavoriteProductsGrid.tsx";
 
-export default function FavoritesPage() {
+export default function FeaturedAdvertisementsPage() {
     const filters = ["Від дешевих до дорогих", "Від дорогих до дешевих "]
 
     return (
-        <FavoritesPageLayout>
-            <SearchAndDropdown filters={filters} />
+        <FeaturedAdvertisementsPageLayout>
+            <TitleAndDropdown filters={filters} />
             <FavoriteProductsGrid />
-        </FavoritesPageLayout>
+        </FeaturedAdvertisementsPageLayout>
     );
 };

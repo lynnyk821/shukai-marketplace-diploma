@@ -6,10 +6,8 @@ import ua.shukai.microservice.app.searchservice.controller.dto.SearchAdvertiseme
 import ua.shukai.microservice.app.searchservice.elasticsearch.model.Advertisement;
 import ua.shukai.microservice.app.searchservice.mapper.AdvertisementMapper;
 
-
 @Component
 public class AdvertisementMapperImpl implements AdvertisementMapper {
-
     @Override
     public Advertisement map(KafkaAdvertisementDTO dto) {
         return Advertisement.builder()

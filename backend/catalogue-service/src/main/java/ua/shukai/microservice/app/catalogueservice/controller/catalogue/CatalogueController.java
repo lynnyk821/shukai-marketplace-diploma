@@ -22,9 +22,14 @@ public class CatalogueController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createNewAdvertisement(@RequestBody CreateAdvertisementDTO dto) {
+    public ResponseEntity<CreateAdvertisementDTO> createNewAdvertisement(@RequestBody CreateAdvertisementDTO dto) {
+        System.out.println("Отримано запит:");
+        System.out.println(
+                "RegionName: " + dto.getRegion().getRegionName() + "\n" +
+                "CityName: " + dto.getRegion().getCityName() + "\n" +
+                "Description: " + dto.getRegion().getDescription() + "\n");
         this.catalogueService.create(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Created new advertisement");
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PatchMapping

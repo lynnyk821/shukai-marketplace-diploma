@@ -3,7 +3,7 @@ import {useNavigateWithScrollBehavior} from "../../utils/hooks/useNavigateWithSc
 
 export function Logo() {
     return (
-        <button className={"h-10 w-fit font-poppins text-4xl font-bold centered text-[#383838] text-opacity-90 " +
+        <button className={"h-12 w-fit font-poppins text-4xl font-bold centered text-[#383838] text-opacity-90 " +
                            "hover:text-yellow-600 transition duration-200 ease-in-out"}
             style={{ userSelect: "none" }}
             onClick={useNavigateWithScrollBehavior("/", "smooth")}

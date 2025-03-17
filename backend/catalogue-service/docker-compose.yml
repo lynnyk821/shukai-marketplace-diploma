@@ -10,8 +10,8 @@ services:
     ports:
       - "5132:5432"
     volumes:
-      - ./database:/var/lib/postgresql/data
+      - catalogue_data:/var/lib/postgresql/data
 
 volumes:
-  database:
+  catalogue_data:
     driver: local

@@ -1,15 +1,20 @@
-import {MyContainerProps} from "../../types/my-container-props.ts";
+import {MyContainerProps} from "../../types/common/my-container-props.ts";
+import {forwardRef} from "react";
 
 type Props = MyContainerProps & {
     size: number,
-    ref: React.RefObject<HTMLDivElement>;
 }
 
-export default function DropdownLayout({children, size, ref}: Props) {
-    return (
+const DropdownLayout = forwardRef<HTMLDivElement, Props>(
+    ({ children, size }, ref) => (
         <div
-            className={"h-full w-fit relative z-10"} ref={ref}
-            style={{width: `${size}rem`}}
-        >{children}</div>
-    );
-};
+            ref={ref}
+            className={"h-full w-fit relative z-20"}
+            style={{ width: `${size}rem` }}
+        >
+            {children}
+        </div>
+    )
+);
+
+export default DropdownLayout;

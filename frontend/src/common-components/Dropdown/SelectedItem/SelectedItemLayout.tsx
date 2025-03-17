@@ -1,5 +1,5 @@
-import {MyButtonProps} from "../../../types/my-button-props.ts";
-import {MyContainerProps} from "../../../types/my-container-props.ts";
+import {MyButtonProps} from "../../../types/common/my-button-props.ts";
+import {MyContainerProps} from "../../../types/common/my-container-props.ts";
 
 type Props = MyButtonProps & MyContainerProps & {
     size: number,

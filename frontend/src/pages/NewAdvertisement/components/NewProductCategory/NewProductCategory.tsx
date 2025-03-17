@@ -1,14 +1,30 @@
 import NewProductCategoryLayout from "./NewProductCategoryLayout.tsx";
+import NewAdvertisementsTitle from "../../../../common-components/Titles/NewAdvertisementTitle/NewAdvertisementsTitle.tsx";
+import {NewAdCategoriesGrid} from "./components/NewAdCategoriesGrid.tsx";
+import {UseFormSetValue, UseFormTrigger} from "react-hook-form";
+import {CreateNewAdvertisementRequest} from "../../../../types/new-advertisement/create-new-advertisement-request.ts";
 
-export default function NewProductCategory() {
+type Props = {
+    currentCategory: string,
+    setValue: UseFormSetValue<CreateNewAdvertisementRequest>,
+    trigger: UseFormTrigger<CreateNewAdvertisementRequest>,
+    error?: string,
+};
+
+export default function NewProductCategory({ setValue, currentCategory, trigger, error }: Props) {
+    const handleSelectCategory = async (category: string) => {
+        setValue("category", category, { shouldValidate: true }); // Оновлюємо значення та запускаємо валідацію
+        await trigger("category"); // Перевіряємо валідність поля
+    };
+
     return (
         <NewProductCategoryLayout>
-            <div className={"w-full font-inter text-[#414141] text-xl font-medium"}>Виберіть категорію</div>
-            <div className={"w-full h-72 rounded-md focus:outline-none " +
-                "text-[#414141] font-inter " +
-                "placeholder:font-monserrat placeholder:text-sm " +
-                "border-[1px] border-solid border-[#414141] border-opacity-20"}
-            ></div>
+            <NewAdvertisementsTitle title="Виберіть категорію" />
+            <NewAdCategoriesGrid
+                selectedCategory={currentCategory}
+                onSelectCategory={handleSelectCategory}
+                error={error}
+            />
         </NewProductCategoryLayout>
     );
-};
+}

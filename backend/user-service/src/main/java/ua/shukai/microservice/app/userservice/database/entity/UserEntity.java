@@ -37,5 +37,5 @@ public class UserEntity {
 
     @ManyToOne
     @JoinColumn(name = "image_id", nullable = false)
-    private RegionEntity image;
+    private ImageEntity image;
 }

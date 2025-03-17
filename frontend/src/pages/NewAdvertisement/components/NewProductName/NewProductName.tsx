@@ -1,18 +1,25 @@
 import {NewProductNameLayout} from "./NewProductNameLayout.tsx";
+import NewAdvertisementsTitle from "../../../../common-components/Titles/NewAdvertisementTitle/NewAdvertisementsTitle.tsx";
+import NewAdvertisementInput from "../../../../common-components/Inputs/NewAdvertisementInput/NewAdvertisementInput.tsx";
+import {UseFormRegister} from "react-hook-form";
+import {CreateNewAdvertisementRequest} from "../../../../types/new-advertisement/create-new-advertisement-request.ts";
 
-export function NewProductName() {
+type Props = {
+    register: UseFormRegister<CreateNewAdvertisementRequest>,
+    error?: string,
+}
+
+export function NewProductName({ register, error }: Props) {
     return (
         <NewProductNameLayout>
-            <div className={"w-full font-inter text-[#414141] text-xl font-medium"}>Вкажіть назву</div>
-            <input
-                className={
-                    "w-full h-12 p-3 rounded-md focus:outline-none " +
-                    "text-[#414141] font-inter " +
-                    "placeholder:font-monserrat placeholder:text-sm " +
-                    "border-[1px] border-solid border-[#414141] border-opacity-20"
-                }
-                placeholder={"Наприклад: Книга Вимикач. Книга 3"}
+            <NewAdvertisementsTitle title="Назва" />
+            <NewAdvertisementInput
+                type={"text"}
+                fieldName="name"
+                register={register}
+                placeholder="Наприклад: Вимикач. Книга 3"
+                error={error}
             />
         </NewProductNameLayout>
     );
-};
+}

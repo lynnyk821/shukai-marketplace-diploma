@@ -5,9 +5,9 @@ import org.springframework.data.domain.Sort;
 import java.util.Arrays;
 
 public enum SortType {
-    MAX_PRICE("Найдорожчі"),
-    MIN_PRICE("Найдешевші"),
-    NEW_ADS("Найновіші");
+    MAX_PRICE("price_desc"),
+    MIN_PRICE("price_asc"),
+    NEW_ADS("new_ads");
 
     private final String value;
 

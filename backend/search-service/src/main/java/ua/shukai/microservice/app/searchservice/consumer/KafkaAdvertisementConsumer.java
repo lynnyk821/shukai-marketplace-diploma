@@ -16,7 +16,7 @@ public class KafkaAdvertisementConsumer {
 
     @KafkaListener(topics = "created_advertisement", groupId = "search-group")
     public void listen(ConsumerRecord<String, KafkaAdvertisementDTO> kafkaDTO) {
-        log.info("Received record: {}", kafkaDTO.value());
+        log.info("Received created_advertisement");
         this.searchService.create(kafkaDTO.value());
     }
 }

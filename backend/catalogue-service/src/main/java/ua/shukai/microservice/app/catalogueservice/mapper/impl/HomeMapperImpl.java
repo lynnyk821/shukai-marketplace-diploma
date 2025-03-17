@@ -11,6 +11,7 @@ public class HomeMapperImpl implements HomeMapper {
     @Override
     public GetHomeAdsDTO.AdHome map(AdvertisementEntity ad) {
         return GetHomeAdsDTO.AdHome.builder()
+                .id(ad.getId())
                 .name(ad.getName())
                 .image(ad.getImages().getFirst().getImage().getBase64Image())
                 .price(ad.getPrice())

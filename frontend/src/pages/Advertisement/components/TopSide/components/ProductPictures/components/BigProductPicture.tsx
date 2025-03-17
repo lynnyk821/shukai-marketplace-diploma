@@ -19,7 +19,7 @@ export default function BigProductPicture({ data, currentIndex, setCurrentIndex 
     };
 
     return (
-        <div className="w-full flex-1 relative flex items-center bg-amber-200 rounded-xl overflow-hidden">
+        <div className="w-full flex-1 relative flex items-center bg-[#eee] rounded-xl overflow-hidden">
             {/* Кнопка для предыдущего изображения */}
             <button
                 className="w-10 h-10 text-[#414141] rounded-xl absolute flex items-center justify-center left-2 bg-[#eee] z-10"
