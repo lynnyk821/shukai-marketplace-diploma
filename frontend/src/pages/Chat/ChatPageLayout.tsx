@@ -1,4 +1,4 @@
-import {MyContainerProps} from "../../types/common/my-container-props.ts";
+import {MyContainerProps} from "../../types/help/my-container-props.ts";
 import PageLayout from "../../common-components/PageLayout/PageLayout.tsx";
 
 export function ChatPageLayout({children}: MyContainerProps) {

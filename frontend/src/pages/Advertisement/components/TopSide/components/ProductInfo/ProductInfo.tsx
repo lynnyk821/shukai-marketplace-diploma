@@ -2,31 +2,35 @@ import ProductInfoLayout from "./ProductInfoLayout.tsx";
 import ProductName from "./components/ProductName/ProductName.tsx";
 import Seller from "./components/Seller/Seller.tsx";
 import DateInfo from "./components/DateInfo/DateInfo.tsx";
-import BuyAndFavoriteButton from "./components/BuyAndCartButton/BuyAndFavoriteButton.tsx";
-import MessageBox from "./components/MessageBox/MessageBox.tsx";
-import PriceAndFavoriteButton from "./components/PriceAndFavoriteButton/PriceAndFavoriteButton.tsx";
-import {Advertisement} from "../../../../../../types/advertisement/advertisement.ts";
+import BuyAndCartButton from "./components/BuyAndCartButton/BuyAndCartButton.tsx";
+import PriceButton from "./components/PriceButton/PriceButton.tsx";
+import {AdvertisementProps} from "../../../../../../types/common/advertisement-props.ts";
+import AddToFavoriteButton from "./components/AddToFavoriteButton/AddToFavoriteButton.tsx";
 
 type Props = {
-    advertisement: Advertisement;
+    advertisement: AdvertisementProps;
 }
 
 export default function ProductInfo({advertisement}: Props) {
     return (
         <ProductInfoLayout>
             <DateInfo
-                date={String(advertisement.createdAt)}
+                date={advertisement.createdAt}
             />
             <ProductName
                 name={advertisement.name}
             />
-            <PriceAndFavoriteButton
+            <PriceButton
                 price={advertisement.price}
+            />
+            <BuyAndCartButton />
+            <AddToFavoriteButton
                 favorites={advertisement.favoritesCount}
             />
-            <BuyAndFavoriteButton />
-            <Seller />
-            <MessageBox placeholder={"Написати повідомлення продавцю..."} />
+            <Seller
+                user={advertisement.user}
+                region={advertisement.region.cityName}
+            />
         </ProductInfoLayout>
     );
 };

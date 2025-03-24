@@ -1,4 +1,4 @@
-import {MyButtonProps} from "../../../../../../../../../types/common/my-button-props.ts";
+import {MyButtonProps} from "../../../../../../../../../types/help/my-button-props.ts";
 
 export default function BuyButton({onClick}: MyButtonProps) {
     return (

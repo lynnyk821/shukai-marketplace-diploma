@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import {SocialMediaButtonProps} from "../../../../../../types/common/social-media-button-props.ts";
-import {MyButtonProps} from "../../../../../../types/common/my-button-props.ts";
+import {MyButtonProps} from "../../../../../../types/help/my-button-props.ts";
 import TiltShake from "../../../../../../utils/animations/TiltShake.tsx";
 
 export default function SocialMediaButton(

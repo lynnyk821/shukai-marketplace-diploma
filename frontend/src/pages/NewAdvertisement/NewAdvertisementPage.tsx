@@ -4,13 +4,13 @@ import {useForm} from "react-hook-form";
 import SubmitButton from "../../common-components/Buttons/SubmitButton/SubmitButton.tsx";
 import {convertToBase64} from "../../utils/helpers/helpers.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {newAdvertisementSchema} from "../../utils/schemas/new-advertisement-schema.ts";
+import {newAdSchema} from "../../utils/schemas/new-ad-schema.ts";
 import {NewProductName} from "./components/NewProductName/NewProductName.tsx";
 import NewProductCategory from "./components/NewProductCategory/NewProductCategory.tsx";
 import AdRegion from "./components/NewAdRegion/AdRegion.tsx";
 import NewProductDescription from "./components/NewProductDescription/NewProductDescription.tsx";
 import {NewAdPrice} from "./components/NewAdPrice/NewAdPrice.tsx";
-import {CreateNewAdvertisementRequest} from "../../types/new-advertisement/create-new-advertisement-request.ts";
+import {CreateAdRequest} from "../../types/request/create-ad-request.ts";
 import axios from "axios";
 
 export default function NewAdvertisementPage() {
@@ -21,13 +21,13 @@ export default function NewAdvertisementPage() {
         setValue,
         trigger,
         formState: {errors}
-    } = useForm<CreateNewAdvertisementRequest>({
-        resolver: zodResolver(newAdvertisementSchema),
+    } = useForm<CreateAdRequest>({
+        resolver: zodResolver(newAdSchema),
         defaultValues: {
             name: "",
-            category: "",
+            categoryId: 0,
             price: 0,
-            photos: Array(9).fill(""),
+            images: Array(9).fill(""),
             region: {
                 regionName: "",
                 cityName: "",
@@ -35,44 +35,29 @@ export default function NewAdvertisementPage() {
             },
             description: "",
             userId: 1,
-            deliveryMethods: [1, 2],
-            paymentMethods: [1, 3]
+            deliveryMethodIds: [1, 2],
+            paymentMethodIds: [1, 3]
         },
     });
 
     const handleImageUpload = async (file: File, index: number) => {
         const base64 = await convertToBase64(file);
-        const currentPhotos = [...watch("photos")];
+        const currentPhotos = [...watch("images")];
         currentPhotos[index] = base64;
-        setValue("photos", currentPhotos, { shouldValidate: true });
+        setValue("images", currentPhotos, { shouldValidate: true });
     };
 
     const handleImageDelete = (index: number) => {
-        const newPhotos = [...watch("photos")];
+        const newPhotos = [...watch("images")];
         newPhotos[index] = "";
-        setValue("photos", newPhotos, { shouldValidate: true });
+        setValue("images", newPhotos, { shouldValidate: true });
     };
 
     const onSubmit = async (
-        body: CreateNewAdvertisementRequest,
+        body: CreateAdRequest,
     ) => {
         try {
-            await axios.post("http://localhost:8080/catalogue-service/api/catalogue", {
-                // Ensure property names match backend expectations
-                name: body.name,
-                description: body.description,
-                price: body.price,
-                images: body.photos.filter(p => p !== ""),
-                region: {
-                    cityName: body.region.cityName,
-                    regionName: body.region.regionName,
-                    description: body.region.description,
-                },
-                userId: body.userId,
-                categoryName: body.category,
-                deliveryMethodIds: body.deliveryMethods,
-                paymentMethodIds: body.paymentMethods
-            });
+            await axios.post("http://localhost:8080/catalogue-service/api/catalogue", body);
         } catch (error) {
             console.log(body)
             console.error("POST error:", error);
@@ -86,10 +71,10 @@ export default function NewAdvertisementPage() {
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <NewProductPictures
-                    photos={watch("photos")}
+                    photos={watch("images")}
                     onImageUpload={handleImageUpload}
                     onImageDelete={handleImageDelete}
-                    error={errors.photos?.message}
+                    error={errors.images?.message}
                 />
 
                 <NewProductName
@@ -99,9 +84,8 @@ export default function NewAdvertisementPage() {
 
                 <NewProductCategory
                     setValue={setValue}
-                    currentCategory={watch("category")}
                     trigger={trigger}
-                    error={errors.category?.message}
+                    error={errors.categoryId?.message}
                 />
 
                 <div className={"grid grid-cols-2 gap-10"}>

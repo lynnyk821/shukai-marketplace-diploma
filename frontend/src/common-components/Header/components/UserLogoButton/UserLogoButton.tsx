@@ -1,34 +1,72 @@
 import {Icon} from "@iconify/react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import AnimateRotation from "../../../../utils/animations/AnimateRotation.tsx";
 import UserLogoButtonLayout from "./UserLogoButtonLayout.tsx";
 import DropdownUserList from "./components/DropdownUserList.tsx";
 import {useClickOutside} from "../../../../utils/hooks/useClickOutside.ts";
+import {MeResponse} from "../../../../types/response/me-response.ts";
+import blankProfile from "../../../../assets/png/blank-profile3.png";
+import {axiosInstance} from "../../../../utils/axios/interceptors.ts";
+import {TokenManager} from "../../../../utils/helpers/tokenManager.ts";
+import {useNavigate} from "react-router-dom";
 
 export default function UserLogoButton() {
     const [isActive, setIsActive] = useState<boolean>(false);
+    const [me, setMe] = useState<MeResponse | null>(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate = useNavigate();
 
     const dropdownRef = useClickOutside<HTMLUListElement>(() => {
         setIsActive(false);
     });
 
+    useEffect(() => {
+        const fetchMeData = async () => {
+            try {
+                const token = TokenManager.getAccessToken()
+
+                const response = await axiosInstance.get('/user-service/api/user/me', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                setIsAuthenticated(true);
+                setMe(response.data);
+            } catch (error) {
+                setIsAuthenticated(false);
+            }
+        };
+        fetchMeData();
+    }, []);
+    
     return (
         <UserLogoButtonLayout ref={dropdownRef}>
-            <button
-                className={"h-full centered flex gap-1 text-[#414141]"}
-                onClick={() => setIsActive(!isActive)}
-                style={{userSelect: "none"}}
-            >
-                <img
-                    className="h-full rounded-full"
-                    src="https://avatars.shafastatic.net/5721768_new_avatar_type1730823039"
-                    alt="avatar"
-                />
-                <AnimateRotation degree={180} isActive={isActive}>
-                    <Icon icon="iconamoon:arrow-down-2-bold" width={20} height={20}/>
-                </AnimateRotation>
-            </button>
-            {isActive ? <DropdownUserList /> : null}
+            {isAuthenticated ? (
+                <button
+                    className={"h-full centered flex gap-1 text-[#414141]"}
+                    onClick={() => setIsActive(!isActive)}
+                    style={{ userSelect: "none" }}
+                >
+                    <img
+                        className="h-3/4 rounded-full"
+                        src={me?.image ? me.image : blankProfile}
+                        alt="avatar"
+                    />
+                    <AnimateRotation degree={180} isActive={isActive}>
+                        <Icon icon="iconamoon:arrow-down-2-bold" width={20} height={20} />
+                    </AnimateRotation>
+                </button>
+            ) : (
+                <button
+                    className={"h-full centered flex gap-1 text-[#414141]"}
+                    onClick={() => navigate('/sign-in')}
+                    style={{ userSelect: "none" }}
+                >
+                    Вхід
+                </button>
+            )}
+            {isActive && isAuthenticated ? <DropdownUserList userId={me?.id} /> : null}
         </UserLogoButtonLayout>
     );
 };

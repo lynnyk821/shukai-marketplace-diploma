@@ -8,8 +8,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name="users")
 @Builder
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
@@ -21,14 +20,13 @@ public class UserEntity {
     private String username;
 
     @Column(nullable = false)
+    private String email;
+
+    private String image;
+
+    @Column(nullable = false)
     private String phoneNumber;
 
     @Column(nullable = false)
-    private String region;
-
-    @Column(name = "image", nullable = false)
-    private String userImage;
-
-    @Column(nullable = false)
-    private Timestamp visitingTime;
+    private Long userId;
 }

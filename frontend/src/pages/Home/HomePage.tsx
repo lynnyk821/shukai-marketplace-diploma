@@ -4,10 +4,10 @@ import HomePageLayout from "./HomePageLayout.tsx";
 import {BACKEND_URL} from "../../globals-env.ts";
 import {RecentlyWatched} from "./components/RecentlyWatched/RecentlyWatched.tsx";
 import {useEffect, useState} from "react";
-import {GetHomeResponse} from "../../types/home/get-home-response.ts";
+import {HomeResponse} from "../../types/response/home-response.ts";
 
 export function HomePage() {
-    const [homeResponse, setHomeResponse] = useState<GetHomeResponse>({
+    const [homeResponse, setHomeResponse] = useState<HomeResponse>({
         newAdvertisements: [], autoGoodAdvertisements: [],
         electronicAdvertisements: [], clothesAdvertisements: []
     });
@@ -15,7 +15,7 @@ export function HomePage() {
     useEffect(() => {
         fetch(`${BACKEND_URL}/catalogue-service/api/home`)
             .then((response) => response.json())
-            .then((data) => setHomeResponse(data as GetHomeResponse))
+            .then((data) => setHomeResponse(data as HomeResponse))
             .catch((error) => console.error("Помилка завантаження даних:", error));
         console.log(homeResponse)
     }, [])

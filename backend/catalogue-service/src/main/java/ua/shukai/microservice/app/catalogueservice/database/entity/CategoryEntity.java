@@ -3,6 +3,10 @@ package ua.shukai.microservice.app.catalogueservice.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name="categories")
 @Builder
@@ -19,4 +23,8 @@ public class CategoryEntity {
 
     @Column(nullable = false)
     private String path;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private CategoryEntity parent;
 }

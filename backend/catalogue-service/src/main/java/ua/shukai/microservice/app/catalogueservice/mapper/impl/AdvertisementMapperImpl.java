@@ -2,68 +2,94 @@ package ua.shukai.microservice.app.catalogueservice.mapper.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdvertisementDTO;
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.GetAdvertisementDTO;
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdvertisementDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.AdvertisementDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.GetAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.home.dto.GetHomeAdsDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.region.dto.RegionDTO;
 import ua.shukai.microservice.app.catalogueservice.database.entity.*;
-import ua.shukai.microservice.app.catalogueservice.mapper.DeliveryMethodMapper;
-import ua.shukai.microservice.app.catalogueservice.mapper.ImageMapper;
-import ua.shukai.microservice.app.catalogueservice.mapper.PaymentMethodMapper;
+import ua.shukai.microservice.app.catalogueservice.mapper.AdvertisementMapper;
+import ua.shukai.microservice.app.catalogueservice.mapper.EntityMapper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-public class AdvertisementMapperImpl {
-    private final ImageMapper imageMapper;
-    private final PaymentMethodMapper paymentMethodMapper;
-    private final DeliveryMethodMapper deliveryMethodMapper;
+public class AdvertisementMapperImpl implements AdvertisementMapper {
+    private final EntityMapper entityMapper;
 
-    public GetAdvertisementDTO mapToGetAdvertisementDTO(AdvertisementEntity entity) {
-        var user = new GetAdvertisementDTO.User("name", "image", "phoneNumber");
-        var category = new GetAdvertisementDTO.Category(entity.getCategory().getName(), entity.getCategory().getPath());
-        var region = new GetAdvertisementDTO.Region(entity.getRegion().getCityName(), entity.getRegion().getRegionName());
+    @Override
+    public AdvertisementDTO mapToAdDTO(AdvertisementEntity ad) {
+        List<String> images = this.entityMapper.toStringImageList(ad.getImages());
+        List<String> deliveryMethods = this.entityMapper.toStringDelvieryList(ad.getDeliveryMethods());
+        List<String> paymentMethods = this.entityMapper.toStringPaymentList(ad.getPaymentMethods());
 
-        List<String> images = this.imageMapper.toStringList(entity.getImages());
-
-        List<String> deliveryMethods = entity.getDeliveryMethods().stream().map(
-            deliveryMethod -> deliveryMethod.getDeliveryMethod().getMethod()
-        ).toList();
-        List<String> paymentMethods = entity.getPaymentMethods().stream().map(
-                deliveryMethod -> deliveryMethod.getPaymentMethod().getMethod()
-        ).toList();
-
-        return GetAdvertisementDTO.builder()
-                .createdAt(entity.getCreatedAt().toString())
-                .name(entity.getName())
-                .price(entity.getPrice())
-                .description(entity.getDescription())
-                .favoritesCount(entity.getFavoritesCount())
-                .region(region)
-                .user(user)
+        return AdvertisementDTO.builder()
+                .createdAt(ad.getCreatedAt().toString())
+                .name(ad.getName())
+                .price(ad.getPrice())
+                .description(ad.getDescription())
+                .favoritesCount(ad.getFavoritesCount())
                 .images(images)
-                .category(category)
+                .region(RegionDTO.builder()
+                        .cityName(ad.getRegion().getCityName())
+                        .regionName(ad.getRegion().getRegionName())
+                        .build())
+                .user(AdvertisementDTO.User.builder()
+                        .id(ad.getUser().getId())
+                        .name(ad.getUser().getUsername())
+                        .image(ad.getUser().getImage())
+                        .phoneNumber(ad.getUser().getPhoneNumber())
+                        .build())
+                .category(AdvertisementDTO.Category.builder()
+                        .name(ad.getCategory().getName())
+                        .path(ad.getCategory().getPath())
+                        .build())
                 .deliveryMethods(deliveryMethods)
                 .paymentMethods(paymentMethods)
+                .build();
+    }
+
+    @Override
+    public List<GetAdDTO.MoreAd> mapToMoreAds(List<AdvertisementEntity> ads) {
+        return ads.stream()
+                .map(advertisement -> GetAdDTO.MoreAd.builder()
+                        .id(advertisement.getId())
+                        .name(advertisement.getName())
+                        .price(advertisement.getPrice())
+                        .image(advertisement.getImages().getFirst().getImage().getBase64Image()).build())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public GetHomeAdsDTO.AdHome mapAdHome(AdvertisementEntity ad) {
+        return GetHomeAdsDTO.AdHome.builder()
+                .id(ad.getId())
+                .name(ad.getName())
+                .image(ad.getImages().getFirst().getImage().getBase64Image())
+                .price(ad.getPrice())
+                .createdAt(ad.getCreatedAt().toString())
         .build();
     }
 
-    public AdvertisementEntity mapToCreateAdvertisementDTO(CreateAdvertisementDTO dto, List<ImageEntity> images,
-                                                           CategoryEntity category, UserEntity user, RegionEntity region,
-                                                           List<PaymentMethodEntity> payments, List<DeliveryMethodEntity> deliveries
+    @Override
+    public AdvertisementEntity mapToEntity(CreateAdDTO dto, UserEntity user, RegionEntity region, CategoryEntity category,
+                                           List<ImageEntity> images, List<DeliveryMethodEntity> deliveries, List<PaymentMethodEntity> payments
     ) {
-        List<AdImageEntity> adImages = this.imageMapper.toListAdImage(images);
-        List<AdPaymentMethodEntity> adPaymentMethods = this.paymentMethodMapper.map(payments);
-        List<AdDeliveryMethodEntity> adDeliveryMethods = this.deliveryMethodMapper.map(deliveries);
+        List<AdImageEntity> adImages = this.entityMapper.toAdImageEntityList(images);
+        List<AdPaymentMethodEntity> adPaymentMethods = this.entityMapper.toAdPaymentMethodEntityList(payments);
+        List<AdDeliveryMethodEntity> adDeliveryMethods = this.entityMapper.toAdDeliveryMethodEntityList(deliveries);
 
         AdvertisementEntity advertisement = AdvertisementEntity.builder()
-                .name(dto.getName())
-                .description(dto.getDescription())
-                .price(dto.getPrice())
-                .images(adImages)
-                .category(category)
                 .user(user)
                 .region(region)
+                .category(category)
+                .name(dto.getName())
+                .price(dto.getPrice())
+                .description(dto.getDescription())
+                .images(adImages)
                 .paymentMethods(adPaymentMethods)
                 .deliveryMethods(adDeliveryMethods)
         .build();
@@ -75,11 +101,26 @@ public class AdvertisementMapperImpl {
         return advertisement;
     }
 
+    @Override
+    public AdvertisementEntity mapToEntity(AdvertisementEntity ad, UpdateAdDTO dto, RegionEntity region, CategoryEntity category,
+                                           List<DeliveryMethodEntity> deliveries, List<PaymentMethodEntity> payments
+    ) {
+        List<AdPaymentMethodEntity> adPaymentMethods = this.entityMapper.toAdPaymentMethodEntityList(payments);
+        List<AdDeliveryMethodEntity> adDeliveryMethods = this.entityMapper.toAdDeliveryMethodEntityList(deliveries);
 
-    public AdvertisementEntity mapToUpdateAdvertisementDTO(UpdateAdvertisementDTO dto) {
-        return AdvertisementEntity.builder()
-                .id(dto.getId())
-                .name(dto.getName())
-        .build();
+        ad
+                .setRegion(region)
+                .setCategory(category)
+                .setName(dto.getName())
+                .setPrice(dto.getPrice())
+                .setDescription(dto.getDescription())
+                .setPaymentMethods(adPaymentMethods)
+                .setDeliveryMethods(adDeliveryMethods)
+        ;
+
+        adPaymentMethods.forEach(method -> method.setAdvertisement(ad));
+        adDeliveryMethods.forEach(method -> method.setAdvertisement(ad));
+
+        return ad;
     }
 }

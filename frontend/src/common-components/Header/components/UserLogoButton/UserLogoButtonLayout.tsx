@@ -1,5 +1,5 @@
 import {forwardRef, LegacyRef} from "react";
-import {MyContainerProps} from "../../../../types/common/my-container-props.ts";
+import {MyContainerProps} from "../../../../types/help/my-container-props.ts";
 
 
 const UserLogoButtonLayout = forwardRef(({children} : MyContainerProps, ref) => {

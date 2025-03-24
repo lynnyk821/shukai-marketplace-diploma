@@ -1,4 +1,4 @@
-import {MyContainerProps} from "../../../../types/common/my-container-props.ts";
+import {MyContainerProps} from "../../../../types/help/my-container-props.ts";
 import {MainTitle} from "../../../../common-components/Titles/MainTitle/MainTitle.tsx";
 
 type Props = MyContainerProps & {

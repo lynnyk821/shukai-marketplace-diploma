@@ -1,4 +1,4 @@
-import {MyButtonProps} from "./my-button-props.ts";
+import {MyButtonProps} from "../help/my-button-props.ts";
 
 export type CategoryItemProps = MyButtonProps & {
     img?: string,

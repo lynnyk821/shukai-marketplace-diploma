@@ -1,6 +1,6 @@
 import BigPictureLayout from "./BigPictureLayout.tsx";
 import {Icon} from "@iconify/react";
-import {MyButtonProps} from "../../../../../../types/common/my-button-props.ts";
+import {MyButtonProps} from "../../../../../../types/help/my-button-props.ts";
 
 type Props = MyButtonProps & {
     photo: string;

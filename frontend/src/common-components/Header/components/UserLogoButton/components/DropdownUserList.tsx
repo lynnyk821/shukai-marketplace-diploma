@@ -3,7 +3,11 @@ import UserListItem from "./UserListItem.tsx";
 import {Icon} from "@iconify/react";
 import {USER_LOGO_LIST} from "../../../../../globals-env.ts";
 
-export default function DropdownUserList() {
+type Props = {
+    userId?: number,
+}
+
+export default function DropdownUserList({userId}: Props) {
     return (
         <SlideDown bottom={-10} duration={0.6} isOpen={true} opacity={0}>
             <ul className={
@@ -16,6 +20,7 @@ export default function DropdownUserList() {
                         key={key}
                         href={item.href}
                         text={item.text}
+                        userId={userId}
                     >
                         <Icon icon={item.icon} width={18} height={18} />
                     </UserListItem>

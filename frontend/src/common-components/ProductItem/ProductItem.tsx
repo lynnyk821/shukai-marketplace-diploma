@@ -14,7 +14,7 @@ type Props = {
 }
 
 export default function ProductItem({ className, size, product }: Props) {
-    const navigate = useNavigateWithScrollBehavior(`/products/${product.id}`, "smooth");
+    const navigate = useNavigateWithScrollBehavior(`/advertisement/${product.id}`, "smooth");
 
     const handleImage = (image: string) => {
         return image ? image : noImage;
@@ -26,11 +26,21 @@ export default function ProductItem({ className, size, product }: Props) {
                 className={`text-[#414141] hover:text-yellow-600 transition duration-200 ease-in-out ${className}`}
                 onClick={navigate}
             >
-                <ProductImage image={handleImage(product.image)} />
-                <ProductName size={size} name={product.name} />
-                <ProductPrice size={size} price={product.price} />
+                <ProductImage
+                    image={handleImage(product.image)}
+                />
+                <ProductName
+                    size={size}
+                    name={product.name}
+                />
+                <ProductPrice
+                    size={size}
+                    price={product.price}
+                />
             </button>
-            {size === "sm" ? null : <ProductDateAndFavoriteButton date={product.date} /> }
+            {size !== "sm" &&
+                <ProductDateAndFavoriteButton date={product.date}/>
+            }
         </ProductItemLayout>
     );
 };

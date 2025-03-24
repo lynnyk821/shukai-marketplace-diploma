@@ -1,13 +1,13 @@
 import { UseFormRegister } from "react-hook-form";
-import {CreateNewAdvertisementRequest} from "../../../types/new-advertisement/create-new-advertisement-request.ts";
+import {CreateAdRequest} from "../../../types/request/create-ad-request.ts";
 
 type Props = {
     type?: string,
     placeholder?: string;
     value?: string | number; // Додано для контролю значення
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // Додано для ручного керування
-    register?: UseFormRegister<CreateNewAdvertisementRequest>; // Опціональний, бо може використовуватися без react-hook-form
-    fieldName?: keyof CreateNewAdvertisementRequest; // Опціональний, якщо не використовується register
+    register?: UseFormRegister<CreateAdRequest>; // Опціональний, бо може використовуватися без react-hook-form
+    fieldName?: keyof CreateAdRequest; // Опціональний, якщо не використовується register
     error?: string,
     onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
 };

@@ -1,39 +1,26 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MoveBackLinksBarLayout from "./MoveBackLinksBarLayout.tsx";
+import {CategoryProps} from "../../types/common/category-props.ts";
 
-export default function MoveBackLinksBar() {
+type Props = {
+    category?: CategoryProps,
+}
+
+export default function MoveBackLinksBar({category}: Props) {
     const navigate = useNavigate();
-    const location = useLocation();
 
-    // Получаем массив частей пути
-    const pathSegments = location.pathname.split("/").filter(Boolean);
-
-    // Формируем маршруты для каждой части пути
-    const breadcrumbs = pathSegments.map((segment, index) => ({
-        name: decodeURIComponent(segment), // Расшифровка из URI
-        path: "/" + pathSegments.slice(0, index + 1).join("/"), // Полный путь до сегмента
-    }));
-
-    const handleGoTo = (path: string) => {
-        navigate(path);
+    const handleGoTo = (category: string) => {
+        navigate(category);
     };
 
     return (
         <MoveBackLinksBarLayout>
-            {breadcrumbs.map((breadcrumb, index) => (
-                <div
-                    className="w-full py-2 flex items-center text-[#414141] text-[16px] font-inter"
-                    key={index}
-                >
-                    <button
-                        className={"hover:text-yellow-600 transition duration-300 ease-in-out"}
-                        onClick={() => handleGoTo(breadcrumb.path)}
-                    >
-                        {breadcrumb.name}
-                    </button>
-                    {index < breadcrumbs.length - 1 && <span>{"\u00A0" + "/" + "\u00A0"}</span>}
-                </div>
-            ))}
+            <button
+                className={"hover:text-yellow-600 transition duration-300 ease-in-out"}
+                onClick={() => handleGoTo(category.path)}
+            >
+                {"На головну / " + category.name}
+            </button>
         </MoveBackLinksBarLayout>
     );
 }
