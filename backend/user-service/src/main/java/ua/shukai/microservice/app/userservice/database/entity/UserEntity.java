@@ -2,6 +2,8 @@ package ua.shukai.microservice.app.userservice.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import ua.shukai.microservice.app.userservice.utils.PasswordEncoderHolder;
 
 import java.sql.Timestamp;
 
@@ -12,30 +14,27 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
     private String phoneNumber;
 
-    @Column(nullable = false)
     private Timestamp visitingTime;
 
     @ManyToOne
-    @JoinColumn(name = "region_id", nullable = false)
-    private RegionEntity region;
-
-    @ManyToOne
-    @JoinColumn(name = "image_id", nullable = false)
+    @JoinColumn(name = "image_id")
     private ImageEntity image;
+
 }

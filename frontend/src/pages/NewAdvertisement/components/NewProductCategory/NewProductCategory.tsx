@@ -2,26 +2,24 @@ import NewProductCategoryLayout from "./NewProductCategoryLayout.tsx";
 import NewAdvertisementsTitle from "../../../../common-components/Titles/NewAdvertisementTitle/NewAdvertisementsTitle.tsx";
 import {NewAdCategoriesGrid} from "./components/NewAdCategoriesGrid.tsx";
 import {UseFormSetValue, UseFormTrigger} from "react-hook-form";
-import {CreateNewAdvertisementRequest} from "../../../../types/new-advertisement/create-new-advertisement-request.ts";
+import {CreateAdRequest} from "../../../../types/request/create-ad-request.ts";
 
 type Props = {
-    currentCategory: string,
-    setValue: UseFormSetValue<CreateNewAdvertisementRequest>,
-    trigger: UseFormTrigger<CreateNewAdvertisementRequest>,
+    setValue: UseFormSetValue<CreateAdRequest>,
+    trigger: UseFormTrigger<CreateAdRequest>,
     error?: string,
 };
 
-export default function NewProductCategory({ setValue, currentCategory, trigger, error }: Props) {
-    const handleSelectCategory = async (category: string) => {
-        setValue("category", category, { shouldValidate: true }); // Оновлюємо значення та запускаємо валідацію
-        await trigger("category"); // Перевіряємо валідність поля
+export default function NewProductCategory({ setValue, trigger, error }: Props) {
+    const handleSelectCategory = async (category: number) => {
+        setValue("categoryId", category, { shouldValidate: true });
+        await trigger("categoryId");
     };
 
     return (
         <NewProductCategoryLayout>
             <NewAdvertisementsTitle title="Виберіть категорію" />
             <NewAdCategoriesGrid
-                selectedCategory={currentCategory}
                 onSelectCategory={handleSelectCategory}
                 error={error}
             />

@@ -1,8 +1,8 @@
 package ua.shukai.microservice.app.catalogueservice.database.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -14,6 +14,7 @@ import java.util.List;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 public class AdvertisementEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

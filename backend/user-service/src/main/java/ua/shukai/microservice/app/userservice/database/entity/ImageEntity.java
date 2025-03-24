@@ -14,6 +14,6 @@ public class ImageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "image", nullable = false)
+    @Column(name = "image")
     private String imageBase64;
 }

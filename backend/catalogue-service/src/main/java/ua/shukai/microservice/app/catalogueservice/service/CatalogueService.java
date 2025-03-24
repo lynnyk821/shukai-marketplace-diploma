@@ -1,16 +1,15 @@
 package ua.shukai.microservice.app.catalogueservice.service;
 
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdvertisementDTO;
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.GetAdvertisementDTO;
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdvertisementDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.GetAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdDTO;
 
 public interface CatalogueService {
+    GetAdDTO findById(Long id);
 
-    GetAdvertisementDTO findById(Long id);
+    void create(CreateAdDTO dto);
 
-    void create(CreateAdvertisementDTO dto);
-
-    void update(UpdateAdvertisementDTO advertisement);
+    void update(Long id, UpdateAdDTO advertisement);
 
     void deleteById(Long id);
 }

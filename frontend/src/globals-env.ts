@@ -1,4 +1,3 @@
-import {CategoryItemProps} from "./types/common/category-item-props.ts";
 import {UserLogoItemProps} from "./types/common/user-logo-item-props.ts";
 import {ProductItemProps} from "./types/common/product-item-props.ts";
 
@@ -19,39 +18,15 @@ export const COLORS = [
     { color: "emerald-200", code: "#BBF7D0" },      /*9 - index*/
 ];
 
-export const SEARCH_CATEGORIES = ["Всі категорії",
-    "Мода та стиль", "Аксесуари", "Для дому", "Краса і здоров'я",
-    "Електроніка", "Автовари", "Будівництво", "Транспорт",
-]
-
-export const CATALOG_CATEGORIES: CategoryItemProps[] = [
-    { color: COLORS[0].code,  name: "Електроніка"               },
-    { color: COLORS[1].code,  name: "Нерухомість"               },
-    { color: COLORS[2].code,  name: "Транспорт"                 },
-    { color: COLORS[3].code,  name: "Робота"                    },
-    { color: COLORS[4].code,  name: "Автотовари"                },
-    { color: COLORS[5].code,  name: "Дитячі товари"             },
-    { color: COLORS[6].code,  name: "Мода та стиль"             },
-    { color: COLORS[7].code,  name: "Краса та здоров'я"         },
-    { color: COLORS[8].code,  name: "Хобі та відпочинок"        },
-    { color: COLORS[4].code,  name: "Тварини"                   },
-    { color: COLORS[5].code,  name: "Послуги"                   },
-    { color: COLORS[6].code,  name: "Будівництво"               },
-    { color: COLORS[7].code,  name: "Навчання та розвиток"      },
-    { color: COLORS[2].code,  name: "Інструменти та техніка"    },
-    { color: COLORS[0].code,  name: "Продукти харчування"       },
-    { color: COLORS[9].code,  name: "Зоотовари"                 },
-]
-
 export const USER_LOGO_LIST: UserLogoItemProps[] = [
-    { icon: "fluent-mdl2:product",       text: "Мої товари",       href: "0" },
-    { icon: "heroicons:shopping-bag",    text: "Мої покупки",      href: "1" },
-    { icon: "ep:sell",                   text: "Мої продажі",      href: "2" },
-    { icon: "iconoir:wallet",            text: "Гаманець",         href: "3" },
-    { icon: "iconoir:profile-circle",    text: "Профіль",          href: "4" },
-    { icon: "lsicon:thumb-up-outline",   text: "Мої відгуки",      href: "5" },
-    { icon: "solar:settings-outline",    text: "Мої налаштування", href: "6" },
-    { icon: "ion:exit-outline",       text: "Вихід",            href: "7" },
+    { icon: "fluent-mdl2:product",       text: "Мої товари",       href: "/my/ads" },
+    { icon: "heroicons:shopping-bag",    text: "Мої покупки",      href: "/my/purchases" },
+    { icon: "ep:sell",                   text: "Мої продажі",      href: "/my/sales" },
+    { icon: "iconoir:wallet",            text: "Гаманець",         href: "/my/wallet" },
+    { icon: "iconoir:profile-circle",    text: "Профіль",          href: "/my/profile" },
+    { icon: "lsicon:thumb-up-outline",   text: "Мої відгуки",      href: "/my/reviews" },
+    { icon: "solar:settings-outline",    text: "Мої налаштування", href: "/my/settings" },
+    { icon: "ion:exit-outline",          text: "Вихід",            href: "/logout" },
 ]
 
 export const APP_DESCRIPTION =

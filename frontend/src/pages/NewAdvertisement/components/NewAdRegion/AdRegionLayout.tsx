@@ -1,4 +1,4 @@
-import {MyContainerProps} from "../../../../types/common/my-container-props.ts";
+import {MyContainerProps} from "../../../../types/help/my-container-props.ts";
 
 export default function AdRegionLayout({children}: MyContainerProps) {
     return (

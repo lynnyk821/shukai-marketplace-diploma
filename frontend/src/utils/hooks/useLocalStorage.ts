@@ -1,5 +1,7 @@
 import { useCallback } from "react";
 
+
+
 export function useLocalStorage() {
     const saveToLocalStorage = useCallback(<T,>(key: string, value: T): void => {
         try {

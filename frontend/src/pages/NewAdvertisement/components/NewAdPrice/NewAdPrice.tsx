@@ -2,10 +2,10 @@ import NewAdPriceLayout from "./NewAdPriceLayout.tsx";
 import NewAdvertisementsTitle from "../../../../common-components/Titles/NewAdvertisementTitle/NewAdvertisementsTitle.tsx";
 import {UseFormRegister} from "react-hook-form";
 import PriceInput from "./components/PriceInput.tsx";
-import {CreateNewAdvertisementRequest} from "../../../../types/new-advertisement/create-new-advertisement-request.ts";
+import {CreateAdRequest} from "../../../../types/request/create-ad-request.ts";
 
 type Props = {
-    register: UseFormRegister<CreateNewAdvertisementRequest>;
+    register: UseFormRegister<CreateAdRequest>;
     error?: string;
 };
 

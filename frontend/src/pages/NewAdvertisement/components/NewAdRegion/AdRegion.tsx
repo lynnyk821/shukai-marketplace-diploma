@@ -4,14 +4,14 @@ import NewAdvertisementInput from "../../../../common-components/Inputs/NewAdver
 import {UseFormSetValue, UseFormTrigger} from "react-hook-form";
 import RegionListResult from "./components/RegionListResult.tsx";
 import {useClickOutside} from "../../../../utils/hooks/useClickOutside.ts";
-import {CreateNewAdvertisementRequest} from "../../../../types/new-advertisement/create-new-advertisement-request.ts";
-import {RegionProps} from "../../../../types/common/advertisement/region-props.ts";
+import {CreateAdRequest} from "../../../../types/request/create-ad-request.ts";
+import {RegionProps} from "../../../../types/common/region-props.ts";
 import {useState} from "react";
 
 type Props = {
     region: RegionProps,
-    setValue: UseFormSetValue<CreateNewAdvertisementRequest>;
-    trigger: UseFormTrigger<CreateNewAdvertisementRequest>;
+    setValue: UseFormSetValue<CreateAdRequest>;
+    trigger: UseFormTrigger<CreateAdRequest>;
     error?: string;
 };
 

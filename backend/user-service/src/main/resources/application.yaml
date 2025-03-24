@@ -3,7 +3,13 @@ spring:
     url: jdbc:postgresql://localhost:5133/shukai_user
     username: shukai_user
     password: shukai_user
-
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
   jpa:
     hibernate:
       ddl-auto: update

@@ -1,6 +1,6 @@
 import {Icon} from "@iconify/react";
 import TiltShake from "../../../../../utils/animations/TiltShake.tsx";
-import {MyButtonProps} from "../../../../../types/common/my-button-props.ts";
+import {MyButtonProps} from "../../../../../types/help/my-button-props.ts";
 
 export default function MessageButton({onClick}: MyButtonProps) {
     return (

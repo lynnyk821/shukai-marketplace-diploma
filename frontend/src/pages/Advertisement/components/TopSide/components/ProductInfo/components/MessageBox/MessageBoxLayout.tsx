@@ -1,8 +1,8 @@
-import {MyContainerProps} from "../../../../../../../../types/common/my-container-props.ts";
+import {MyContainerProps} from "../../../../../../../../types/help/my-container-props.ts";
 
 export default function MessageBoxLayout({children}: MyContainerProps) {
     return (
-        <div className={"h-full flex flex-col gap-4 mt-5"}>
+        <div className={"w-full flex "}>
             {children}
         </div>
     );

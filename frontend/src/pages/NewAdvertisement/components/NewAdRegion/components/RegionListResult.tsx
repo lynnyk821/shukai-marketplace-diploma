@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {RegionProps} from "../../../../../types/common/advertisement/region-props.ts";
+import {RegionProps} from "../../../../../types/common/region-props.ts";
 import {request} from "../../../../../utils/helpers/request.ts";
 
 type Props = {
@@ -18,7 +18,7 @@ export default function RegionListResult({ value, onSelectRegion }: Props) {
         const fetchRegions = async () => {
             try {
                 const response = await request<{ data: RegionProps[] }>(
-                    `search-service/api/region?partName=${value}`, "GET"
+                    `catalogue-service/api/region?partName=${value}`, "GET"
                 );
 
                 setRegionList(response.data ?? []);

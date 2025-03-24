@@ -2,17 +2,14 @@ package ua.shukai.microservice.app.catalogueservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.GetAdvertisementDTO;
 import ua.shukai.microservice.app.catalogueservice.controller.home.dto.GetHomeAdsDTO;
-import ua.shukai.microservice.app.catalogueservice.database.entity.AdvertisementEntity;
 import ua.shukai.microservice.app.catalogueservice.database.repository.AdvertisementRepository;
-import ua.shukai.microservice.app.catalogueservice.mapper.HomeMapper;
+import ua.shukai.microservice.app.catalogueservice.mapper.AdvertisementMapper;
 import ua.shukai.microservice.app.catalogueservice.service.HomeService;
 
 import java.util.List;
@@ -21,38 +18,41 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class HomeServiceImpl implements HomeService {
-    private final HomeMapper homeMapper;
+    private final AdvertisementMapper advertisementMapper;
     private final AdvertisementRepository advertisementRepository;
 
-    @Value("${home.advertisements.clothes.categoryName}")
+    @Value("${home.advertisements.clothes.category}")
     private String clothesCategoryName;
 
-    @Value("${home.advertisements.autoGoods.categoryName}")
+    @Value("${home.advertisements.autoGoods.category}")
     private String autoGoodsCategoryName;
 
-    @Value("${home.advertisements.electronics.categoryName}")
+    @Value("${home.advertisements.electronics.category}")
     private String electronicsCategoryName;
 
     @Override
-    public List<GetHomeAdsDTO.AdHome> findAll(Pageable pageable) {
-        return this.advertisementRepository.findAll(pageable).map(this.homeMapper::map).toList();
-    }
-
-    @Override
     public GetHomeAdsDTO getHomeAdvertisements() {
-        PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "createdAt"));
+        Pageable pageable = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "createdAt"));
 
         return GetHomeAdsDTO.builder()
-                .newAdvertisements(findAll(pageRequest))
-                .clothesAdvertisements(getAdsByCategoryName(clothesCategoryName, pageRequest))
-                .autoGoodAdvertisements(getAdsByCategoryName(autoGoodsCategoryName, pageRequest))
-                .electronicAdvertisements(getAdsByCategoryName(electronicsCategoryName, pageRequest))
+                .newAdvertisements(findAll(pageable))
+                .clothesAdvertisements(getAdsByCategoryName(clothesCategoryName, pageable))
+                .autoGoodAdvertisements(getAdsByCategoryName(autoGoodsCategoryName, pageable))
+                .electronicAdvertisements(getAdsByCategoryName(electronicsCategoryName, pageable))
         .build();
     }
 
-    @Override
-    public List<GetHomeAdsDTO.AdHome> getAdsByCategoryName(String categoryName, Pageable pageable) {
-        return this.advertisementRepository.findAllByCategory_Name(categoryName, pageable)
-                .map(this.homeMapper::map).toList();
+    private List<GetHomeAdsDTO.AdHome> findAll(Pageable pageable) {
+        return this.advertisementRepository
+                .findAll(pageable)
+                .map(this.advertisementMapper::mapAdHome)
+                .toList();
+    }
+
+    private List<GetHomeAdsDTO.AdHome> getAdsByCategoryName(String categoryName, Pageable pageable) {
+        return this.advertisementRepository
+                .findAllByCategory_Name(categoryName, pageable)
+                .map(this.advertisementMapper::mapAdHome)
+                .toList();
     }
 }
