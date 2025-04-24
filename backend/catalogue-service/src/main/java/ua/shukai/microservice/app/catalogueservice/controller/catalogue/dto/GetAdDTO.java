@@ -1,14 +1,14 @@
 package ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Builder
 @Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class GetAdDTO {
 
     @NotNull

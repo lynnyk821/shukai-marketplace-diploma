@@ -23,7 +23,8 @@ export function SignUp() {
 
     const onSubmit = async (data: SignUpRequest) => {
         try {
-            await axiosInstance.post('/user-service/api/auth/signup', data);
+            console.log(data)
+            await axiosInstance.post('/user-service/api/auth/sign-up', data);
             navigate('/sign-in');
         } catch (error) {
             console.error('Registration failed:', error);

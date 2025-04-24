@@ -2,7 +2,7 @@ import {MyContainerProps} from "../../../../../../types/help/my-container-props.
 
 export default function ProductDescriptionLayout({children}: MyContainerProps) {
     return (
-        <div className={"w-3/5 flex flex-col gap-5"}>
+        <div className={"w-3/4 flex flex-col gap-5"}>
             {children}
         </div>
     );

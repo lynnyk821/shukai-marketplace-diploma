@@ -30,7 +30,8 @@ public class RegionServiceImpl implements RegionService {
                 .uri("")
                 .bodyValue(request)
                 .retrieve()
-                .bodyToMono(String.class).block();
+                .bodyToMono(String.class)
+        .block();
     }
 
     @Override

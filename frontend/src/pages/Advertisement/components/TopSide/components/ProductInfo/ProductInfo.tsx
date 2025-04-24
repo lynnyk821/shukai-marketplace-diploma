@@ -14,19 +14,11 @@ type Props = {
 export default function ProductInfo({advertisement}: Props) {
     return (
         <ProductInfoLayout>
-            <DateInfo
-                date={advertisement.createdAt}
-            />
-            <ProductName
-                name={advertisement.name}
-            />
-            <PriceButton
-                price={advertisement.price}
-            />
-            <BuyAndCartButton />
-            <AddToFavoriteButton
-                favorites={advertisement.favoritesCount}
-            />
+            <DateInfo date={advertisement.createdAt} />
+            <ProductName name={advertisement.name} />
+            <PriceButton price={advertisement.price} />
+            <BuyAndCartButton advertisement={advertisement} />
+            <AddToFavoriteButton favorites={advertisement.favoritesCount} />
             <Seller
                 user={advertisement.user}
                 region={advertisement.region.cityName}

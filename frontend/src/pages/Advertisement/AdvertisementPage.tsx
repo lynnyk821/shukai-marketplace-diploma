@@ -6,17 +6,28 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {AdByIdResponse} from "../../types/response/ad-by-id-response.ts";
+import {useRecentlyWatched} from "../../utils/hooks/useRecentlyWatchedAds.ts";
+import {ProductItemProps} from "../../types/common/product-item-props.ts";
+import {AdvertisementProps} from "../../types/common/advertisement-props.ts";
 
 export default function AdvertisementPage() {
-    // Отримуємо `id` з URL
     const {id} = useParams<{ id: string }>();
 
     // Стан для збереження даних оголошення
+    const { addToRecentlyWatched } = useRecentlyWatched();
     const [adPageData, setAdPageData] = useState<AdByIdResponse | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Виконуємо запит на бекенд
+
+    const convertToProductItem = (ad: AdvertisementProps): ProductItemProps => ({
+        id: ad.id.toString(),
+        date: String(ad.createdAt),
+        name: ad.name,
+        price: ad.price,
+        image: ad.images[0] || 'default-image-url',
+    });
+
     useEffect(() => {
         const fetchAdvertisement = async () => {
             try {
@@ -24,6 +35,9 @@ export default function AdvertisementPage() {
                     `http://localhost:8080/catalogue-service/api/catalogue/${id}`
                 );
                 setAdPageData(response.data);
+
+                const advertisement = convertToProductItem(response.data.advertisement);
+                addToRecentlyWatched(advertisement);
             } catch (err) {
                 setError("Не вдалося завантажити оголошення");
                 console.error("Помилка запиту:", err);
@@ -32,15 +46,14 @@ export default function AdvertisementPage() {
             }
         };
 
-        fetchAdvertisement();
+        if (id) {
+            fetchAdvertisement();
+        }
     }, [id]);
 
     if (loading) {
         return <div>Завантаження...</div>;
-    }
-
-    // Відображення помилки
-    if (error) {
+    } else if (error) {
         return <div>{error}</div>;
     }
 

@@ -4,7 +4,7 @@ type Props = {
     size?: "xl" | "2xl" | "3xl"
 };
 
-export function MainTitle({size, text}: Props) {
+export function CommonTitle({size, text}: Props) {
     const textSize = (() => {
         switch (size) {
             case "xl":

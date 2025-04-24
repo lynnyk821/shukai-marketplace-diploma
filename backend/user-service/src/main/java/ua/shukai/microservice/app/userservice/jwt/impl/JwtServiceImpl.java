@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import ua.shukai.microservice.app.userservice.exception.custom.JwtExpiredException;
 import ua.shukai.microservice.app.userservice.exception.custom.JwtTypeException;
 import ua.shukai.microservice.app.userservice.jwt.JwtService;
-import ua.shukai.microservice.app.userservice.jwt.model.Jwt;
 import ua.shukai.microservice.app.userservice.jwt.model.JwtTokens;
 import ua.shukai.microservice.app.userservice.jwt.type.JwtType;
 
@@ -80,7 +79,7 @@ public class JwtServiceImpl implements JwtService {
         return Jwts.parser()
                 .verifyWith(getSecretKey())
                 .build()
-                .parseSignedClaims(token.trim())
+                .parseSignedClaims(token)
                 .getPayload();
     }
 

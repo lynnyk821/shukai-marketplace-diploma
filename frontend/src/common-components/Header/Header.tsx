@@ -5,10 +5,24 @@ import {InputWithCategories} from "./components/InputWithCategories/InputWithCat
 import AddProductButton from "./components/AddProductButton/AddProductButton.tsx";
 import AdditionalButtons from "./components/AdditionalButtons/AdditionalButtons.tsx";
 import UserLogoButton from "./components/UserLogoButton/UserLogoButton.tsx";
+import {useCart} from "../../utils/hooks/useCart.ts";
+import {useEffect} from "react";
+import {useAppStore} from "../../utils/hooks/useAppStore.ts";
 
-export function Header() {
+type Props = {
+    isFixed?: boolean;
+}
+
+export function Header({ isFixed }: Props) {
+    const { setCartCapacity } = useAppStore();
+    const { cart } = useCart();
+
+    useEffect(() => {
+        setCartCapacity(cart.length)
+    }, [cart])
+
     return (
-        <HeaderLayout>
+        <HeaderLayout isFixed={isFixed}>
             <Logo></Logo>
             <CategoryButton />
             <InputWithCategories />

@@ -1,5 +1,6 @@
 package ua.shukai.microservice.app.catalogueservice.controller.catalogue;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +23,14 @@ public class CatalogueController {
     }
 
     @PostMapping
-    public ResponseEntity<CreateAdDTO> createNewAdvertisement(@RequestBody CreateAdDTO dto) {
+    public ResponseEntity<CreateAdDTO> createNewAdvertisement(@RequestBody @Valid CreateAdDTO dto) {
         this.catalogueService.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<Void> updateAdvertisementById(@PathVariable("id") Long id,
-                                                        @RequestBody UpdateAdDTO dto) {
+                                                        @RequestBody @Valid UpdateAdDTO dto) {
         this.catalogueService.update(id, dto);
         return ResponseEntity.noContent().build();
     }

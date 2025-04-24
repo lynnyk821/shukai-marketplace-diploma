@@ -15,6 +15,9 @@ import java.util.List;
 public class AdvertisementDTO {
 
     @NotNull
+    private Long id;
+
+    @NotNull
     private String createdAt;
 
     @NotBlank(message = "Назва не може бути пуста")

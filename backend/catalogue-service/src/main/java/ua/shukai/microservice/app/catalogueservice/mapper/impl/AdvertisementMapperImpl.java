@@ -27,6 +27,7 @@ public class AdvertisementMapperImpl implements AdvertisementMapper {
         List<String> paymentMethods = this.entityMapper.toStringPaymentList(ad.getPaymentMethods());
 
         return AdvertisementDTO.builder()
+                .id(ad.getId())
                 .createdAt(ad.getCreatedAt().toString())
                 .name(ad.getName())
                 .price(ad.getPrice())

@@ -14,7 +14,7 @@ export default function ProductsGrid({text, products}: Props) {
                 {products.map((product: ProductItemProps, index) => (
                     <ProductItem
                         key={index}
-                        className={"w-full h-[21rem]"}
+                        className={"w-full h-72"}
                         product={product}
                         size={"md"}
                     />

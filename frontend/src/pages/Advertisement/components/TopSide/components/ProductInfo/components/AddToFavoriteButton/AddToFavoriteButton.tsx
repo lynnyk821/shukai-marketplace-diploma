@@ -5,7 +5,6 @@ type Props = {
     favorites: number,
 }
 
-
 export default function AddToFavoriteButton({favorites}: Props) {
     return (
         <AddToFavoriteButtonLayout>

@@ -1,17 +1,25 @@
 import {MyContainerProps} from "../../../../../types/help/my-container-props.ts";
 import {useNavigate} from "react-router-dom";
+import {TokenManager} from "../../../../../utils/helpers/tokenManager.ts";
 
 type Props = MyContainerProps & {
     text: string,
     href: string,
-    userId?: number,
 }
 
-export default function UserListItem({text, children, href, userId} : Props) {
+export default function UserListItem({ text, children, href } : Props) {
     const navigate = useNavigate();
 
     const handleOnClick = () => {
-        navigate(href);
+        if(href === "/logout") {
+            TokenManager.clearTokens();
+
+            sessionStorage.clear();
+
+            navigate("sign-in");
+        } else {
+            navigate(href);
+        }
     }
 
     return (

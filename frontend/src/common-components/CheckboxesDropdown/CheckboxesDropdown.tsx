@@ -1,5 +1,5 @@
 import CheckboxesDropdownLayout from "./CheckboxesDropdownLayout.tsx";
-import {MainTitle} from "../Titles/MainTitle/MainTitle.tsx";
+import {CommonTitle} from "../Titles/MainTitle/CommonTitle.tsx";
 import AnimateRotation from "../../utils/animations/AnimateRotation.tsx";
 import {Icon} from "@iconify/react";
 import {useState} from "react";
@@ -31,7 +31,7 @@ export default function CheckboxesDropdown({
                 className="w-full h-full flex text-left items-center"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <MainTitle text={title} />
+                <CommonTitle text={title} />
                 <AnimateRotation className={"ml-auto"} degree={180} isActive={isOpen}>
                     <Icon icon="iconamoon:arrow-down-2-bold" width={20} height={20} />
                 </AnimateRotation>

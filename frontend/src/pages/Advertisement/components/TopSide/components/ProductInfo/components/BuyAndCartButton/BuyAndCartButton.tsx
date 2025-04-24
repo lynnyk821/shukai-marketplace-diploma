@@ -1,12 +1,17 @@
 import BuyButton from "./components/BuyButton.tsx";
 import BuyAndCartButtonLayout from "./BuyAndCartButtonLayout.tsx";
 import AddToCartButton from "./components/AddToCartButton.tsx";
+import {AdvertisementProps} from "../../../../../../../../types/common/advertisement-props.ts";
 
-export default function BuyAndCartButton() {
+type Props = {
+    advertisement: AdvertisementProps;
+}
+
+export default function BuyAndCartButton({advertisement}: Props) {
     return (
         <BuyAndCartButtonLayout>
             <BuyButton />
-            <AddToCartButton />
+            <AddToCartButton advertisement={advertisement} />
         </BuyAndCartButtonLayout>
     );
 };
