@@ -1,7 +1,7 @@
 import ProductItemLayout from "./ProductItemLayout.tsx";
 import ProductImage from "./components/ProductImage.tsx";
 import ProductName from "./components/ProductName.tsx";
-import ProductDateAndFavoriteButton from "./components/ProductDateAndFavoriteButton.tsx";
+import FavoriteButton from "./components/FavoriteButton.tsx";
 import {useNavigateWithScrollBehavior} from "../../utils/hooks/useNavigateWithScrollBehavior.ts";
 import ProductPrice from "./components/ProductPrice.tsx";
 import noImage from "../../assets/jpg/no-image.jpg"
@@ -21,26 +21,24 @@ export default function ProductItem({ className, size, product }: Props) {
     }
 
     return (
-        <ProductItemLayout>
+        <ProductItemLayout className={className}>
             <button
-                className={`text-[#414141] hover:text-yellow-600 transition duration-200 ease-in-out ${className}`}
+                className={"h-5/6 flex flex-col gap-2 hover:text-yellow-600 transition duration-200 ease-in-out text-[#414141] ${className}"}
                 onClick={navigate}
             >
                 <ProductImage
                     image={handleImage(product.image)}
+                    size={size}
                 />
                 <ProductName
                     size={size}
                     name={product.name}
                 />
-                <ProductPrice
-                    size={size}
-                    price={product.price}
-                />
             </button>
-            {size !== "sm" &&
-                <ProductDateAndFavoriteButton date={product.date}/>
-            }
+            <div className={"w-full h-1/6 flex items-center "}>
+                <ProductPrice size={size} price={product.price}/>
+                {size !== "sm" && <FavoriteButton />}
+            </div>
         </ProductItemLayout>
     );
 };

@@ -1,4 +1,4 @@
-import {MainTitle} from "../../../../common-components/Titles/MainTitle/MainTitle.tsx";
+import {CommonTitle} from "../../../../common-components/Titles/MainTitle/CommonTitle.tsx";
 import Dropdown from "../../../../common-components/Dropdown/Dropdown.tsx";
 import TitleAndDropdownLayout from "./TitleAndDropdownLayout.tsx";
 import {useEffect, useState} from "react";
@@ -38,7 +38,7 @@ export default function TitleAndDropdown() {
 
     return (
         <TitleAndDropdownLayout>
-            <MainTitle text={"Результат пошуку"} size={"2xl"} />
+            <CommonTitle text={"Результат пошуку"} size={"2xl"} />
             <div className={"h-full bg-amber ml-auto"}>
                 <Dropdown
                     size={16}

@@ -1,13 +1,15 @@
 import RecentlyWatchedLayout from "./RecentlyWatchedLayout.tsx";
-import {PRODUCT_ITEMS} from "../../../../globals-env.ts";
 import ProductItem from "../../../../common-components/ProductItem/ProductItem.tsx";
+import {useRecentlyWatched} from "../../../../utils/hooks/useRecentlyWatchedAds.ts";
 
 export function RecentlyWatched() {
+    const {items} = useRecentlyWatched();
+
     return (
         <RecentlyWatchedLayout>
-            {PRODUCT_ITEMS.slice(0, 6).map((product) => (
+            {items.map((product) => (
                 <ProductItem
-                    className={"w-full h-72 text-[#414141] hover:text-yellow-600"}
+                    className={"w-full h-52 text-[#414141] hover:text-yellow-600"}
                     product={product}
                     size={"sm"}
                 />

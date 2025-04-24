@@ -19,8 +19,7 @@ export default function BigProductPicture({ data, currentIndex, setCurrentIndex 
     };
 
     return (
-        <div className="w-full flex-1 relative flex items-center bg-[#eee] rounded-xl overflow-hidden">
-            {/* Кнопка для предыдущего изображения */}
+        <div className="h-[40rem] w-full relative flex items-center border border-solid border-[#414141] border-opacity-20 rounded-lg overflow-hidden">
             <button
                 className="w-10 h-10 text-[#414141] rounded-xl absolute flex items-center justify-center left-2 bg-[#eee] z-10"
                 onClick={handlePrev}
@@ -29,15 +28,16 @@ export default function BigProductPicture({ data, currentIndex, setCurrentIndex 
             </button>
 
             {/* Анимационный контейнер */}
-            <div className="w-full h-full flex items-center justify-center">
-                <img
-                    className={"object-cover"}
-                    src={data[currentIndex]}
-                    alt={String(currentIndex)}
-                />
+            <div className="w-full h-full centered">
+                <div className={"w-5/6 h-5/6  centered"}>
+                    <img
+                        className={"object-cover"}
+                        src={data[currentIndex]}
+                        alt={String(currentIndex)}
+                    />
+                </div>
             </div>
 
-            {/* Кнопка для следующего изображения */}
             <button
                 className="w-10 h-10 text-[#414141] rounded-xl absolute flex items-center justify-center right-2 bg-[#eee] z-10"
                 onClick={handleNext}

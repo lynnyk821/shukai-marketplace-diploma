@@ -1,5 +1,5 @@
 import PriceFilterLayout from "./PriceFilterLayout.tsx";
-import {MainTitle} from "../../../../../common-components/Titles/MainTitle/MainTitle.tsx";
+import {CommonTitle} from "../../../../../common-components/Titles/MainTitle/CommonTitle.tsx";
 import AnimateRotation from "../../../../../utils/animations/AnimateRotation.tsx";
 import {Icon} from "@iconify/react";
 import {useEffect, useState} from "react";
@@ -38,7 +38,7 @@ export default function PriceFilter() {
     return (
         <PriceFilterLayout>
             <button className="w-full h-full flex text-left" onClick={() => setIsActive(!isActive)}>
-                <MainTitle text="Ціна" />
+                <CommonTitle text="Ціна" />
                 <div className="h-full centered ml-auto">
                     <AnimateRotation degree={180} isActive={isActive}>
                         <Icon icon="iconamoon:arrow-down-2-bold" width={20} height={20}/>

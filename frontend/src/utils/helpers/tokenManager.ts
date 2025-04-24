@@ -11,15 +11,16 @@ export class TokenManager {
     }
 
     static setAccessToken(accessToken: string): void {
-        localStorage.setItem(this.ACCESS_TOKEN_KEY, accessToken);
+        localStorage.setItem(this.ACCESS_TOKEN_KEY, this.encrypt(accessToken));
+    }
+
+    static setRefreshToken(refreshToken: string): void {
+        localStorage.setItem(this.REFRESH_TOKEN_KEY, this.encrypt(refreshToken));
     }
 
     static setTokens(accessToken: string, refreshToken: string): void {
-        const encryptedAccess = this.encrypt(accessToken);
-        const encryptedRefresh = this.encrypt(refreshToken);
-
-        localStorage.setItem(this.ACCESS_TOKEN_KEY, encryptedAccess);
-        localStorage.setItem(this.REFRESH_TOKEN_KEY, encryptedRefresh);
+        this.setAccessToken(accessToken);
+        this.setRefreshToken(refreshToken);
     }
 
     static getAccessToken(): string | null {
@@ -35,6 +36,10 @@ export class TokenManager {
     static clearTokens(): void {
         localStorage.removeItem(this.ACCESS_TOKEN_KEY);
         localStorage.removeItem(this.REFRESH_TOKEN_KEY);
+    }
+
+    static getState(): string {
+        return
     }
 
     static hasTokens(): boolean {

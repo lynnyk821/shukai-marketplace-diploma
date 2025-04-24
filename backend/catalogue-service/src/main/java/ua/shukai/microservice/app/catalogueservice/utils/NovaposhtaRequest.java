@@ -29,30 +29,4 @@ public class NovaposhtaRequest {
                 }
                 """, this.apiKey, city);
     }
-
-    /**
-     * Генерує рядок JSON запиту для отримання складів за посиланням на місто.
-     *
-     * @param cityRef ідентифікатор посилання на місто, для якого потрібно отримати склади.
-     * @return рядок у форматі JSON, що містить запит для API Novaposhta.
-     */
-    public String getWarehousesByCityRef(String cityRef) {
-        return String.format("""
-                {
-                   "apiKey": "%s",
-                   "modelName": "AddressGeneral",
-                   "calledMethod": "getWarehouses",
-                   "methodProperties": {
-                        "FindByString" : "",
-                        "CityName" : "",
-                        "CityRef" : "%s",
-                        "Page" : "1",
-                        "Limit" : "",
-                        "Language" : "UA",
-                        "TypeOfWarehouseRef" : "",
-                        "WarehouseId" : ""
-                   }
-                }
-                """, this.apiKey, cityRef);
-    }
 }

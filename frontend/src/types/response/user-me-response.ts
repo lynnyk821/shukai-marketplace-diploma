@@ -1,4 +1,4 @@
-export type MeResponse = {
+export type UserMeResponse = {
     id: number,
     image: string,
 }

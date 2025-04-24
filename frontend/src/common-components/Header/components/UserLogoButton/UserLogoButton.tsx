@@ -4,7 +4,7 @@ import AnimateRotation from "../../../../utils/animations/AnimateRotation.tsx";
 import UserLogoButtonLayout from "./UserLogoButtonLayout.tsx";
 import DropdownUserList from "./components/DropdownUserList.tsx";
 import {useClickOutside} from "../../../../utils/hooks/useClickOutside.ts";
-import {MeResponse} from "../../../../types/response/me-response.ts";
+import {UserMeResponse} from "../../../../types/response/user-me-response.ts";
 import blankProfile from "../../../../assets/png/blank-profile3.png";
 import {axiosInstance} from "../../../../utils/axios/interceptors.ts";
 import {TokenManager} from "../../../../utils/helpers/tokenManager.ts";
@@ -12,8 +12,8 @@ import {useNavigate} from "react-router-dom";
 
 export default function UserLogoButton() {
     const [isActive, setIsActive] = useState<boolean>(false);
-    const [me, setMe] = useState<MeResponse | null>(null);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [me, setMe] = useState<UserMeResponse | null>(null);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const dropdownRef = useClickOutside<HTMLUListElement>(() => {
@@ -23,11 +23,9 @@ export default function UserLogoButton() {
     useEffect(() => {
         const fetchMeData = async () => {
             try {
-                const token = TokenManager.getAccessToken()
-
                 const response = await axiosInstance.get('/user-service/api/user/me', {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        Authorization: `Bearer ${TokenManager.getAccessToken()}`
                     }
                 });
 
@@ -37,6 +35,7 @@ export default function UserLogoButton() {
                 setIsAuthenticated(false);
             }
         };
+
         fetchMeData();
     }, []);
     

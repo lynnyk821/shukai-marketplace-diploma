@@ -1,5 +1,5 @@
 // @flow
-import {MainTitle} from "../../../../../../common-components/Titles/MainTitle/MainTitle.tsx";
+import {CommonTitle} from "../../../../../../common-components/Titles/MainTitle/CommonTitle.tsx";
 import AnimateRotation from "../../../../../../utils/animations/AnimateRotation.tsx";
 import {Icon} from "@iconify/react";
 
@@ -15,7 +15,7 @@ export default function RegionFilterHeader({title, isActive, onToggle}: Props) {
             className="w-full h-fit flex text-left items-center"
             onClick={onToggle}
         >
-            <MainTitle text={title} />
+            <CommonTitle text={title} />
             <AnimateRotation
                 className="ml-auto"
                 degree={180}

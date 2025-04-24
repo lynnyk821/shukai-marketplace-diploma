@@ -4,13 +4,15 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import ua.shukai.microservice.app.catalogueservice.controller.region.dto.RegionDTO;
 
 import java.util.List;
 
+@Builder
 @Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UpdateAdDTO {
 
     @NotBlank(message = "Назва не може бути пуста")

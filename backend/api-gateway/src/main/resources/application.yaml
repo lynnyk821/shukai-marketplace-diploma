@@ -15,7 +15,7 @@ spring:
               - POST
               - PUT
               - DELETE
-              - OPTIONS  # Додайте OPTIONS для preflight-запитів
+              - OPTIONS
             allowedHeaders: "*"
             allowCredentials: true
             maxAge: 3600  # Час кешування preflight-запитів

@@ -13,8 +13,11 @@ axiosInstance.interceptors.response.use(response => response, async error => {
     if (error.response?.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
 
+        console.log("First Access: " + TokenManager.getAccessToken())
+        console.log("First Refresh: " + TokenManager.getRefreshToken())
+
         try {
-            const { data } = await axios.post(`${BACKEND_URL}/user-service/api/auth/refresh`, {
+            const { data } = await axios.post(`${BACKEND_URL}/user-service/api/auth/refresh`, null, {
                 headers: {
                     Authorization: `Bearer ${TokenManager.getRefreshToken()}`
                 }
@@ -22,18 +25,14 @@ axiosInstance.interceptors.response.use(response => response, async error => {
 
             TokenManager.setAccessToken(data.accessToken);
 
+            console.log("Second: " + TokenManager.getAccessToken())
+
             originalRequest.headers['Authorization'] = `Bearer ${data.accessToken}`;
+
+            console.log(`Bearer ${data.accessToken}`)
 
             return axiosInstance(originalRequest);
         } catch (refreshError) {
-            TokenManager.clearTokens();
-
-            sessionStorage.clear();
-
-            window.location.href = '/sign-in';
-
-            console.log(refreshError);
-
             return Promise.reject(refreshError);
         }
     }

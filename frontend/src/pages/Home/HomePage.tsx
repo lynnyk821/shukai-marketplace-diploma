@@ -17,7 +17,6 @@ export function HomePage() {
             .then((response) => response.json())
             .then((data) => setHomeResponse(data as HomeResponse))
             .catch((error) => console.error("Помилка завантаження даних:", error));
-        console.log(homeResponse)
     }, [])
 
     return (

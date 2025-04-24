@@ -6,7 +6,7 @@ type Props = {
 
 export default function ProductPicturesList({ data, currentIndex, setCurrentIndex }: Props) {
     return (
-        <ul className={"grid grid-cols-8 h-fit gap-x-2"}>
+        <ul className={"grid grid-cols-8 h-20 gap-x-2 my-5"}>
             {data.map((item, index) => (
                 <button
                     key={index}
