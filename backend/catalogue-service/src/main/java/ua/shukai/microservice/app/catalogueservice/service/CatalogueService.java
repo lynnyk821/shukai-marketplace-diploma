@@ -5,11 +5,13 @@ import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.GetA
 import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdDTO;
 
 public interface CatalogueService {
-    GetAdDTO findById(Long id);
+    GetAdDTO findByIdAdvertisementWithStatusApproved(String uuid);
 
-    void create(CreateAdDTO dto);
+    void saveAdWithPendingStatusAndPublishItForReview(CreateAdDTO dto);
 
-    void update(Long id, UpdateAdDTO advertisement);
+    void updateStatusAndPublish(String uuid);
 
-    void deleteById(Long id);
+    void updateAdvertisementAndPublishToReview(String uuid, UpdateAdDTO advertisement);
+
+    void deleteById(String uuid);
 }

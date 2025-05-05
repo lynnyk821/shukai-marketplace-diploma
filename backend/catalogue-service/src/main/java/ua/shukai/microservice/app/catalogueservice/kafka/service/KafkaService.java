@@ -3,9 +3,11 @@ package ua.shukai.microservice.app.catalogueservice.kafka.service;
 import ua.shukai.microservice.app.catalogueservice.database.entity.AdvertisementEntity;
 
 public interface KafkaService {
-    void sendKafkaCreateAd(AdvertisementEntity ad);
+    void publishCreateAdAfterApproved(AdvertisementEntity ad);
 
-    void sendKafkaUpdateAd(AdvertisementEntity ad);
+    void publishAdToUpdate(AdvertisementEntity ad);
 
-    void sendKafkaDeleteAd(AdvertisementEntity ad);
+    void publishAdUuidToDelete(String uuid);
+
+    void publishAdToReview(AdvertisementEntity ad);
 }

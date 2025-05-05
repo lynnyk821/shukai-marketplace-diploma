@@ -5,15 +5,19 @@ import SubmitButton from "../../common-components/Buttons/SubmitButton/SubmitBut
 import {convertToBase64} from "../../utils/helpers/helpers.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {newAdSchema} from "../../utils/schemas/new-ad-schema.ts";
-import {NewProductName} from "./components/NewProductName/NewProductName.tsx";
+import {NewProductTitle} from "./components/NewProductName/NewProductTitle.tsx";
 import NewProductCategory from "./components/NewProductCategory/NewProductCategory.tsx";
 import AdRegion from "./components/NewAdRegion/AdRegion.tsx";
 import NewProductDescription from "./components/NewProductDescription/NewProductDescription.tsx";
 import {NewAdPrice} from "./components/NewAdPrice/NewAdPrice.tsx";
 import {CreateAdRequest} from "../../types/request/create-ad-request.ts";
 import axios from "axios";
+import {BACKEND_URL} from "../../globals-env.ts";
+import {useNavigate} from "react-router-dom";
 
 export default function NewAdvertisementPage() {
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -24,7 +28,7 @@ export default function NewAdvertisementPage() {
     } = useForm<CreateAdRequest>({
         resolver: zodResolver(newAdSchema),
         defaultValues: {
-            name: "",
+            title: "",
             categoryId: 0,
             price: 0,
             images: Array(9).fill(""),
@@ -57,7 +61,9 @@ export default function NewAdvertisementPage() {
         body: CreateAdRequest,
     ) => {
         try {
-            await axios.post("http://localhost:8080/catalogue-service/api/catalogue", body);
+            await axios.post(`${BACKEND_URL}/catalogue-service/api/catalogue`, body);
+            navigate("/home")
+            console.log(body)
         } catch (error) {
             console.log(body)
             console.error("POST error:", error);
@@ -77,9 +83,9 @@ export default function NewAdvertisementPage() {
                     error={errors.images?.message}
                 />
 
-                <NewProductName
+                <NewProductTitle
                     register={register}
-                    error={errors.name?.message}
+                    error={errors.title?.message}
                 />
 
                 <NewProductCategory

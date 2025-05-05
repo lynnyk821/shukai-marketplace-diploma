@@ -22,10 +22,9 @@ public class CatalogueServiceImpl implements CatalogueService {
     private final AdvertisementMapper advertisementMapper;
     private final AdvertisementService advertisementService;
 
-    @Override
     @Transactional(readOnly = true)
-    public GetAdDTO findById(Long id) {
-        AdvertisementEntity advertisement = this.advertisementService.findByIdOrThrow(id);
+    public GetAdDTO findByIdAdvertisementWithStatusApproved(String uuid) {
+        AdvertisementEntity advertisement = this.advertisementService.findByIdOrThrow(uuid);
         AdvertisementDTO advertisementDTO = this.advertisementMapper.mapToAdDTO(advertisement);
 
         List<AdvertisementEntity> moreAds = this.advertisementService.findMoreById(advertisement.getUser().getId());
@@ -35,21 +34,27 @@ public class CatalogueServiceImpl implements CatalogueService {
     }
 
     @Override
-    public void create(CreateAdDTO dto) {
-        AdvertisementEntity ad = this.advertisementService.create(dto);
-        this.kafkaService.sendKafkaCreateAd(ad);
+    public void saveAdWithPendingStatusAndPublishItForReview(CreateAdDTO dto) {
+        AdvertisementEntity advertisement = this.advertisementService.saveBeforeApprovalWithPendingStatus(dto);
+        this.kafkaService.publishAdToReview(advertisement);
     }
 
     @Override
-    public void update(Long id, UpdateAdDTO dto) {
-        AdvertisementEntity ad = this.advertisementService.update(id, dto);
-        this.kafkaService.sendKafkaUpdateAd(ad);
+    public void updateStatusAndPublish(String uuid) {
+        AdvertisementEntity ad = this.advertisementService.updateStatusAndPublish(uuid);
+        this.kafkaService.publishCreateAdAfterApproved(ad);
     }
 
     @Override
-    public void deleteById(Long id) {
-        AdvertisementEntity ad = this.advertisementService.deleteById(id);
-        this.kafkaService.sendKafkaDeleteAd(ad);
+    public void updateAdvertisementAndPublishToReview(String uuid, UpdateAdDTO dto) {
+        AdvertisementEntity ad = this.advertisementService.updateAdvertisementAndChangeStatusToPending(uuid, dto);
+        this.kafkaService.publishAdToUpdate(ad);
+    }
+
+    @Override
+    public void deleteById(String uuid) {
+        AdvertisementEntity ad = this.advertisementService.deleteById(uuid);
+        this.kafkaService.publishAdUuidToDelete(ad.getUuid());
     }
 
     private GetAdDTO buildGetResponse(AdvertisementDTO dto, List<GetAdDTO.MoreAd> moreAds) {

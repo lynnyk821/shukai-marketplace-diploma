@@ -14,13 +14,18 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, updatable = false)
+    private String id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity user;
+    @JoinColumn(name = "customer_id", nullable = false)
+    private UserEntity customer;
+
+    @ManyToOne
+    @JoinColumn(name = "seller_id", nullable = false)
+    private UserEntity seller;
 
     @ManyToOne
     @JoinColumn(name = "ad_id", nullable = false)

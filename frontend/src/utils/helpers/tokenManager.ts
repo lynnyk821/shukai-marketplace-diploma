@@ -37,12 +37,4 @@ export class TokenManager {
         localStorage.removeItem(this.ACCESS_TOKEN_KEY);
         localStorage.removeItem(this.REFRESH_TOKEN_KEY);
     }
-
-    static getState(): string {
-        return
-    }
-
-    static hasTokens(): boolean {
-        return !!this.getAccessToken() && !!this.getRefreshToken();
-    }
 }

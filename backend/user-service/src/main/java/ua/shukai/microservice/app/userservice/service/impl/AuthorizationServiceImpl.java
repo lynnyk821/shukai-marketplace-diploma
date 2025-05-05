@@ -6,10 +6,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 import ua.shukai.microservice.app.userservice.builder.ResponseBuilder;
-import ua.shukai.microservice.app.userservice.controller.request.RecoveryRequest;
-import ua.shukai.microservice.app.userservice.controller.request.SignInRequest;
-import ua.shukai.microservice.app.userservice.controller.request.SignUpRequest;
-import ua.shukai.microservice.app.userservice.controller.response.JwtAuthenticationResponse;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.RecoveryRequest;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.SignInRequest;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.SignUpRequest;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.JwtAuthenticationResponse;
 import ua.shukai.microservice.app.userservice.database.entity.UserEntity;
 import ua.shukai.microservice.app.userservice.exception.custom.EntityAlreadyExistException;
 import ua.shukai.microservice.app.userservice.jwt.JwtService;
@@ -30,11 +30,9 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     @Override
     public JwtAuthenticationResponse signIn(@NonNull SignInRequest request) {
         UserEntity user = this.userService.findByEmailOrThrow(request.getEmail());
-
         authenticate(user.getUsername(), request.getPassword());
 
         JwtTokens tokens = this.jwtService.generateTokens(user.getUsername());
-
         return this.responseBuilder.buildAuthResponse(tokens);
     }
 
@@ -48,7 +46,6 @@ public class AuthorizationServiceImpl implements AuthorizationService {
         this.kafkaService.sendSignUpEvent(user);
 
         JwtTokens tokens = this.jwtService.generateTokens(user.getUsername());
-
         return this.responseBuilder.buildAuthResponse(tokens);
     }
 

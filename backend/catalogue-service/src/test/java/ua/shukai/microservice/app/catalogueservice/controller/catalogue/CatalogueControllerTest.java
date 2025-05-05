@@ -31,42 +31,42 @@ class CatalogueControllerTest {
 
     @Test
     void testGetAdvertisementById() {
-        Long id = 1L;
+        String uuid = "uuid-1";
         GetAdDTO dto = new GetAdDTO();
-        when(catalogueService.findById(id)).thenReturn(dto);
+        when(catalogueService.findByIdAdvertisementWithStatusApproved(uuid)).thenReturn(dto);
 
-        ResponseEntity<GetAdDTO> response = catalogueController.getAdvertisementById(id);
+        ResponseEntity<GetAdDTO> response = catalogueController.getAdvertisementById(uuid);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(dto, response.getBody());
-        verify(catalogueService).findById(id);
+        verify(catalogueService).findByIdAdvertisementWithStatusApproved(uuid);
     }
 
     @Test
     void testCreateNewAdvertisement() {
         CreateAdDTO dto = new CreateAdDTO();
 
-        ResponseEntity<CreateAdDTO> response = catalogueController.createNewAdvertisement(dto);
+        ResponseEntity<CreateAdDTO> response = catalogueController.saveBeforeApprovalWithPendingStatus(dto);
 
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(dto, response.getBody());
-        verify(catalogueService).create(dto);
+        verify(catalogueService).saveAdWithPendingStatusAndPublishItForReview(dto);
     }
 
     @Test
     void testUpdateAdvertisementById() {
-        Long id = 1L;
+        String uuid = "uuid-1";
         UpdateAdDTO dto = new UpdateAdDTO();
 
-        ResponseEntity<Void> response = catalogueController.updateAdvertisementById(id, dto);
+        ResponseEntity<Void> response = catalogueController.updateAdvertisementById(uuid, dto);
 
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
-        verify(catalogueService).update(id, dto);
+        verify(catalogueService).updateAdvertisementAndPublishToReview(uuid, dto);
     }
 
     @Test
     void testDeleteAdvertisementById() {
-        Long id = 1L;
+        String id = "1L";
 
         ResponseEntity<Void> response = catalogueController.deleteAdvertisementById(id);
 

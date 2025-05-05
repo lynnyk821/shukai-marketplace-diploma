@@ -2,8 +2,6 @@ package ua.shukai.microservice.app.userservice.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import ua.shukai.microservice.app.userservice.utils.PasswordEncoderHolder;
 
 import java.sql.Timestamp;
 
@@ -35,6 +33,9 @@ public class UserEntity {
 
     @ManyToOne
     @JoinColumn(name = "image_id")
-    private ImageEntity image;
+    private UserImageEntity image;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private UserRoleEntity role;
 }

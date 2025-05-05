@@ -4,7 +4,7 @@ import {CategoryProps} from "./category-props.ts";
 
 export type AdvertisementProps = {
     id: number,
-    name: string,
+    title: string,
     createdAt: Date,
     price: number,
     description: string,

@@ -21,6 +21,8 @@ export function CitySelector({ setSelectedCity, setCityRef }: Props) {
     const [searchTerm, setSearchTerm] = useState("");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [hasInitialSearch, setHasInitialSearch] = useState(false);
+
+    // @ts-ignore
     const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null);
 
     const searchCities = useCallback(async (term: string) => {

@@ -12,8 +12,9 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Long id;
 
     @Column(nullable = false)
@@ -26,7 +27,4 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String phoneNumber;
-
-    @Column(nullable = false)
-    private Long userId;
 }

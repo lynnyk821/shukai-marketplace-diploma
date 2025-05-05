@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import {Resolver, useForm} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import OrderPageLayout from "./OrderPageLayout.tsx";
 import { CommonTitle } from "../../common-components/Titles/MainTitle/CommonTitle.tsx";
@@ -9,51 +9,57 @@ import ContactInfo from "./components/ContactInfo/ContactInfo.tsx";
 import RightPanelWithDetails from "./components/RightPanelWithDetails/RightPanelWithDetails.tsx";
 import { orderSchema } from "../../utils/schemas/order-schema.ts";
 import {useLocation} from "react-router-dom";
-import {OrderRequest} from "../../types/request/order-request.ts";
 import {useEffect} from "react";
+import OrderSubmitButton from "./components/Submit/OrderSubmitButton.tsx";
+import {CartItemProps} from "../../types/common/cart-item-props.ts";
+import {useAppStore} from "../../utils/hooks/useAppStore.ts";
+import {OrderRequest} from "../../types/request/order-request.ts";
 
 export function OrderPage() {
     const location = useLocation();
     const { item } = location.state || {};
+    const { userMe } = useAppStore();
 
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm<OrderRequest>({
-        resolver: zodResolver(orderSchema),
+    const { register, setValue, handleSubmit, formState } = useForm<OrderRequest>({
+        resolver: zodResolver(orderSchema) as Resolver<OrderRequest>,
         defaultValues: {
-            userInfo: {
+            seller: {
+                id: userMe?.id || 0,
+                name: item?.sellerName || ""
+            },
+            customer: {
                 firstName: "",
-                lastName: "Линник",
-                middleName: "Ігорович",
+                lastName: "",
+                middleName: "",
                 phoneNumber: ""
             },
-            adInfo: {
-                sellerName: item?.sellerName || "",
-                adName: item?.name || "",
-                price: item?.price || 0,
-            },
-            paymentMethod: "safe",
-            deliveryMethod: {
-                service: "novaposhta",
+            delivery: {
+                service: "",
                 city: "",
                 warehouse: ""
+            },
+            advertisement: {
+                title: item?.name || "",
+                image: item?.image || "",
+                price: item?.price || 0,
+                paymentMethod: "safe"
             }
-        }
+        },
     });
 
     useEffect(() => {
-        if (item) {
-            setValue("adInfo.sellerName", item.sellerName);
-            setValue("adInfo.adName", item.name);
-            setValue("adInfo.price", item.price);
+        const tItem = item as CartItemProps
 
-            setValue("deliveryMethod.service", "novaposhta");
-            setValue("deliveryMethod.city", "Черкаси");
-            setValue("deliveryMethod.warehouse", "Відділення 12, вул. Молоткова 20");
+        if (tItem) {
+            setValue("seller.name", item.sellerName);
+            setValue("advertisement.title", item.name);
+            setValue("advertisement.price", item.price);
+            setValue("advertisement.image", item.image);
         }
     }, [item, setValue]);
 
     const onSubmit = (data: OrderRequest) => {
-        console.log("Форма відправлена:", data);
-        console.log("hui")
+        console.log(data)
     };
 
     return (
@@ -62,24 +68,30 @@ export function OrderPage() {
                 className="w-3/4 h-full space-y-6"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <CommonTitle size="2xl" text="Оформлення замовлення" />
-                <AdvertisementInfo seller={"Yaroslav"} adName={"ZARA Дублянка, куртка байкерська з овчини"} />
-                <DeliveryMethod register={register} />
-                <PaymentMethod register={register} />
-                <ContactInfo register={register} errors={errors} />
-
-                <button
-                    type="submit"
-                    className="bg-black text-white p-4 w-full rounded font-inter font-bold hover:bg-gray-800"
-                >
+                <CommonTitle
+                    size="2xl"
+                    text="Оформлення замовлення"
+                />
+                <AdvertisementInfo
+                    seller={item?.sellerName}
+                    adName={item?.name}
+                />
+                <DeliveryMethod
+                    register={register}
+                    setValue={setValue}
+                />
+                <PaymentMethod
+                    register={register}
+                />
+                <ContactInfo
+                    register={register}
+                    errors={formState.errors}
+                />
+                <OrderSubmitButton>
                     Оформити замовлення
-                </button>
-
-                <p className="text-sm text-center text-gray-600 font-inter">
-                    Натискаючи «Оформити замовлення», я погоджуюсь з Публічним договором
-                </p>
+                </OrderSubmitButton>
             </form>
-            <RightPanelWithDetails />
+            <RightPanelWithDetails price={item?.price} />
         </OrderPageLayout>
     );
 }

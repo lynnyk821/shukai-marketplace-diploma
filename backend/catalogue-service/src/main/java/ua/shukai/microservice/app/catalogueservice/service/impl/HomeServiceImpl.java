@@ -11,6 +11,7 @@ import ua.shukai.microservice.app.catalogueservice.controller.home.dto.GetHomeAd
 import ua.shukai.microservice.app.catalogueservice.database.repository.AdvertisementRepository;
 import ua.shukai.microservice.app.catalogueservice.mapper.AdvertisementMapper;
 import ua.shukai.microservice.app.catalogueservice.service.HomeService;
+import ua.shukai.microservice.app.catalogueservice.types.AdvertisementStatus;
 
 import java.util.List;
 
@@ -21,14 +22,14 @@ public class HomeServiceImpl implements HomeService {
     private final AdvertisementMapper advertisementMapper;
     private final AdvertisementRepository advertisementRepository;
 
-    @Value("${home.advertisements.clothes.category}")
-    private String clothesCategoryName;
+    @Value("${home.advertisements.categories.first}")
+    private String firstCategoryName;
 
-    @Value("${home.advertisements.autoGoods.category}")
-    private String autoGoodsCategoryName;
+    @Value("${home.advertisements.categories.second}")
+    private String secondCategoryName;
 
-    @Value("${home.advertisements.electronics.category}")
-    private String electronicsCategoryName;
+    @Value("${home.advertisements.categories.third}")
+    private String thirdCategoryName;
 
     @Override
     public GetHomeAdsDTO getHomeAdvertisements() {
@@ -36,22 +37,22 @@ public class HomeServiceImpl implements HomeService {
 
         return GetHomeAdsDTO.builder()
                 .newAdvertisements(findAll(pageable))
-                .clothesAdvertisements(getAdsByCategoryName(clothesCategoryName, pageable))
-                .autoGoodAdvertisements(getAdsByCategoryName(autoGoodsCategoryName, pageable))
-                .electronicAdvertisements(getAdsByCategoryName(electronicsCategoryName, pageable))
+                .clothesAdvertisements(getAdsByCategoryName(firstCategoryName, pageable))
+                .autoGoodAdvertisements(getAdsByCategoryName(secondCategoryName, pageable))
+                .electronicAdvertisements(getAdsByCategoryName(thirdCategoryName, pageable))
         .build();
     }
 
     private List<GetHomeAdsDTO.AdHome> findAll(Pageable pageable) {
         return this.advertisementRepository
-                .findAll(pageable)
+                .findAllByStatus(AdvertisementStatus.APPROVED, pageable)
                 .map(this.advertisementMapper::mapAdHome)
                 .toList();
     }
 
     private List<GetHomeAdsDTO.AdHome> getAdsByCategoryName(String categoryName, Pageable pageable) {
         return this.advertisementRepository
-                .findAllByCategory_Name(categoryName, pageable)
+                .findAllByStatusAndCategory_Name(AdvertisementStatus.APPROVED, categoryName, pageable)
                 .map(this.advertisementMapper::mapAdHome)
                 .toList();
     }

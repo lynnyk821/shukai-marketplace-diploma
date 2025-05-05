@@ -23,4 +23,13 @@ public class KafkaServiceImpl implements KafkaService {
         );
     }
 
+    @Override
+    public void publishApprovedAdvertisement(String uuid) {
+        this.kafkaProducer.send("advertisement_approved", uuid);
+    }
+
+    @Override
+    public void publishRejectedAdvertisement(String uuid) {
+        this.kafkaProducer.send("advertisement_rejected", uuid);
+    }
 }

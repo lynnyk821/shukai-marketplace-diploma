@@ -1,8 +1,10 @@
 import {CommonTitle} from "../../../../common-components/Titles/MainTitle/CommonTitle.tsx";
+import {FieldErrors, UseFormRegister} from "react-hook-form";
+import {OrderRequest} from "../../../../types/request/order-request.ts";
 
 type Props = {
-    register: any,
-    errors: any,
+    register: UseFormRegister<OrderRequest>,
+    errors: FieldErrors<OrderRequest>,
 };
 
 export default function ContactInfo({register, errors}: Props) {
@@ -13,23 +15,27 @@ export default function ContactInfo({register, errors}: Props) {
                 <div>
                     <label className="block text-sm mb-1">Прізвище*</label>
                     <input
-                        {...register("lastName")}
+                        {...register("customer.lastName")}
                         className="border p-2 w-full rounded"
                     />
-                    {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName.message}</p>}
+                    {errors.customer?.lastName && (
+                        <p className="text-red-500 text-sm">{errors.customer.lastName.message}</p>
+                    )}
                 </div>
                 <div>
                     <label className="block text-sm mb-1">Ім'я*</label>
                     <input
-                        {...register("firstName")}
+                        {...register("customer.firstName")}
                         className="border p-2 w-full rounded"
                     />
-                    {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName.message}</p>}
+                    {errors.customer?.firstName && (
+                        <p className="text-red-500 text-sm">{errors.customer.firstName.message}</p>
+                    )}
                 </div>
                 <div>
                     <label className="block text-sm mb-1">По батькові</label>
                     <input
-                        {...register("middleName")}
+                        {...register("customer.middleName")}
                         className="border p-2 w-full rounded"
                     />
                 </div>
@@ -38,10 +44,12 @@ export default function ContactInfo({register, errors}: Props) {
             <div className="w-full">
                 <label className="block text-sm mb-1">Телефон*</label>
                 <input
-                    {...register("phone")}
+                    {...register("customer.phoneNumber")}
                     className="border p-2 w-full rounded"
                 />
-                {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
+                {errors.customer?.phoneNumber && (
+                    <p className="text-red-500 text-sm">{errors.customer.phoneNumber.message}</p>
+                )}
             </div>
         </div>
     );

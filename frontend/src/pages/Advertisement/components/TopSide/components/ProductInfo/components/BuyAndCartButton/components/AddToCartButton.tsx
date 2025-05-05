@@ -12,9 +12,11 @@ export default function AddToCartButton({ advertisement }: Props) {
     const handleAddToCart = () => {
         const data: CartItemProps = {
             id: advertisement.id,
-            name: advertisement.name,
+            name: advertisement.title,
             price: advertisement.price,
             image: advertisement.images[0],
+            sellerName: advertisement.user.name,
+            paymentMethods: advertisement.paymentMethods,
             quantity: 1
         }
 

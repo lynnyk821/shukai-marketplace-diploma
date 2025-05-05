@@ -15,7 +15,7 @@ export default function ProductInfo({advertisement}: Props) {
     return (
         <ProductInfoLayout>
             <DateInfo date={advertisement.createdAt} />
-            <ProductName name={advertisement.name} />
+            <ProductName name={advertisement.title} />
             <PriceButton price={advertisement.price} />
             <BuyAndCartButton advertisement={advertisement} />
             <AddToFavoriteButton favorites={advertisement.favoritesCount} />

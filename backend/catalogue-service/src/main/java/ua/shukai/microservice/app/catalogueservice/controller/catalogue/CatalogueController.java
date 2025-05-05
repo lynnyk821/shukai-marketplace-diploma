@@ -2,7 +2,6 @@ package ua.shukai.microservice.app.catalogueservice.controller.catalogue;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdDTO;
@@ -16,28 +15,28 @@ import ua.shukai.microservice.app.catalogueservice.service.CatalogueService;
 public class CatalogueController {
     private final CatalogueService catalogueService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<GetAdDTO> getAdvertisementById(@PathVariable("id") Long id) {
-        GetAdDTO dto = this.catalogueService.findById(id);
+    @GetMapping("/{uuid}")
+    public ResponseEntity<GetAdDTO> getAdvertisementById(@PathVariable String uuid) {
+        GetAdDTO dto = this.catalogueService.findByIdAdvertisementWithStatusApproved(uuid);
         return ResponseEntity.ok().body(dto);
     }
 
     @PostMapping
-    public ResponseEntity<CreateAdDTO> createNewAdvertisement(@RequestBody @Valid CreateAdDTO dto) {
-        this.catalogueService.create(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+    public ResponseEntity<CreateAdDTO> saveBeforeApprovalWithPendingStatus(@RequestBody @Valid CreateAdDTO dto) {
+        this.catalogueService.saveAdWithPendingStatusAndPublishItForReview(dto);
+        return ResponseEntity.ok().body(dto);
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<Void> updateAdvertisementById(@PathVariable("id") Long id,
+    @PatchMapping("/{uuid}")
+    public ResponseEntity<Void> updateAdvertisementById(@PathVariable String uuid,
                                                         @RequestBody @Valid UpdateAdDTO dto) {
-        this.catalogueService.update(id, dto);
+        this.catalogueService.updateAdvertisementAndPublishToReview(uuid, dto);
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAdvertisementById(@PathVariable("id") Long id) {
-        this.catalogueService.deleteById(id);
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<Void> deleteAdvertisementById(@PathVariable String uuid) {
+        this.catalogueService.deleteById(uuid);
         return ResponseEntity.noContent().build();
     }
 }

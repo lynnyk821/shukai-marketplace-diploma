@@ -7,15 +7,17 @@ import ua.shukai.microservice.app.catalogueservice.database.entity.*;
 import java.util.List;
 
 public interface AdvertisementService {
-    AdvertisementEntity findByIdOrThrow(Long id);
+    AdvertisementEntity findByIdOrThrow(String uuid);
 
     List<AdvertisementEntity> findMoreById(Long userId);
 
-    AdvertisementEntity create(CreateAdDTO dto);
+    AdvertisementEntity saveBeforeApprovalWithPendingStatus(CreateAdDTO dto);
 
-    AdvertisementEntity update(Long id, UpdateAdDTO dto);
+    AdvertisementEntity updateAdvertisementAndChangeStatusToPending(String uuid, UpdateAdDTO dto);
 
-    AdvertisementEntity deleteById(Long id);
+    AdvertisementEntity deleteById(String uuid);
+
+    AdvertisementEntity updateStatusAndPublish(String uuid);
 
     List<Object> getAdsByUserId(Long userId);
 

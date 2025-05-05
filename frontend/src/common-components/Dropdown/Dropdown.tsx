@@ -8,8 +8,8 @@ import SlideDown from "../../utils/animations/SlideDown.tsx";
 type Props = {
     size: number,
     categories: string[],
+    onChange?: (value: string) => void,
     selectedValue?: string,
-    onChange: (value: string) => void,
 }
 
 export default function Dropdown({selectedValue, size, categories, onChange}: Props) {
@@ -39,7 +39,9 @@ export default function Dropdown({selectedValue, size, categories, onChange}: Pr
                         items={categories}
                         selectedItem={selectedCategory}
                         onClick={(item: string) => {
-                            onChange(item)
+                            if(onChange){
+                                onChange(item)
+                            }
                             setSelectedCategory(item);
                             setIsOpen(false);
                         }}

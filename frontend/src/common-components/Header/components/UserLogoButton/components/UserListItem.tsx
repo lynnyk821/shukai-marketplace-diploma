@@ -5,9 +5,12 @@ import {TokenManager} from "../../../../../utils/helpers/tokenManager.ts";
 type Props = MyContainerProps & {
     text: string,
     href: string,
+    userId?: number,
 }
 
-export default function UserListItem({ text, children, href } : Props) {
+export default function UserListItem({ text, children, href, userId } : Props) {
+    console.log(userId)
+
     const navigate = useNavigate();
 
     const handleOnClick = () => {

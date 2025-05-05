@@ -11,6 +11,7 @@ import ua.shukai.microservice.app.catalogueservice.controller.region.dto.RegionD
 import ua.shukai.microservice.app.catalogueservice.database.entity.*;
 import ua.shukai.microservice.app.catalogueservice.mapper.AdvertisementMapper;
 import ua.shukai.microservice.app.catalogueservice.mapper.EntityMapper;
+import ua.shukai.microservice.app.catalogueservice.types.AdvertisementStatus;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,9 +28,9 @@ public class AdvertisementMapperImpl implements AdvertisementMapper {
         List<String> paymentMethods = this.entityMapper.toStringPaymentList(ad.getPaymentMethods());
 
         return AdvertisementDTO.builder()
-                .id(ad.getId())
+                .id(ad.getUuid())
                 .createdAt(ad.getCreatedAt().toString())
-                .name(ad.getName())
+                .title(ad.getTitle())
                 .price(ad.getPrice())
                 .description(ad.getDescription())
                 .favoritesCount(ad.getFavoritesCount())
@@ -57,8 +58,8 @@ public class AdvertisementMapperImpl implements AdvertisementMapper {
     public List<GetAdDTO.MoreAd> mapToMoreAds(List<AdvertisementEntity> ads) {
         return ads.stream()
                 .map(advertisement -> GetAdDTO.MoreAd.builder()
-                        .id(advertisement.getId())
-                        .name(advertisement.getName())
+                        .id(advertisement.getUuid())
+                        .title(advertisement.getTitle())
                         .price(advertisement.getPrice())
                         .image(advertisement.getImages().getFirst().getImage().getBase64Image()).build())
                 .collect(Collectors.toList());
@@ -67,8 +68,8 @@ public class AdvertisementMapperImpl implements AdvertisementMapper {
     @Override
     public GetHomeAdsDTO.AdHome mapAdHome(AdvertisementEntity ad) {
         return GetHomeAdsDTO.AdHome.builder()
-                .id(ad.getId())
-                .name(ad.getName())
+                .id(ad.getUuid())
+                .title(ad.getTitle())
                 .image(ad.getImages().getFirst().getImage().getBase64Image())
                 .price(ad.getPrice())
                 .createdAt(ad.getCreatedAt().toString())
@@ -87,8 +88,9 @@ public class AdvertisementMapperImpl implements AdvertisementMapper {
                 .user(user)
                 .region(region)
                 .category(category)
-                .name(dto.getName())
+                .title(dto.getTitle())
                 .price(dto.getPrice())
+                .status(AdvertisementStatus.PENDING)
                 .description(dto.getDescription())
                 .images(adImages)
                 .paymentMethods(adPaymentMethods)
@@ -112,7 +114,7 @@ public class AdvertisementMapperImpl implements AdvertisementMapper {
         ad
                 .setRegion(region)
                 .setCategory(category)
-                .setName(dto.getName())
+                .setTitle(dto.getTitle())
                 .setPrice(dto.getPrice())
                 .setDescription(dto.getDescription())
                 .setPaymentMethods(adPaymentMethods)

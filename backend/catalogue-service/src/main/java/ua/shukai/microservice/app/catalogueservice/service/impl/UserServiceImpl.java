@@ -17,11 +17,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(KafkaUserDTO dto) {
         this.userRepository.save(UserEntity.builder()
+                .id(dto.getId())
                 .email(dto.getEmail())
                 .image(dto.getImage())
                 .username(dto.getUsername())
                 .phoneNumber(dto.getPhoneNumber())
-                .userId(dto.getId())
             .build()
         );
     }

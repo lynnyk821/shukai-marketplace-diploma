@@ -32,7 +32,7 @@ export default function ProductItem({ className, size, product }: Props) {
                 />
                 <ProductName
                     size={size}
-                    name={product.name}
+                    name={product.title}
                 />
             </button>
             <div className={"w-full h-1/6 flex items-center "}>

@@ -1,30 +1,31 @@
-import {forwardRef, LegacyRef, SetStateAction, useState} from "react";
+import {forwardRef, LegacyRef, useState} from "react";
 import {DeliveryServiceSelector} from "./components/DeliveryServiceSelector.tsx";
 import {CitySelector} from "./components/CitySelector.tsx";
 import {WarehouseSelector} from "./components/WarehouseSelector.tsx";
 
 type Props = {
-    setShowModal: (show: boolean) => void,
-    setSelectedCity: React.Dispatch<SetStateAction<string>>,
-    setSelectedBranch: React.Dispatch<SetStateAction<string>>,
-    setSelectedService: React.Dispatch<SetStateAction<string>>,
+    onSave: (data: {
+        service: string;
+        city: string;
+        warehouse: string
+    }) => void;
+    onClose: () => void;
 };
 
-const DeliveryModal = forwardRef(({
-    setShowModal, setSelectedBranch,
-    setSelectedService, setSelectedCity
-}: Props, ref: LegacyRef<HTMLDivElement>) => {
+const DeliveryModal = forwardRef(({onSave, onClose}: Props, ref: LegacyRef<HTMLDivElement>) => {
     const [cityRef, setCityRef] = useState<string>("")
     const [selectedThisCity, setSelectedThisCity] = useState<string>("");
     const [selectedThisWarehouse, setSelectedThisWarehouse] = useState<string>("");
     const [selectedThisService, setSelectedThisService] = useState<string>("");
 
-    const handleOnClick = () => {
-        setShowModal(false);
-        setSelectedCity(selectedThisCity);
-        setSelectedBranch(selectedThisWarehouse);
-        setSelectedService(selectedThisService);
-    }
+    const handleSave = () => {
+        onSave({
+            service: selectedThisService,
+            city: selectedThisCity,
+            warehouse: selectedThisWarehouse
+        });
+        onClose();
+    };
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
@@ -43,7 +44,7 @@ const DeliveryModal = forwardRef(({
                 />
                 <button
                     className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
-                    onClick={handleOnClick}
+                    onClick={handleSave}
                 >
                     Зберегти
                 </button>

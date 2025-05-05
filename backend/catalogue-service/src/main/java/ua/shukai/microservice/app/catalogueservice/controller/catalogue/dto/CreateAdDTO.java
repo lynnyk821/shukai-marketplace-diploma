@@ -17,7 +17,7 @@ public class CreateAdDTO {
 
     @NotBlank(message = "Назва не може бути пуста")
     @Size(max = 255, message = "Назва не повинна перевищувати 255 символів!")
-    private String name;
+    private String title;
 
     @Size(max = 3000, message = "Максимальна description довжина не може бути більша за 3000 символів!")
     private String description;

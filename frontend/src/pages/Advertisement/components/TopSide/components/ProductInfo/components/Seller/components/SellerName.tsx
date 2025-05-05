@@ -1,12 +1,13 @@
 import {Icon} from "@iconify/react";
 
 type Props = {
-    id: number,
     phoneNumber: string,
     name: string,
+    id?: number,
 }
 
 export default function SellerName({id, phoneNumber, name}: Props) {
+    console.log(id)
     return (
         <div className={"w-full flex"}>
             <div className={"w-1/2"}>

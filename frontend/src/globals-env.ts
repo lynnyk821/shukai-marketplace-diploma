@@ -1,5 +1,4 @@
 import {UserLogoItemProps} from "./types/common/user-logo-item-props.ts";
-import {ProductItemProps} from "./types/common/product-item-props.ts";
 
 export const BACKEND_URL = "http://localhost:8080";
 
@@ -39,26 +38,13 @@ export const SLOGAN = [
     "Не треба кричати на базарі – напишіть тут.",
 ]
 
-export const PRODUCT_ITEMS: ProductItemProps[] = [
-    {id: 0, name: "Зимові термочоботи", date: "Опубліковано о 11:45", price: 100},
-    {id: 1, name: "Шуба крута, натуральна, короткострижена, довга kepka",  date: "Опубліковано о 11:45", price: 200},
-    {id: 2, name: "Металопластикові вікна та двері, установка вікон Шепетівка.",  date: "Опубліковано о 11:45", price: 300},
-    {id: 3, name: "Шезлонг-люлька для малюка",  date: "Опубліковано о 11:45", price: 400},
-    {id: 4, name: "Тканевые ролеты (рулонные шторы) от производителя",  date: "Опубліковано о 11:45", price: 500},
-    {id: 5, name: "Кухні стандартні та під замовлення. Гардеробні, шафи-купе та распашні.",  date: "Опубліковано о 11:45", price: 600},
-    {id: 6, name: "Арка крила Tesla Model Y накладка крыла молдинг перед зад",  date: "Опубліковано о 11:45", price: 700},
-    {id: 7, name: "Электронные чacы SKMEI 1167 ARMY GREEN вoдoнепроницаемый и пpoтивоудар",  date: "Опубліковано о 11:45", price: 800},
-    {id: 8, name: "Кухні стандартні та під замовлення. Гардеробні, шафи-купе та распашні.",  date: "Опубліковано о 11:45", price: 900},
-    {id: 9, name: "Английский язык, переводы, переписка,,реклама на маркетплэйсах",  date: "Опубліковано о 11:45", price: 0},
-]
-
 export const MESSAGES = [
     { username: "You", avatar: { color: "#eee" },   text: "Hello, how are you doing today?", isMe: true },
     { username: "UserTwo", avatar: { color: "#414141" }, text: "I'm doing well, thank you! How about you?", isMe: false },
     { username: "You", avatar: { color: "#eee" },   text: "I’m great! Just finishing up some work.", isMe: true },
     { username: "UserTwo", avatar: { color: "#414141" }, text: "Nice! What kind of work are you doing?", isMe: false },
     { username: "You", avatar: { color: "#eee" },   text: "I'm working on a project for school.", isMe: true },
-    { username: "UserTwo", avatar: { color: "#414141" }, text: "That sounds interesting! What’s the project about?", isMe: false },
+     { username: "UserTwo", avatar: { color: "#414141" }, text: "That sounds interesting! What’s the project about?", isMe: false },
     { username: "You", avatar: { color: "#eee" },   text: "It’s about web development, actually.", isMe: true },
     { username: "UserTwo", avatar: { color: "#414141" }, text: "That’s awesome! I love web development.", isMe: false },
     { username: "You", avatar: { color: "#eee" },   text: "Yeah, I’m learning React right now!", isMe: true },
@@ -74,5 +60,3 @@ export const MESSAGES = [
     { username: "You", avatar: { color: "#eee" },   text: "That sounds really useful!", isMe: true },
     { username: "UserTwo", avatar: { color: "#414141" }, text: "It definitely is! Give them a try.", isMe: false }
 ];
-
-export const REGIONS = ["Київ", "Черкаси", "Вільховець"]
