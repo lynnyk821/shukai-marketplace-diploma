@@ -1,7 +1,9 @@
 import {CommonTitle} from "../../../../common-components/Titles/MainTitle/CommonTitle.tsx";
+import {UseFormRegister} from "react-hook-form";
+import {OrderRequest} from "../../../../types/request/order-request.ts";
 
 type Props = {
-    register: any
+    register: UseFormRegister<OrderRequest>,
 };
 
 export default function PaymentMethod({register}: Props) {
@@ -18,7 +20,7 @@ export default function PaymentMethod({register}: Props) {
                         <input
                             type="radio"
                             value="safe"
-                            {...register("paymentMethod")}
+                            {...register("advertisement.paymentMethod")}
                             defaultChecked
                             className="accent-black"
                         />

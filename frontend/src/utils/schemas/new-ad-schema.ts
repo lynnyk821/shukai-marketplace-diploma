@@ -1,7 +1,7 @@
 import z from 'zod';
 
 export const newAdSchema = z.object({
-    name: z.string()
+    title: z.string()
         .min(1, "Назва обов'язкова")
         .min(5, "Назва повинна містити щонайменше 5 символів"),
     description: z.string()

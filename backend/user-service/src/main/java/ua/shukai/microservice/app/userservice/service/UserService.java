@@ -1,8 +1,8 @@
 package ua.shukai.microservice.app.userservice.service;
 
 import org.springframework.http.HttpHeaders;
-import ua.shukai.microservice.app.userservice.controller.request.SignUpRequest;
-import ua.shukai.microservice.app.userservice.controller.response.MeDTO;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.SignUpRequest;
+import ua.shukai.microservice.app.userservice.controller.user.dto.MeDTO;
 import ua.shukai.microservice.app.userservice.database.entity.UserEntity;
 
 public interface UserService {

@@ -1,7 +1,7 @@
 import {RegionProps} from "../common/region-props.ts";
 
 export type CreateAdRequest = {
-    name: string,
+    title: string,
     description: string,
     price: number,
     images: Array<string>,

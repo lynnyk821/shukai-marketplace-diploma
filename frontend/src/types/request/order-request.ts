@@ -1,19 +1,24 @@
 export type OrderRequest = {
-    userInfo: {
+    seller: {
+        id: number;
+        name: string;
+    },
+    customer: {
+        id?: number;
         firstName: string;
         lastName: string;
-        middleName?: string; // Додано optional тип
+        middleName: string;
         phoneNumber: string;
-    };
-    adInfo: {
-        sellerName: string;
-        adName: string;
-        price: number;
-    };
-    paymentMethod: string;
-    deliveryMethod: {
+    },
+    delivery: {
         service: string;
         city: string;
         warehouse: string;
-    };
+    },
+    advertisement: {
+        title: string;
+        image: string;
+        price: number;
+        paymentMethod: string;
+    }
 };

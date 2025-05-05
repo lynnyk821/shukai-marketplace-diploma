@@ -26,7 +26,7 @@ export default function CartItem({ item }: Props) {
 
     const handleCheckout = () => {
         // Передаем весь объект товара через state
-        navigate("/checkout", {
+        navigate("/order", {
             state: {
                 item: item as CartItemProps,
             }

@@ -14,7 +14,7 @@ import ua.shukai.microservice.app.searchservice.service.SearchService;
 public class KafkaAdvertisementConsumer {
     private final SearchService searchService;
 
-    @KafkaListener(topics = "crt-ad", groupId = "search-group")
+    @KafkaListener(topics = "review-approved-advertisement", groupId = "search-group")
     public void listen(ConsumerRecord<String, KafkaAdvertisementDTO> kafkaDTO) {
         log.info("Received created_advertisement");
         this.searchService.create(kafkaDTO.value());

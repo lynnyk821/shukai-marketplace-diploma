@@ -23,7 +23,7 @@ export default function AdvertisementPage() {
     const convertToProductItem = (ad: AdvertisementProps): ProductItemProps => ({
         id: ad.id.toString(),
         date: String(ad.createdAt),
-        name: ad.name,
+        title: ad.title,
         price: ad.price,
         image: ad.images[0] || 'default-image-url',
     });

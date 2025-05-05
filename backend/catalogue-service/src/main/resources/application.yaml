@@ -8,18 +8,17 @@ spring:
     name: catalogue-service
   kafka:
     bootstrap-servers: localhost:9092
+    consumer:
+      group-id: default-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.add.type.headers: false
-    consumer:
-      group-id: user-group
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
-        spring.json.value.default.type: ua.shukai.microservice.app.catalogueservice.kafka.consumer.dto.KafkaUserDTO
+
 
   datasource:
     url: jdbc:postgresql://localhost:5132/shukai_catalogue

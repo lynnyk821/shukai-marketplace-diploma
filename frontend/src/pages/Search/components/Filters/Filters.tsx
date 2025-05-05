@@ -1,7 +1,6 @@
 import FiltersLayout from "./FiltersLayout.tsx";
 import PriceFilter from "./PriceFilter/PriceFilter.tsx";
 import RegionFilter from "./RegionFilter/RegionFilter.tsx";
-import CategoryFilter from "./CategoryFilter/CategoryFilter.tsx";
 import DeliveryFilter from "./DeliveryFilter/DeliveryFilter.tsx";
 import PaymentFilter from "./PaymentFilter/PaymentFilter.tsx";
 

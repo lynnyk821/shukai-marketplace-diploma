@@ -5,141 +5,132 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cad798f-f75b-46c5-b8a4-800ed788a128" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/order-service.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/test/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/CatalogueControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/novaposhta/NovaposhtaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/novaposhta/dto/WarehouseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/dto/AdDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/dto/OrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/dto/request/CreateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/dto/request/UpdateOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/repository/AdRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/repository/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/exception/basic/ApplicationBasicException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/exception/custom/EntityAlreadyExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/exception/custom/EntityNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/exception/errors/ErrorResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/mapper/EntityMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/mapper/NovaposhtaMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/parser/JacksonParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/parser/model/WarehousesDataModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/parser/model/WarehousesModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/service/NovaposhtaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/service/impl/NovaposhtaServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/type/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/utils/NovaposhtaClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/utils/NovaposhtaRequestFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Buttons/CartOrderButton/CartOrderButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/Cart.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/CartLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartItem/CartItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartItem/CartItemLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartItem/components/OrdePrice.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartItem/components/OrderAdName.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartItem/components/OrderDeleteButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartItem/components/OrderImage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartList/CartList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/Cart/components/CartList/CartListLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/FavoriteButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/OrderPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/OrderPageLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/AdvertisementInfo/AdvertisementInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/ContactInfo/ContactInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/DeliveryMethod.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryMethodButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/DeliveryModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/components/CitySelector.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/components/DeliveryServiceSelector.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/components/WarehouseSelector.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/help.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/PaymnetMethod/PaymentMethod.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/RightPanelWithDetails/RightPanelWithDetails.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/types/common/cart-item-props.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/types/request/order-request.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/utils/hooks/useCart.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/utils/schemas/order-schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/config/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/producer/dto/KafkaReviewAdvertisementDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/types/AdvertisementStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/builder/AdvertisementBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/admin/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/admin/dto/ReviewAdvertisementDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/admin/dto/ReviewAdvertisementResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/AdvertisementEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/AdvertisementImageEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/UserRoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/repository/AdvertisementRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/consumer/KafkaAdvertisementConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/consumer/dto/KafkaReviewAdvertisementDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/AdvertisementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/impl/AdvertisementServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/types/AdvertisementStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/types/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/AdminPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/AdminPageLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/components/AdminPanel/AdminPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/components/AdminPanel/AdminPanelLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/pages/Advertisement/AdminAdvertisement.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/pages/Advertisement/AdminAdvertisementLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/pages/Avertisements/AdminAdvertisements.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Admin/pages/Avertisements/AdminAdvertisementsLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/Submit/OrderSubmitButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/user-service/user-service.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/user-service/user-service.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/CatalogueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/CatalogueController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/AdvertisementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/AdvertisementDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/CreateAdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/CreateAdDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/GetAdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/GetAdDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/UpdateAdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/dto/UpdateAdDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/home/dto/GetHomeAdsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/controller/home/dto/GetHomeAdsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/AdvertisementEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/AdvertisementEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/AdvertisementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/AdvertisementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/database/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/consumer/KafkaUserListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/consumer/KafkaUserListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/producer/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/producer/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/producer/dto/KafkaAdvertisementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/producer/dto/KafkaAdvertisementDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/service/KafkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/service/KafkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/service/impl/KafkaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/kafka/service/impl/KafkaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/mapper/impl/AdvertisementMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/mapper/impl/AdvertisementMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/RegionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/RegionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/utils/NovaposhtaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/utils/NovaposhtaRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/AdvertisementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/AdvertisementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/CatalogueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/CatalogueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/AdvertisementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/AdvertisementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/CatalogueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/CatalogueServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/HomeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/HomeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ua/shukai/microservice/app/catalogueservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/test/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/CatalogueControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/test/java/ua/shukai/microservice/app/catalogueservice/controller/catalogue/CatalogueControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/dto/request/CreateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/controller/order/dto/request/CreateOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/entity/AdEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/entity/AdEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/entity/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/ua/shukai/microservice/app/orderservice/database/entity/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/consumer/KafkaAdvertisementConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/consumer/KafkaAdvertisementConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/jwt/impl/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/jwt/impl/JwtServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Buttons/ButtonWithoutBackground/ButtonWithoutBackground.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Buttons/ButtonWithoutBackground/ButtonWithoutBackground.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/CheckboxesDropdown/CheckboxesDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/CheckboxesDropdown/CheckboxesDropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Footer/FooterGridLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Footer/FooterGridLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/HeaderLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/HeaderLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/AdditionalButtons/components/CartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/AdditionalButtons/components/CartButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/UserLogoButton/UserLogoButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/UserLogoButton/UserLogoButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/UserLogoButton/UserLogoButtonLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/UserLogoButton/UserLogoButtonLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/service/impl/SearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/ua/shukai/microservice/app/searchservice/service/impl/SearchServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/builder/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/builder/ResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/authorization/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/request/RecoveryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/authorization/dto/RecoveryRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/request/SignInRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/authorization/dto/SignInRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/request/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/authorization/dto/SignUpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/response/JwtAuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/authorization/dto/JwtAuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/response/MeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/user/dto/MeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/response/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/controller/user/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/ImageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/UserImageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/repository/ImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/database/repository/ImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/KafkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/KafkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/impl/KafkaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/impl/KafkaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/producer/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/kafka/producer/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/AuthorizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/AuthorizationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/impl/AuthorizationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/impl/AuthorizationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/ua/shukai/microservice/app/userservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Dropdown/CategoriesDropdown/components/components/SubCategoriesPanel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Dropdown/Dropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Dropdown/Dropdown.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/UserLogoButton/components/UserListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Header/components/UserLogoButton/components/UserListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/PageLayout/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/PageLayout/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/MoveBackLinksBar/MoveBackLinksBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/MoveBackLinksBar/MoveBackLinksBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/ProductItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/ProductItemLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/ProductItemLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductDateAndFavoriteButton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductPrice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProductItem/components/ProductPrice.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/ProtectedRoute/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/ProtectedRoute/ProtectedRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/common-components/Titles/MainTitle/MainTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/common-components/Titles/MainTitle/CommonTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/globals-env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/globals-env.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/AdvertisementPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/AdvertisementPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/AdditionalSellerProducts/AdditionalSellerProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/AdditionalSellerProducts/AdditionalSellerProducts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/DeliveryAndPayment/DeliveryAndPayment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/DeliveryAndPayment/DeliveryAndPayment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/DeliveryAndPayment/DeliveryAndPaymentLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/DeliveryAndPayment/DeliveryAndPaymentLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/ProductDescription/ProductDescriptionLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/BottomSide/components/ProductDescription/ProductDescriptionLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TitleWithLinks/TitleWithLinks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TitleWithLinks/TitleWithLinks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/TopSide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/TopSide.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/ProductInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/ProductInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/ProductInfoLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/ProductInfoLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/AddToFavoriteButton/AddToFavoriteButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/AddToFavoriteButton/AddToFavoriteButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/BuyAndCartButton/BuyAndCartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/BuyAndCartButton/BuyAndCartButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/BuyAndCartButton/components/AddToCartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/BuyAndCartButton/components/AddToCartButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/BuyAndCartButton/components/BuyButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/BuyAndCartButton/components/BuyButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/DateInfo/DateInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/DateInfo/DateInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/PriceButton/components/Price.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/PriceButton/components/Price.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/ProductName/ProductName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/ProductName/ProductName.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/Seller.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/Seller.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/components/SellerName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/components/SellerName.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/components/SellerPictureButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/components/SellerPictureButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/components/SellerStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductInfo/components/Seller/components/SellerStats.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductPictures/ProductPicturesLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductPictures/ProductPicturesLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductPictures/components/BigProductPicture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductPictures/components/BigProductPicture.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductPictures/components/ProductPicturesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Advertisement/components/TopSide/components/ProductPictures/components/ProductPicturesList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/FeaturedAdvertisements/FeaturedAdvertisementsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/FeaturedAdvertisements/FeaturedAdvertisementsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/FeaturedAdvertisements/components/FeaturedAdvertisementsGrid/FavoriteProductsGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/FeaturedAdvertisements/components/FeaturedAdvertisementsGrid/FavoriteProductsGrid.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/FeaturedAdvertisements/components/TitleAndDropdown/TitleAndDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/FeaturedAdvertisements/components/TitleAndDropdown/TitleAndDropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/HomePageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/HomePageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/BigPictureBanner/BigPictureBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/BigPictureBanner/BigPictureBanner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/ProductsGrid/ProductsGrid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/ProductsGrid/ProductsGrid.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/ProductsGrid/ProductsGridLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/ProductsGrid/ProductsGridLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/RecentlyWatched/RecentlyWatched.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/RecentlyWatched/RecentlyWatched.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Home/components/RecentlyWatched/RecentlyWatchedLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Home/components/RecentlyWatched/RecentlyWatchedLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/NewAdvertisementPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/NewAdvertisementPageLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/PriceFilter/PriceFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/PriceFilter/PriceFilter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/RegionFilter/components/RegionFilterHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/RegionFilter/components/RegionFilterHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Search/components/TItleAndDropdown/TitleAndDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Search/components/TItleAndDropdown/TitleAndDropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/SignUp/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/SignUp/SignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/types/common/app-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/types/common/app-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/types/response/me-response.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/types/response/user-me-response.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/axios/interceptors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/utils/axios/interceptors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/NewAdvertisementPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/NewAdvertisementPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/components/NewAdPrice/components/PriceInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/components/NewAdPrice/components/PriceInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/components/NewProductDescription/components/DescriptionText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/components/NewProductDescription/components/DescriptionText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/components/NewProductName/NewProductName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/NewAdvertisement/components/NewProductName/NewProductTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/OrderPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/OrderPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/ContactInfo/ContactInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/ContactInfo/ContactInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/DeliveryMethod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/DeliveryMethod.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryMethodButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryMethodButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/DeliveryModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/DeliveryModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/components/CitySelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/DeliveryMethod/components/DeliveryModal/components/CitySelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/PaymnetMethod/PaymentMethod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/PaymnetMethod/PaymentMethod.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Order/components/RightPanelWithDetails/RightPanelWithDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Order/components/RightPanelWithDetails/RightPanelWithDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/Filters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/RegionFilter/components/RegionSearch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/Search/components/Filters/RegionFilter/components/RegionSearch.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/types/common/advertisement-props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/types/common/advertisement-props.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/types/common/cart-item-props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/types/common/cart-item-props.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/types/common/product-item-props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/types/common/product-item-props.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/types/request/create-ad-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/types/request/create-ad-request.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/utils/helpers/tokenManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/utils/helpers/tokenManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/hooks/useAppStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/utils/hooks/useAppStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/hooks/useClickOutside.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/utils/hooks/useClickOutside.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/hooks/useLocalStorage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/schemas/new-ad-schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/utils/schemas/new-ad-schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/schemas/order-schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/utils/schemas/order-schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/tsconfig.app.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +139,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/admin-server">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/chat-service">
@@ -183,10 +177,10 @@
       <list>
         <option value="package-info" />
         <option value="Exception" />
-        <option value="Interface" />
-        <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -195,6 +189,9 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -239,10 +236,10 @@
     &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;both/feature/auth&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend/feature/admin&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/mnt/hardisk/Projects/diploma/backend/order-service/src/main/java/ua/shukai/microservice/app/orderservice&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/mnt/hardisk/Projects/diploma/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -284,10 +281,10 @@
     <option name="myCommands">
       <command value="UserServiceApplication" />
       <command value="OrderServiceApplication" />
-      <command value="EurekaServerApplication" />
+      <command value="SearchServiceApplication" />
       <command value="ApiGatewayApplication" />
       <command value="CatalogueServiceApplication" />
-      <command value="SearchServiceApplication" />
+      <command value="EurekaServerApplication" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -301,7 +298,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SearchServiceApplication">
+  <component name="RunManager" selected="Spring Boot.EurekaServerApplication">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="category-service" />
       <working_directory value="$PROJECT_DIR$" />
@@ -456,19 +453,19 @@
     <list>
       <item itemvalue="Gradle.CatalogueControllerTest" />
       <item itemvalue="Gradle.CatalogueControllerTest.testGetAdvertisementById" />
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.ChatServiceApplication" />
       <item itemvalue="Spring Boot.EurekaServerApplication" />
       <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.SearchServiceApplication" />
       <item itemvalue="Spring Boot.CatalogueServiceApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SearchServiceApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
         <item itemvalue="Spring Boot.CatalogueServiceApplication" />
+        <item itemvalue="Spring Boot.SearchServiceApplication" />
         <item itemvalue="Gradle.CatalogueControllerTest" />
         <item itemvalue="Gradle.CatalogueControllerTest.testGetAdvertisementById" />
       </list>
@@ -547,11 +544,37 @@
       <workItem from="1745144168849" duration="7457000" />
       <workItem from="1745176214936" duration="1693000" />
       <workItem from="1745483485624" duration="15633000" />
+      <workItem from="1745562365119" duration="3938000" />
+      <workItem from="1745575722235" duration="2301000" />
+      <workItem from="1745672599987" duration="3580000" />
+      <workItem from="1745748642493" duration="8062000" />
+      <workItem from="1745760815438" duration="17365000" />
+      <workItem from="1745829060792" duration="8793000" />
+      <workItem from="1746296183300" duration="935000" />
+      <workItem from="1746352342814" duration="7093000" />
+      <workItem from="1746379373812" duration="6629000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-websocket" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-messaging" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

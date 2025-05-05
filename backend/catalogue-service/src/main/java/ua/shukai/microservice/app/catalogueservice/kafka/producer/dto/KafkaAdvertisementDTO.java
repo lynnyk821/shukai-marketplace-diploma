@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class KafkaAdvertisementDTO {
-    private Long id;
+    private String uuid;
     private String name;
     private String image;
     private Integer price;

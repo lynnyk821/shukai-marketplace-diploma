@@ -3,6 +3,7 @@ package ua.shukai.microservice.app.catalogueservice.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
+import ua.shukai.microservice.app.catalogueservice.types.AdvertisementStatus;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -16,12 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class AdvertisementEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String uuid;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @Column(nullable = false)
     private Integer price;
@@ -31,6 +33,10 @@ public class AdvertisementEntity {
 
     @Column(nullable = false)
     private Integer favoritesCount;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private AdvertisementStatus status;
 
     @Column(nullable = false, updatable = false)
     private Timestamp createdAt;

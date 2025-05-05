@@ -3,9 +3,9 @@ import {CommonTitle} from "../../../../../common-components/Titles/MainTitle/Com
 type Props = {
     setShowModal: (showModal: boolean) => void,
     register: any,
-    selectedService: string,
-    selectedCity: string,
-    selectedBranch: string,
+    selectedService: string | null,
+    selectedCity: string | null,
+    selectedBranch: string | null,
     description: string,
 };
 

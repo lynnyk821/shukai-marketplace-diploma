@@ -15,7 +15,10 @@ export function HomePage() {
     useEffect(() => {
         fetch(`${BACKEND_URL}/catalogue-service/api/home`)
             .then((response) => response.json())
-            .then((data) => setHomeResponse(data as HomeResponse))
+            .then((data) => {
+                setHomeResponse(data as HomeResponse)
+                console.log(data)
+            })
             .catch((error) => console.error("Помилка завантаження даних:", error));
     }, [])
 

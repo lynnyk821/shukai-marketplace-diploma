@@ -1,9 +1,9 @@
 import {UseFormRegister} from "react-hook-form";
-import {NewAdvertisementFormProps} from "../../../../../types/new-advertisement/new-advertisement-form-props.ts";
+import {CreateAdRequest} from "../../../../../types/request/create-ad-request.ts";
 
 type Props = {
     placeholder?: string;
-    register?: UseFormRegister<NewAdvertisementFormProps>;
+    register?: UseFormRegister<CreateAdRequest>;
     error?: string;
 };
 

@@ -5,4 +5,5 @@ export type CartItemProps = {
     price: number;
     image: string;
     quantity: number;
+    paymentMethods: Array<string>,
 }

@@ -11,7 +11,7 @@ type Props = {
 export default function TopSide({advertisement}: Props) {
     useEffect(() => {
         console.log("Photos:", advertisement.images.length);
-    }, [advertisement.name]);
+    }, [advertisement.title]);
 
     return (
         <TopSideLayout>

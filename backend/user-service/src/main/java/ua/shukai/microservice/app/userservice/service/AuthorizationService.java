@@ -1,9 +1,9 @@
 package ua.shukai.microservice.app.userservice.service;
 
-import ua.shukai.microservice.app.userservice.controller.request.RecoveryRequest;
-import ua.shukai.microservice.app.userservice.controller.request.SignInRequest;
-import ua.shukai.microservice.app.userservice.controller.request.SignUpRequest;
-import ua.shukai.microservice.app.userservice.controller.response.JwtAuthenticationResponse;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.RecoveryRequest;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.SignInRequest;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.SignUpRequest;
+import ua.shukai.microservice.app.userservice.controller.authorization.dto.JwtAuthenticationResponse;
 
 public interface AuthorizationService {
 

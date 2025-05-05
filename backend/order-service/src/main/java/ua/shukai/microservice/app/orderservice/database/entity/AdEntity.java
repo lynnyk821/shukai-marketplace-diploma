@@ -11,9 +11,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, updatable = false)
+    private String id;
 
     @Column(nullable = false)
     private String name;

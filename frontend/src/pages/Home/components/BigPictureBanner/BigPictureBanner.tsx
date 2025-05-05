@@ -1,10 +1,10 @@
 import BigPictureBannerLayout from "./BigPictureBannerLayout.tsx";
-/*import image from "../../../../assets/jpeg/shukai_3.jpeg"*/
+import image from "../../../../assets/jpeg/shukai_3.jpeg"
 
 export default function BigPictureBanner() {
     return (
         <BigPictureBannerLayout>
-            {/*<div
+            <div
                 className={"w-full h-[22rem] centered"}
                 style={{
                     backgroundImage: `url(${image})`,
@@ -13,8 +13,10 @@ export default function BigPictureBanner() {
                     backgroundRepeat: "no-repeat",
                     userSelect: "none"
                 }}
-            />*/}
+            />
+{/*
             <div className={"w-full h-[22rem] centered font-monserrat bg-[#eee]"}>Banner</div>
+*/}
         </BigPictureBannerLayout>
     );
 }

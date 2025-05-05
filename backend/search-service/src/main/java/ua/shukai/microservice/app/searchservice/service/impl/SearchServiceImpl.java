@@ -63,15 +63,13 @@ public class SearchServiceImpl implements SearchService {
             .withPageable(pageable)
         .build();
 
-        System.out.println(nativeQuery.getQuery());
-
         SearchHits<Advertisement> searchHits = this.elasticsearchOperations.search(nativeQuery, Advertisement.class);
 
         return searchHits.getSearchHits().stream().map(hit -> this.advertisementMapper.map(hit.getContent())).toList();
     }
 
-    private static BoolQuery.Builder getBuilder(String value) {
-        String[] terms = value.split("\\s+");
+    private static BoolQuery.Builder getBuilder(String searchValue) {
+        String[] terms = searchValue.split("\\s+");
         BoolQuery.Builder termsQueryBuilder = new BoolQuery.Builder();
 
         for (String term : terms) {

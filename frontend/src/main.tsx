@@ -18,6 +18,9 @@ import ProtectedRoute from "./common-components/ProtectedRoute/ProtectedRoute.ts
 import {ChatPage} from "./pages/Chat/ChatPage.tsx";
 import FeaturedAdvertisementsPage from "./pages/FeaturedAdvertisements/FeaturedAdvertisementsPage.tsx";
 import AddProduct from "./pages/NewAdvertisement/NewAdvertisementPage.tsx";
+import AdminPage from "./pages/Admin/AdminPage.tsx";
+import AdminAdvertisements from "./pages/Admin/pages/Avertisements/AdminAdvertisements.tsx";
+import AdminAdvertisement from "./pages/Admin/pages/Advertisement/AdminAdvertisement.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
@@ -27,20 +30,30 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/advertisement/:id" element={<AdvertisementPage />} />
             <Route path="/advertisement" element={<Navigate to="/search" replace />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="/checkout" element={<OrderPage />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/messages" element={
-                    <ChatPage />
+            <Route path="/admin" element={
+                <AdminPage/>
+            }/>
+            <Route path="/admin/advertisements" element={<AdminAdvertisements />} />
+            <Route path="/admin/advertisements/:uuid" element={<AdminAdvertisement />} />
+            <Route path="/order" element={
+                <OrderPage />
             } />
+            <Route path="/messages" element={
+                <ChatPage />
+            }/>
             <Route path="/favorites" element={
                 <ProtectedRoute>
                     <FeaturedAdvertisementsPage />
                 </ProtectedRoute>
-            } />
+            }/>
             <Route path="/add-product" element={
                     <AddProduct />
+            }/>
+            <Route path="/admin" element={
+                <AdminPage />
             }/>
         </Routes>
     </BrowserRouter>

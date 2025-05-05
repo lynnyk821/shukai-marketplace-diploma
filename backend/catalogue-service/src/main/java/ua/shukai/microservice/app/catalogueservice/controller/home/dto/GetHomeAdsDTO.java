@@ -17,8 +17,8 @@ public class GetHomeAdsDTO {
     @Builder
     @Getter @Setter
     public static class AdHome {
-        private Long id;
-        private String name;
+        private String id;
+        private String title;
         private Integer price;
         private String image;
         private String createdAt;

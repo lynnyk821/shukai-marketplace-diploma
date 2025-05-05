@@ -19,8 +19,8 @@ public class GetAdDTO {
 
     @Builder @Getter
     public static class MoreAd {
-        private Long id;
-        private String name;
+        private String id;
+        private String title;
         private String image;
         private Integer price;
     }

@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 import ua.shukai.microservice.app.catalogueservice.database.entity.AdvertisementEntity;
 import ua.shukai.microservice.app.catalogueservice.kafka.producer.KafkaProducer;
 import ua.shukai.microservice.app.catalogueservice.kafka.producer.dto.KafkaAdvertisementDTO;
+import ua.shukai.microservice.app.catalogueservice.kafka.producer.dto.KafkaReviewAdvertisementDTO;
 import ua.shukai.microservice.app.catalogueservice.kafka.service.KafkaService;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -13,10 +16,10 @@ public class KafkaServiceImpl implements KafkaService {
     private final KafkaProducer kafkaProducer;
 
     @Override
-    public void sendKafkaCreateAd(AdvertisementEntity ad) {
-        this.kafkaProducer.send("crt-ad", KafkaAdvertisementDTO.builder()
-                .id(ad.getId())
-                .name(ad.getName())
+    public void publishCreateAdAfterApproved(AdvertisementEntity ad) {
+        this.kafkaProducer.send("advertisement_create", KafkaAdvertisementDTO.builder()
+                .uuid(ad.getUuid())
+                .name(ad.getTitle())
                 .price(ad.getPrice())
                 .createAt(ad.getCreatedAt().getTime())
                 .image(ad.getImages().getFirst().getImage().getBase64Image())
@@ -26,10 +29,10 @@ public class KafkaServiceImpl implements KafkaService {
     }
 
     @Override
-    public void sendKafkaUpdateAd(AdvertisementEntity ad) {
-        this.kafkaProducer.send("upd-ad", KafkaAdvertisementDTO.builder()
-                .id(ad.getId())
-                .name(ad.getName())
+    public void publishAdToUpdate(AdvertisementEntity ad) {
+        this.kafkaProducer.send("advertisement_update", KafkaAdvertisementDTO.builder()
+                .uuid(ad.getUuid())
+                .name(ad.getTitle())
                 .price(ad.getPrice())
                 .createAt(ad.getCreatedAt().getTime())
                 .image(ad.getImages().getFirst().getImage().getBase64Image())
@@ -38,8 +41,20 @@ public class KafkaServiceImpl implements KafkaService {
         );
     }
 
+    public void publishAdUuidToDelete(String uuid) {
+        this.kafkaProducer.send("advertisement_delete", uuid);
+    }
+
     @Override
-    public void sendKafkaDeleteAd(AdvertisementEntity ad) {
-        this.kafkaProducer.send("dlt-ad", ad.getId().toString());
+    public void publishAdToReview(AdvertisementEntity ad) {
+        List<String> images = ad.getImages().stream().map(entity -> entity.getImage().getBase64Image()).toList();
+        this.kafkaProducer.send("advertisement_review", KafkaReviewAdvertisementDTO.builder()
+                .uuid(ad.getUuid())
+                .title(ad.getTitle())
+                .description(ad.getDescription())
+                .authorEmail(ad.getUser().getEmail().trim())
+                .images(images)
+            .build()
+        );
     }
 }

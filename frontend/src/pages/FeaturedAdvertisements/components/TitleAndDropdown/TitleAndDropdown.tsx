@@ -11,7 +11,7 @@ export default function TitleAndDropdown({ filters }: Props) {
         <TitleWithDropdown>
             <CommonTitle text={"Обрані оголошення"} size={"2xl"} />
             <div className={"h-full ml-auto"}>
-                <Dropdown size={16} categories={filters}/>
+                <Dropdown size={16} categories={filters} />
             </div>
         </TitleWithDropdown>
     );

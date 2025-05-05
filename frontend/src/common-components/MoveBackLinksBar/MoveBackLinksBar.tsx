@@ -17,9 +17,9 @@ export default function MoveBackLinksBar({category}: Props) {
         <MoveBackLinksBarLayout>
             <button
                 className={"hover:text-yellow-600 transition duration-300 ease-in-out"}
-                onClick={() => handleGoTo(category.path)}
+                onClick={() => handleGoTo(String(category?.path))}
             >
-                {"На головну / " + category.name}
+                {"На головну / " + category?.name}
             </button>
         </MoveBackLinksBarLayout>
     );

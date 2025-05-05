@@ -15,14 +15,14 @@ import java.util.List;
 public class AdvertisementDTO {
 
     @NotNull
-    private Long id;
+    private String id;
 
     @NotNull
     private String createdAt;
 
     @NotBlank(message = "Назва не може бути пуста")
     @Size(max = 255, message = "Поле 'name' не повинно перевищувати 255 символів")
-    private String name;
+    private String title;
 
     @Min(value = 0, message = "Мінімальне значення 'price' може бути 0")
     private Integer price;
