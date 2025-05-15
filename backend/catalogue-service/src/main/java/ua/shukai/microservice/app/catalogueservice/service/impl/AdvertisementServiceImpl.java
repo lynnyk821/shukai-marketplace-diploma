@@ -1,12 +1,16 @@
 package ua.shukai.microservice.app.catalogueservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdDTO;
 import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.MyAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.MyAdsResponse;
 import ua.shukai.microservice.app.catalogueservice.database.entity.*;
 import ua.shukai.microservice.app.catalogueservice.database.repository.AdvertisementRepository;
 import ua.shukai.microservice.app.catalogueservice.database.repository.DeliveryMethodRepository;
@@ -91,22 +95,27 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     }
 
     @Override
-    public AdvertisementEntity updateStatusAndPublish(String uuid) {
-        System.out.println(uuid);
-
+    public AdvertisementEntity updateStatus(String uuid, AdvertisementStatus status) {
         AdvertisementEntity ad = this.findByIdOrThrow(uuid);
-
-        System.out.println(ad.getTitle());
 
         return this.advertisementRepository
                 .findById(uuid)
-                .map(advertisement -> advertisement.setStatus(AdvertisementStatus.APPROVED))
+                .map(advertisement -> advertisement.setStatus(status))
                 .orElseThrow(() -> new EntityNotFoundException("Advertisement with id " + uuid + " not found"));
     }
 
     @Override
-    public List<Object> getAdsByUserId(Long userId) {
-        return List.of();
+    public MyAdsResponse getAdsByUserIdAndStatus(Long userId, AdvertisementStatus adStatus, Pageable pageable) {
+        Page<AdvertisementEntity> ads = this.advertisementRepository.findAllByStatusAndUser_Id(adStatus, userId, pageable);
+        List<MyAdDTO> myAdDTOS = ads.map(advertisement -> MyAdDTO.builder()
+                .id(advertisement.getUuid())
+                .title(advertisement.getTitle())
+                .createdAt(advertisement.getCreatedAt())
+                .image(advertisement.getImages().getFirst().getImage().getBase64Image())
+                .price(advertisement.getPrice())
+                .build()
+        ).toList();
+        return new MyAdsResponse(myAdDTOS, ads.getTotalPages());
     }
 
     @Override

@@ -4,7 +4,7 @@ import AuthorizationHeader from "../../common-components/Authorization/Authoriza
 import AuthorizationInput from "../../common-components/Authorization/AuthorizationInput/AuthorizationInput.tsx";
 import AuthorizationButton from "../../common-components/Authorization/AuthorizationButton/AuthorizationButton.tsx";
 import {AuthorizationLink} from "../../common-components/Authorization/AuthorizationLink/AuthorizationLink.tsx";
-import {ForgotPasswordRequest} from "../../types/request/forgot-password-request.ts";
+import {ForgotRequest} from "../../types/request/forgot-request.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {ForgotPasswordSchema} from "../../utils/schemas/forgot-password-schema.ts";
 import {axiosInstance} from "../../utils/axios/interceptors.ts";
@@ -15,13 +15,13 @@ export function ForgotPassword() {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm<ForgotPasswordRequest>({
+    } = useForm<ForgotRequest>({
         resolver: zodResolver(ForgotPasswordSchema),
     });
 
     const navigate = useNavigate();
 
-    const onSubmit = async (data: ForgotPasswordRequest) => {
+    const onSubmit = async (data: ForgotRequest) => {
         try {
             await axiosInstance.post('/user-service/api/auth/forgot-password', data);
             alert('Password reset instructions sent to your email');

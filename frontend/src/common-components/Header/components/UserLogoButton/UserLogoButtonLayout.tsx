@@ -1,13 +1,9 @@
-import {forwardRef, LegacyRef} from "react";
 import {MyContainerProps} from "../../../../types/help/my-container-props.ts";
 
-
-const UserLogoButtonLayout = forwardRef(({children} : MyContainerProps, ref) => {
+export default function UserLogoButtonLayout({children}: MyContainerProps) {
     return (
-        <div className={"w-fit h-full relative z-30"} ref={ref as LegacyRef<HTMLDivElement>}>
+        <div className="w-fit relative z-20">
             {children}
         </div>
     );
-});
-
-export default UserLogoButtonLayout;
+};

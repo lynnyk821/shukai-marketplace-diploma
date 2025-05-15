@@ -1,22 +1,40 @@
-import {forwardRef, LegacyRef, useState} from "react";
-import {DeliveryServiceSelector} from "./components/DeliveryServiceSelector.tsx";
-import {CitySelector} from "./components/CitySelector.tsx";
-import {WarehouseSelector} from "./components/WarehouseSelector.tsx";
+import { forwardRef, LegacyRef, useEffect, useState } from "react";
+import { DeliveryServiceSelector } from "./components/DeliveryServiceSelector.tsx";
+import { CitySelector } from "./components/CitySelector.tsx";
+import { WarehouseSelector } from "./components/WarehouseSelector.tsx";
 
 type Props = {
     onSave: (data: {
         service: string;
         city: string;
-        warehouse: string
+        warehouse: string;
     }) => void;
     onClose: () => void;
+    initialService: string;
+    initialCity: string;
+    initialWarehouse: string;
 };
 
-const DeliveryModal = forwardRef(({onSave, onClose}: Props, ref: LegacyRef<HTMLDivElement>) => {
-    const [cityRef, setCityRef] = useState<string>("")
+const DeliveryModal = forwardRef((
+    {
+        onSave,
+        onClose,
+        initialService,
+        initialCity,
+        initialWarehouse
+    }: Props,
+    ref: LegacyRef<HTMLDivElement>
+) => {
+    const [cityRef, setCityRef] = useState<string>("");
     const [selectedThisCity, setSelectedThisCity] = useState<string>("");
     const [selectedThisWarehouse, setSelectedThisWarehouse] = useState<string>("");
     const [selectedThisService, setSelectedThisService] = useState<string>("");
+
+    useEffect(() => {
+        setSelectedThisCity(initialCity);
+        setSelectedThisWarehouse(initialWarehouse);
+        setSelectedThisService(initialService);
+    }, [initialService, initialCity, initialWarehouse]);
 
     const handleSave = () => {
         onSave({

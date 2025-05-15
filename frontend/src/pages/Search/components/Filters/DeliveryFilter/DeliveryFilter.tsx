@@ -9,7 +9,7 @@ export default function DeliveryFilter() {
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        const deliveriesParams = params.get("delivery");
+        const deliveriesParams = params.get("status");
         if (deliveriesParams) setSelectedDeliveries(deliveriesParams.split(","));
     }, []);
 
@@ -19,7 +19,7 @@ export default function DeliveryFilter() {
         if (values.length > 0) {
             searchParams.set("delivery", values.join(","));
         } else {
-            searchParams.delete("delivery");
+            searchParams.delete("status");
         }
 
         navigate({ search: searchParams.toString() });
@@ -34,6 +34,7 @@ export default function DeliveryFilter() {
                 setSelectedDeliveries(values);
                 handleFilterChange(values);
             }}
+            isOpenValue={true}
         />
     );
 };

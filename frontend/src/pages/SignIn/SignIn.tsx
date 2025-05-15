@@ -11,6 +11,7 @@ import {axiosInstance} from "../../utils/axios/interceptors.ts";
 import {AuthResponse} from "../../types/response/auth-response.ts";
 import {TokenManager} from "../../utils/helpers/tokenManager.ts";
 import {useNavigate} from "react-router-dom";
+import {useUserStore} from "../../utils/store/useUserStore.ts";
 
 export function SignIn() {
     const {
@@ -21,6 +22,7 @@ export function SignIn() {
         resolver: zodResolver(SignInSchema)
     });
 
+    const { setUser } = useUserStore();
     const navigate = useNavigate();
 
     const onSubmit = async (data: SignInRequest) => {
@@ -32,12 +34,15 @@ export function SignIn() {
 
             axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`;
 
+            const meRes = await axiosInstance.get("/user-service/api/user/me");
+            setUser(meRes.data);
+            console.log(meRes.data);
             navigate('/');
         } catch (error) {
             console.error('Login failed:', error);
-            alert('Invalid credentials. Please try again.');
+            alert('Невірна пошта або пароль. Спробуйте ще раз.');
         }
-    }
+    };
 
     return (
         <SignInLayout>

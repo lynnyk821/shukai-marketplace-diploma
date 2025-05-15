@@ -55,6 +55,7 @@ public class AdvertisementDTO {
     @Builder @Getter
     @AllArgsConstructor
     public static class Category {
+        private Long id;
         private String name;
         private String path;
     }

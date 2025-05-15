@@ -1,7 +1,7 @@
 import {FieldError, UseFormRegister} from "react-hook-form";
 import {SignUpRequest} from "../../../types/request/sign-up-request.ts";
 import {SignInRequest} from "../../../types/request/sign-in-request.ts";
-import {ForgotPasswordRequest} from "../../../types/request/forgot-password-request.ts";
+import {ForgotRequest} from "../../../types/request/forgot-request.ts";
 
 type Props = {
     type: keyof SignUpRequest,
@@ -14,7 +14,7 @@ export default function AuthorizationInput({type, register, placeholder, error}:
     return (
         <>
             <input
-                {...register(type) as UseFormRegister<SignUpRequest | SignInRequest | ForgotPasswordRequest>}
+                {...register(type) as UseFormRegister<SignUpRequest | SignInRequest | ForgotRequest>}
                 type={type}
                 placeholder={placeholder}
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

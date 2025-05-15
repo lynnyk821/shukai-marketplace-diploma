@@ -9,9 +9,11 @@ public interface CatalogueService {
 
     void saveAdWithPendingStatusAndPublishItForReview(CreateAdDTO dto);
 
-    void updateStatusAndPublish(String uuid);
+    void updateStatusToApprovedAndPublish(String uuid);
 
     void updateAdvertisementAndPublishToReview(String uuid, UpdateAdDTO advertisement);
+
+    void updateStatusToRejected(String uuid);
 
     void deleteById(String uuid);
 }

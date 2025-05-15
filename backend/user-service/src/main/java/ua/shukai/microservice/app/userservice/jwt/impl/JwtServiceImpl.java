@@ -63,7 +63,7 @@ public class JwtServiceImpl implements JwtService {
         return parse(token).getSubject();
     }
 
-    private void validateRefreshToken(Claims claims) {
+    public void validateRefreshToken(Claims claims) {
         if (claims.getExpiration().before(getDateCurrentTime())) {
             throw new JwtExpiredException("Refresh token expired");
         } else if (!claims.get("type", String.class).equals(JwtType.REFRESH.toString())) {

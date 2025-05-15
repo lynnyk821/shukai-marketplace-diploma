@@ -8,6 +8,7 @@ public class CreateOrderRequest {
     private Customer customer;
     private Delivery delivery;
     private Advertisement advertisement;
+    private String paymentMethod;
 
     @Data
     public static class Customer {
@@ -21,7 +22,6 @@ public class CreateOrderRequest {
     @Data
     public static class Seller {
         private Long id;
-        private String name;
     }
 
     @Data
@@ -33,9 +33,9 @@ public class CreateOrderRequest {
 
     @Data
     public static class Advertisement {
+        private String id;
         private String title;
         private String image;
-        private Long price;
-        private String paymentMethod;
+        private Integer price;
     }
 }

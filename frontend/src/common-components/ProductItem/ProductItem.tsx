@@ -11,33 +11,39 @@ type Props = {
     className: string,
     size: "sm" | "md" | "lg" | "xl",
     product: ProductItemProps,
+    newPath?: string,
+    isMyProduct?: boolean,
 }
 
-export default function ProductItem({ className, size, product }: Props) {
-    const navigate = useNavigateWithScrollBehavior(`/advertisement/${product.id}`, "smooth");
+export default function ProductItem({ className, size, product, newPath, isMyProduct }: Props) {
+    const path = newPath ? newPath : `/advertisement/${product.id}`
+    const navigate = useNavigateWithScrollBehavior(path, "smooth");
 
     const handleImage = (image: string) => {
         return image ? image : noImage;
     }
 
     return (
-        <ProductItemLayout className={className}>
+        <ProductItemLayout>
             <button
-                className={"h-5/6 flex flex-col gap-2 hover:text-yellow-600 transition duration-200 ease-in-out text-[#414141] ${className}"}
+                className={`h-5/6 flex flex-col ${className} gap-2 text-[#414141]
+                ${!isMyProduct && "hover:text-yellow-600 transition duration-200 ease-in-out"}`}
                 onClick={navigate}
             >
-                <ProductImage
-                    image={handleImage(product.image)}
-                    size={size}
-                />
-                <ProductName
-                    size={size}
-                    name={product.title}
-                />
+                {isMyProduct &&
+                    <div className={
+                        "absolute inset-0 bg-[#414141] bg-opacity-25 opacity-0 " +
+                        "group-hover:opacity-100 transition duration-300 rounded-lg z-20"}
+                    >
+                        <p className={"w-full h-full centered text-lg font-inter text-white font-bold"}>Редагувати</p>
+                    </div>
+                }
+                <ProductImage image={handleImage(product.image)} size={size} />
+                <ProductName size={size} name={product.title} />
             </button>
             <div className={"w-full h-1/6 flex items-center "}>
                 <ProductPrice size={size} price={product.price}/>
-                {size !== "sm" && <FavoriteButton />}
+                {(size !== "sm" && !isMyProduct) && <FavoriteButton /> }
             </div>
         </ProductItemLayout>
     );

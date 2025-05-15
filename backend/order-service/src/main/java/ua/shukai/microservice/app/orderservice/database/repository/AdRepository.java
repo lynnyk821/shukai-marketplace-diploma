@@ -3,4 +3,4 @@ package ua.shukai.microservice.app.orderservice.database.repository;
 import org.springframework.data.repository.CrudRepository;
 import ua.shukai.microservice.app.orderservice.database.entity.AdEntity;
 
-public interface AdRepository extends CrudRepository<AdEntity, Long> { }
+public interface AdRepository extends CrudRepository<AdEntity, String> { }

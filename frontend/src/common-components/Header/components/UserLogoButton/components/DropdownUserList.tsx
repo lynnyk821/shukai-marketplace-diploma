@@ -1,3 +1,4 @@
+import {forwardRef, LegacyRef} from "react";
 import SlideDown from "../../../../../utils/animations/SlideDown.tsx";
 import UserListItem from "./UserListItem.tsx";
 import {Icon} from "@iconify/react";
@@ -5,12 +6,14 @@ import {USER_LOGO_LIST} from "../../../../../globals-env.ts";
 
 type Props = {
     userId?: number,
-}
+};
 
-export default function DropdownUserList({userId}: Props) {
+const DropdownUserList = forwardRef<HTMLElement, Props>(({ userId }, ref) => {
     return (
         <SlideDown bottom={-10} duration={0.6} isOpen={true} opacity={0}>
-            <ul className={
+            <ul
+                ref={ref as LegacyRef<HTMLUListElement>}
+                className={
                     "w-56 h-fit mt-2 absolute right-0 bg-white " +
                     "border-[1px] border-solid border-[#414141] border-opacity-20"
                 }
@@ -28,4 +31,6 @@ export default function DropdownUserList({userId}: Props) {
             </ul>
         </SlideDown>
     );
-}
+});
+
+export default DropdownUserList;

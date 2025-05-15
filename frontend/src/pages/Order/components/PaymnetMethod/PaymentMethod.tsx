@@ -20,7 +20,7 @@ export default function PaymentMethod({register}: Props) {
                         <input
                             type="radio"
                             value="safe"
-                            {...register("advertisement.paymentMethod")}
+                            {...register("paymentMethod")}
                             defaultChecked
                             className="accent-black"
                         />

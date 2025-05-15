@@ -5,8 +5,12 @@ type Props = {
 
 export default function ProductImage({ image, size }: Props) {
     return (
-        <div className={`w-full ${size === "sm" ? "h-3/4" : "h-3/5"} flex justify-center items-center overflow-hidden rounded-lg bg-[#eee]`}>
-            <img className={"w-full h-full object-cover"} src={image} alt={"product"} />
+        <div className={`w-full ${size === "sm" ? "h-3/4" : "h-4/5"} flex justify-center items-center overflow-hidden rounded-lg`}>
+            <img
+                className={`w-full h-full ${size !== "sm" && "object-cover object-center scale-105"}`}
+                src={image}
+                alt="product"
+            />
         </div>
     );
 };

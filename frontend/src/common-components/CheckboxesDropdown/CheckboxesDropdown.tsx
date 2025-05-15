@@ -9,20 +9,32 @@ type Props = {
     title: string;
     options: string[];
     selectedValues: string[];
-    onSelectionChange: (values: string[]) => void;
+    onSelectionChange: (values: string[]) => void,
+    isOpenValue?: boolean,
+    isSingleSelect?: boolean;
 };
 
 export default function CheckboxesDropdown({
    title, options,
-   selectedValues, onSelectionChange
+   selectedValues, onSelectionChange,
+   isOpenValue = false,
+   isSingleSelect = false
 }: Props) {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(isOpenValue);
 
     const handleCheckboxChange = (value: string, isChecked: boolean) => {
-        const newValues = isChecked
-            ? [...selectedValues, value]
-            : selectedValues.filter((v) => v !== value);
-        onSelectionChange(newValues);
+        if (isSingleSelect) {
+            if (isChecked) {
+                onSelectionChange([value]);
+            } else {
+                onSelectionChange([]);
+            }
+        } else {
+            const newValues = isChecked
+                ? [...selectedValues, value]
+                : selectedValues.filter((v) => v !== value);
+            onSelectionChange(newValues);
+        }
     };
 
     return (

@@ -1,8 +1,11 @@
 package ua.shukai.microservice.app.catalogueservice.service;
 
+import org.springframework.data.domain.Pageable;
 import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.CreateAdDTO;
 import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.UpdateAdDTO;
+import ua.shukai.microservice.app.catalogueservice.controller.catalogue.dto.MyAdsResponse;
 import ua.shukai.microservice.app.catalogueservice.database.entity.*;
+import ua.shukai.microservice.app.catalogueservice.types.AdvertisementStatus;
 
 import java.util.List;
 
@@ -17,9 +20,9 @@ public interface AdvertisementService {
 
     AdvertisementEntity deleteById(String uuid);
 
-    AdvertisementEntity updateStatusAndPublish(String uuid);
+    AdvertisementEntity updateStatus(String uuid, AdvertisementStatus status);
 
-    List<Object> getAdsByUserId(Long userId);
+    MyAdsResponse getAdsByUserIdAndStatus(Long userId, AdvertisementStatus status, Pageable pageable);
 
     List<Object> getSalesByUserId(Long userId);
 

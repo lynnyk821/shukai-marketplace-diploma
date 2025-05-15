@@ -13,8 +13,19 @@ public class KafkaServiceImpl implements KafkaService {
     private final KafkaProducer kafkaProducer;
 
     @Override
-    public void sendSignUpEvent(UserEntity user) {
-        this.kafkaProducer.send("sign-up", KafkaUserDTO.builder()
+    public void sendSignUpEventForCatalogueService(UserEntity user) {
+        this.kafkaProducer.send("sign-up-catalogue", KafkaUserDTO.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .username(user.getUsername())
+                .phoneNumber(user.getPhoneNumber())
+            .build()
+        );
+    }
+
+    @Override
+    public void sendSignUpEventForOrderService(UserEntity user) {
+        this.kafkaProducer.send("sign-up-order", KafkaUserDTO.builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .username(user.getUsername())
