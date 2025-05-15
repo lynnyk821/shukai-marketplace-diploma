@@ -1,5 +1,5 @@
 import CartItemLayout from "./CartItemLayout.tsx";
-import {CartItemProps} from "../../../../types/common/cart-item-props.ts";
+import {OrderItem} from "../../../../types/common/order-item.ts";
 import OrderImage from "./components/OrderImage.tsx";
 import OrderDeleteButton from "./components/OrderDeleteButton.tsx";
 import {useState} from "react";
@@ -11,7 +11,7 @@ import CartOrderButton from "../../../Buttons/CartOrderButton/CartOrderButton.ts
 import {useNavigate} from "react-router-dom";
 
 interface Props {
-    item: CartItemProps;
+    item: OrderItem;
 }
 
 export default function CartItem({ item }: Props) {
@@ -21,14 +21,13 @@ export default function CartItem({ item }: Props) {
 
     const handleRemoveFromCart = () => {
         setIsDeleted(true);
-        removeFromCart(item.id);
+        removeFromCart(item.advertisement?.id);
     }
 
     const handleCheckout = () => {
-        // Передаем весь объект товара через state
         navigate("/order", {
             state: {
-                item: item as CartItemProps,
+                item: item,
             }
         });
     }
@@ -36,21 +35,15 @@ export default function CartItem({ item }: Props) {
     return (
         <CartItemLayout isHidden={isDeleted}>
             <div className={"w-full h-28 flex gap-4 items-center border-b border-[#414141] border-opacity-25"}>
-                <OrderImage image={item.image} />
-                <OrderAdName name={item.name} />
-                <OrderPrice
-                    id={item.id}
-                    price={item.price}
-                    quantity={item.quantity}
-                />
+                <OrderImage image={item.advertisement?.image} />
+                <OrderAdName name={item.advertisement?.title} />
+                <OrderPrice price={item.advertisement?.price} />
                 <OrderDeleteButton removeFromCart={handleRemoveFromCart}/>
             </div>
             <div className={"h-10 text-[13px] flex gap-3 justify-end mt-5 font-inter font-medium"}>
-                <ButtonWithoutBackground>
-                    Додати інші товари продавця
-                </ButtonWithoutBackground>
+                <ButtonWithoutBackground>Додати інші товари продавця</ButtonWithoutBackground>
                 <CartOrderButton onClick={handleCheckout}>
-                    Оформити замовлення {item.price}
+                    Оформити замовлення {item.advertisement?.price}
                 </CartOrderButton>
             </div>
         </CartItemLayout>

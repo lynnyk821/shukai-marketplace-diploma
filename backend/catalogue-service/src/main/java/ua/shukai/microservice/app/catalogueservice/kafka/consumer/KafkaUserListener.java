@@ -18,7 +18,7 @@ public class KafkaUserListener {
     private final CatalogueService catalogueService;
 
     @KafkaListener(
-            topics = "sign-up",
+            topics = "sign-up-catalogue",
             groupId = "user-group",
             containerFactory = "kafkaUserDTOListenerContainerFactory"
     )
@@ -32,7 +32,7 @@ public class KafkaUserListener {
         uuid = uuid.replaceAll("\"", "");
         log.info("Processing approval for ad: {}", uuid);
         try {
-            this.catalogueService.updateStatusAndPublish(uuid);
+            this.catalogueService.updateStatusToApprovedAndPublish(uuid);
         } catch (EntityNotFoundException e) {
             log.error("Advertisement {} not found in catalogue-service", uuid);
         }
@@ -41,6 +41,6 @@ public class KafkaUserListener {
     @KafkaListener(topics = "advertisement_rejected")
     public void listenRejectedAdUuid(String uuid) {
         uuid = uuid.replaceAll("\"", "");
-        this.catalogueService.deleteById(uuid);
+        this.catalogueService.updateStatusToRejected(uuid);
     }
 }

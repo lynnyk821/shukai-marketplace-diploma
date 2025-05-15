@@ -9,9 +9,9 @@ import CategoryButtonLayout from "./CategoryButtonLayout.tsx";
 export default function CategoryButton() {
     const { isCatalogueOpen, setIsCatalogueOpen } = useAppStore();
 
-    const ref = (useClickOutside(() => {
+    const ref = useClickOutside(() => {
         setIsCatalogueOpen(false);
-    })) as LegacyRef<HTMLDivElement> | undefined;
+    }) as LegacyRef<HTMLDivElement> | undefined;
 
     return (
         <CategoryButtonLayout ref={ref}>

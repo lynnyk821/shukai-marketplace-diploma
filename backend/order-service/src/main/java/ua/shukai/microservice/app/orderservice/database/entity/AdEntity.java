@@ -1,6 +1,5 @@
 package ua.shukai.microservice.app.orderservice.database.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,7 +16,10 @@ public class AdEntity {
     private String id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String image;
 
     @Column(nullable = false)
     private Integer price;

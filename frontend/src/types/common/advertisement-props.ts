@@ -1,9 +1,9 @@
-import {RegionProps} from "./region-props.ts";
 import {UserProps} from "./user-props.ts";
 import {CategoryProps} from "./category-props.ts";
+import {RegionProps} from "../../common-components/Advertisement/Region/types/region-props.ts";
 
 export type AdvertisementProps = {
-    id: number,
+    id: string,
     title: string,
     createdAt: Date,
     price: number,

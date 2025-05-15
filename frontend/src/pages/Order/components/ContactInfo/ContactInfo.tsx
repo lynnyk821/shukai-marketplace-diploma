@@ -13,7 +13,7 @@ export default function ContactInfo({register, errors}: Props) {
             <CommonTitle text={"Ваші контактні дані"} size={"xl"} />
             <div className="grid grid-cols-3 gap-4">
                 <div>
-                    <label className="block text-sm mb-1">Прізвище*</label>
+                    <label className="block text-sm mb-1">Прізвище</label>
                     <input
                         {...register("customer.lastName")}
                         className="border p-2 w-full rounded"

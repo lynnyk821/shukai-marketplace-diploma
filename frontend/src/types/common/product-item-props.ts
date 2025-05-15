@@ -4,4 +4,5 @@ export type ProductItemProps = {
     title : string,
     price: number,
     image: string,
+    status?: string,
 }

@@ -1,10 +1,5 @@
 export type OrderRequest = {
-    seller: {
-        id: number;
-        name: string;
-    },
     customer: {
-        id?: number;
         firstName: string;
         lastName: string;
         middleName: string;
@@ -16,9 +11,11 @@ export type OrderRequest = {
         warehouse: string;
     },
     advertisement: {
+        id: string,
         title: string;
         image: string;
         price: number;
-        paymentMethod: string;
-    }
+        seller: string;
+    },
+    paymentMethod: string;
 };

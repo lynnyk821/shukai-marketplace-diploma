@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { CartItemProps } from "../../types/common/cart-item-props.ts";
-import {useAppStore} from "./useAppStore.ts";
+import { OrderItem } from "../../types/common/order-item.ts";
+import { useAppStore } from "./useAppStore.ts";
 
 export function useCart() {
     const { setCartCapacity } = useAppStore();
-    const [cart, setCart] = useState<CartItemProps[]>(() => {
+    const [cart, setCart] = useState<OrderItem[]>(() => {
         if (typeof window === "undefined") return [];
         const savedCart = localStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
@@ -15,29 +15,20 @@ export function useCart() {
         setCartCapacity(cart.length);
     }, [cart]);
 
-    const addToCart = (item: CartItemProps) => {
+    const addToCart = (item: OrderItem) => {
         setCart(prev => {
-            const existing = prev.find(i => i.id === item.id);
-            return existing
-                ? prev.map(i => i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i)
-                : [...prev, { ...item, quantity: 1 }];
+            const exists = prev.some(i => i.advertisement.id === item.advertisement.id);
+            return exists ? prev : [...prev, item];
         });
     };
 
-    const removeFromCart = (itemId: number) => {
-        setCart(prev => prev.filter(item => item.id !== itemId));
-    };
-
-    const updateQuantity = (itemId: number, newQuantity: number) => {
-        setCart(prev => prev.map(item =>
-            item.id === itemId ? { ...item, quantity: Math.max(1, newQuantity) } : item
-        ));
+    const removeFromCart = (itemId: string) => {
+        setCart(prev => prev.filter(item => item.advertisement.id !== itemId));
     };
 
     return {
         cart,
         addToCart,
-        removeFromCart,
-        updateQuantity
+        removeFromCart
     };
 }

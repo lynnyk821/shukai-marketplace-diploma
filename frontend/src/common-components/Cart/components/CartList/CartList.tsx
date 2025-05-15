@@ -1,9 +1,9 @@
 import CartListLayout from "./CartListLayout.tsx";
-import {CartItemProps} from "../../../../types/common/cart-item-props.ts";
+import {OrderItem} from "../../../../types/common/order-item.ts";
 import CartItem from "../CartItem/CartItem.tsx";
 
 type Props = {
-    items: CartItemProps[];
+    items: OrderItem[];
 }
 
 export default function CartList({items}: Props) {

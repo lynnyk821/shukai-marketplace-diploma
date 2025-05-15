@@ -7,7 +7,6 @@ import PaymentFilter from "./PaymentFilter/PaymentFilter.tsx";
 export default function Filters() {
     return (
         <FiltersLayout>
-            {/*<CategoryFilter></CategoryFilter>*/}
             <DeliveryFilter></DeliveryFilter>
             <PaymentFilter></PaymentFilter>
             <PriceFilter></PriceFilter>

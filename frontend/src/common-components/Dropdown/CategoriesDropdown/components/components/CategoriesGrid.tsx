@@ -18,6 +18,7 @@ export default function CategoriesGrid({ items }: Props) {
         >
             {items.map((item, index) => (
                 <CategoryItem
+                    key={index}
                     name={item.name}
                     color={COLORS[index % 9].code}
                     onClick={() => {

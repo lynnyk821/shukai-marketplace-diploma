@@ -11,6 +11,7 @@ import ua.shukai.microservice.app.catalogueservice.database.entity.*;
 import ua.shukai.microservice.app.catalogueservice.kafka.service.KafkaService;
 import ua.shukai.microservice.app.catalogueservice.mapper.AdvertisementMapper;
 import ua.shukai.microservice.app.catalogueservice.service.*;
+import ua.shukai.microservice.app.catalogueservice.types.AdvertisementStatus;
 
 import java.util.List;
 
@@ -40,9 +41,14 @@ public class CatalogueServiceImpl implements CatalogueService {
     }
 
     @Override
-    public void updateStatusAndPublish(String uuid) {
-        AdvertisementEntity ad = this.advertisementService.updateStatusAndPublish(uuid);
+    public void updateStatusToApprovedAndPublish(String uuid) {
+        AdvertisementEntity ad = this.advertisementService.updateStatus(uuid, AdvertisementStatus.APPROVED);
         this.kafkaService.publishCreateAdAfterApproved(ad);
+    }
+
+    @Override
+    public void updateStatusToRejected(String uuid) {
+        this.advertisementService.updateStatus(uuid, AdvertisementStatus.REJECTED);
     }
 
     @Override

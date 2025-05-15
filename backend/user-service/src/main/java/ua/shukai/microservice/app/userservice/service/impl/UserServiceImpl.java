@@ -72,6 +72,6 @@ public class UserServiceImpl implements UserService {
             () -> new EntityNotFoundException("User with email " + username + " not found")
         );
 
-        return new MeDTO(user.getId(), user.getImage().getImageBase64());
+        return new MeDTO(user.getId(), user.getImage().getImageBase64(), user.getRole().getRoleName().name());
     }
 }

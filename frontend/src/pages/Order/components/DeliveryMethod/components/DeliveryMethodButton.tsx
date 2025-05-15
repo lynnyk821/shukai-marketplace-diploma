@@ -22,8 +22,8 @@ export default function DeliveryMethodButton({
                     onClick={() => setShowModal(true)}
             >
                 <label className="grid grid-cols-1 space-y-3 items-center cursor-pointer">
-                    <p className="font-semibold">Служба доставки: {selectedService}</p>
-                    <p className="text-sm">{selectedCity}. {selectedBranch}</p>
+                    <p className="font-semibold">{`Служба доставки: ${selectedService}`}</p>
+                    <p className="text-sm">{selectedCity} {selectedBranch}</p>
                     <p className="text-sm">{description}</p>
                 </label>
             </button>

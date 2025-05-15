@@ -6,8 +6,7 @@ type Props = {
     id?: number,
 }
 
-export default function SellerName({id, phoneNumber, name}: Props) {
-    console.log(id)
+export default function SellerName({phoneNumber, name}: Props) {
     return (
         <div className={"w-full flex"}>
             <div className={"w-1/2"}>

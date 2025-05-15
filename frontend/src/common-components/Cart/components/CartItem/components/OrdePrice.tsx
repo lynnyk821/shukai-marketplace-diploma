@@ -1,7 +1,5 @@
 type Props = {
-    id: number,
     price: number,
-    quantity: number,
 };
 
 export default function OrderPrice({ price }: Props) {

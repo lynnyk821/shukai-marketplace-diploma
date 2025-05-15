@@ -12,7 +12,7 @@ export default function RegionFilter() {
     ];
 
     const navigate = useNavigate();
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState("");
 

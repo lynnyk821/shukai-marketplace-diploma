@@ -15,13 +15,13 @@ export default function AdditionalSellerProducts({title, products}: Props) {
             <ul className={"grid grid-cols-6 gap-x-4"}>
                 {products && products.map((product) =>
                     <ProductItem
+                        key={product.id}
                         className={"w-full h-60"}
                         product={product}
                         size={"sm"}
                     />
                 )}
             </ul>
-
         </AdditionalSellerProductsLayout>
     );
 };

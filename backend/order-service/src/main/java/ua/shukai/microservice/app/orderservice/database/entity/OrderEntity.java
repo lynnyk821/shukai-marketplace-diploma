@@ -2,10 +2,12 @@ package ua.shukai.microservice.app.orderservice.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 import ua.shukai.microservice.app.orderservice.type.OrderStatus;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.UUID;
 
 @Entity
 @Table(name="orders")
@@ -16,7 +18,7 @@ import java.time.Instant;
 public class OrderEntity {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @ManyToOne
@@ -32,7 +34,7 @@ public class OrderEntity {
     private AdEntity ad;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
+    @Column(nullable = false)
     private OrderStatus status;
 
     @Column(nullable = false)
@@ -42,10 +44,10 @@ public class OrderEntity {
     private String warehouse;
 
     @Column(nullable = false)
-    private String paymentMethod;
+    private String deliveryMethod;
 
     @Column(nullable = false)
-    private String deliveryMethod;
+    private String paymentMethod;
 
     @PrePersist
     protected void onCreate() {

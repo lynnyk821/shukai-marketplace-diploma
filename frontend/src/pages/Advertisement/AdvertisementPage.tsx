@@ -13,12 +13,10 @@ import {AdvertisementProps} from "../../types/common/advertisement-props.ts";
 export default function AdvertisementPage() {
     const {id} = useParams<{ id: string }>();
 
-    // Стан для збереження даних оголошення
     const { addToRecentlyWatched } = useRecentlyWatched();
     const [adPageData, setAdPageData] = useState<AdByIdResponse | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-
 
     const convertToProductItem = (ad: AdvertisementProps): ProductItemProps => ({
         id: ad.id.toString(),
@@ -35,7 +33,6 @@ export default function AdvertisementPage() {
                     `http://localhost:8080/catalogue-service/api/catalogue/${id}`
                 );
                 setAdPageData(response.data);
-
                 const advertisement = convertToProductItem(response.data.advertisement);
                 addToRecentlyWatched(advertisement);
             } catch (err) {

@@ -4,6 +4,7 @@ type Props = {
 };
 
 export function DeliveryServiceSelector({selectedService, onChange}: Props) {
+    {console.log(selectedService)}
     return (
         <div className="mb-4">
             <label className="block mb-2 font-semibold">Служба доставки</label>
@@ -12,9 +13,9 @@ export function DeliveryServiceSelector({selectedService, onChange}: Props) {
                 value={selectedService}
                 onChange={(e) => onChange(e.target.value)}
             >
-                <option value="novaposhta">Нова Пошта</option>
-                <option value="ukrposhta">Укрпошта</option>
-                <option value="meest">Meest</option>
+                <option value="Нова пошта">Нова пошта</option>
+                <option value="Укрпошта">Укрпошта</option>
+                <option value="Meest">Meest</option>
             </select>
         </div>
     );

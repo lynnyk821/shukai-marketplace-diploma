@@ -29,9 +29,9 @@ export default function BigProductPicture({ data, currentIndex, setCurrentIndex 
 
             {/* Анимационный контейнер */}
             <div className="w-full h-full centered">
-                <div className={"w-5/6 h-5/6  centered"}>
+                <div className={"w-5/6 h-full overflow-hidden centered"}>
                     <img
-                        className={"object-cover"}
+                        className={"object-cover object-center scale-150"}
                         src={data[currentIndex]}
                         alt={String(currentIndex)}
                     />

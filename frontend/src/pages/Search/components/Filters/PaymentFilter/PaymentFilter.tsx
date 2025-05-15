@@ -33,6 +33,7 @@ export default function PaymentFilter() {
                 setSelectedPayments(values);
                 handleFilterChange(values);
             }}
+            isOpenValue={true}
         />
     );
 };

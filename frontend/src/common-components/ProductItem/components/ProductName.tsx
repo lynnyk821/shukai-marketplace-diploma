@@ -13,8 +13,8 @@ export default function ProductName({ size, name }: Props) {
             ${size === "lg" && " text-lg"}
             ${size === "xl" && " text-xl"}`
         }>
-            {size === "sm" && truncateStringWithN(name, 30)}
-            {size === "md" && truncateStringWithN(name, 35)}
+            {size === "sm" && truncateStringWithN(name, 20)}
+            {size === "md" && truncateStringWithN(name, 30)}
             {size === "lg" && truncateStringWithN(name, 40)}
             {size === "xl" && truncateStringWithN(name, 50)}
         </p>

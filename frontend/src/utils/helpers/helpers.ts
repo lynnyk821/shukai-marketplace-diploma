@@ -1,3 +1,5 @@
+import {UseFormSetValue, UseFormWatch} from "react-hook-form";
+
 export function truncateStringWithN(stringData: string, n: number): string {
     return stringData.length > n
         ? stringData.slice(0, n).replace(/[\s.,!?;:]+$/g, '') + '...'
@@ -12,6 +14,24 @@ export const convertToBase64 = (file: File): Promise<string> => {
         reader.onerror = error => reject(error);
     });
 };
+
+export const handleImageUpload = async (
+    file: File, index: number, setValue: UseFormSetValue<any>, watch: UseFormWatch<any>
+) => {
+    const base64 = await convertToBase64(file);
+    const currentPhotos = [...watch("images")];
+    currentPhotos[index] = base64;
+    setValue("images", currentPhotos, { shouldValidate: true });
+};
+
+export const handleImageDelete = (
+    index: number, setValue: UseFormSetValue<any>, watch: UseFormWatch<any>
+) => {
+    const newPhotos = [...watch("images")];
+    newPhotos[index] = "";
+    setValue("images", newPhotos, { shouldValidate: true });
+};
+
 
 export const formatDate = (date: Date | string): string => {
     const thisDate = new Date(date);

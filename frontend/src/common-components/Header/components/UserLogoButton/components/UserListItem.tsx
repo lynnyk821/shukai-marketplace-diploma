@@ -8,9 +8,7 @@ type Props = MyContainerProps & {
     userId?: number,
 }
 
-export default function UserListItem({ text, children, href, userId } : Props) {
-    console.log(userId)
-
+export default function UserListItem({ text, children, href } : Props) {
     const navigate = useNavigate();
 
     const handleOnClick = () => {
@@ -19,7 +17,7 @@ export default function UserListItem({ text, children, href, userId } : Props) {
 
             sessionStorage.clear();
 
-            navigate("sign-in");
+            navigate("/sign-in");
         } else {
             navigate(href);
         }

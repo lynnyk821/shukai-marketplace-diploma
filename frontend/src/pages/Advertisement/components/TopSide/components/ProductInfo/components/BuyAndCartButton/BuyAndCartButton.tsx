@@ -10,7 +10,7 @@ type Props = {
 export default function BuyAndCartButton({advertisement}: Props) {
     return (
         <BuyAndCartButtonLayout>
-            <BuyButton />
+            <BuyButton advertisement={advertisement} />
             <AddToCartButton advertisement={advertisement} />
         </BuyAndCartButtonLayout>
     );

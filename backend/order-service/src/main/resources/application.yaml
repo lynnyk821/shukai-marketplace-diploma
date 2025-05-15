@@ -3,7 +3,20 @@ spring:
     url: jdbc:postgresql://localhost:5135/shukai_order
     username: shukai_order
     password: shukai_order
-
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: sign-up-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: ua.shukai.microservice.app.orderservice.kafka.consumer.dto.KafkaUserDTO
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
   jpa:
     hibernate:
       ddl-auto: update

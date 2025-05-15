@@ -9,6 +9,7 @@ export function RecentlyWatched() {
         <RecentlyWatchedLayout>
             {items.map((product) => (
                 <ProductItem
+                    key={product.id}
                     className={"w-full h-52 text-[#414141] hover:text-yellow-600"}
                     product={product}
                     size={"sm"}

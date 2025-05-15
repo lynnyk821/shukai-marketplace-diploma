@@ -6,10 +6,7 @@ import {useFetchCategories} from "../../../../utils/hooks/useFetchCategories.ts"
 
 export default function CatalogCategories() {
     const { isCatalogueOpen } = useAppStore();
-    const { data: categories, isLoading, error } = useFetchCategories();
-
-    if (error) return null;
-    if (isLoading) return <div>Loading...</div>;
+    const { data: categories } = useFetchCategories();
 
     return (
         <div className={"w-full absolute centered overflow-hidden top-24 left-0 z-10"}>

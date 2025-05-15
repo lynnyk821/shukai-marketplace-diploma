@@ -1,6 +1,6 @@
 import {useCart} from "../../../../../../../../../utils/hooks/useCart.ts";
 import {AdvertisementProps} from "../../../../../../../../../types/common/advertisement-props.ts";
-import {CartItemProps} from "../../../../../../../../../types/common/cart-item-props.ts";
+import {OrderItem} from "../../../../../../../../../types/common/order-item.ts";
 
 type Props = {
     advertisement: AdvertisementProps;
@@ -10,17 +10,17 @@ export default function AddToCartButton({ advertisement }: Props) {
     const { addToCart } = useCart();
 
     const handleAddToCart = () => {
-        const data: CartItemProps = {
-            id: advertisement.id,
-            name: advertisement.title,
-            price: advertisement.price,
-            image: advertisement.images[0],
-            sellerName: advertisement.user.name,
+        const orderItem: OrderItem = {
+            advertisement: {
+                id: advertisement.id,
+                image: advertisement.images[0],
+                price: advertisement.price,
+                title: advertisement.title,
+                seller: advertisement.user.name,
+            },
             paymentMethods: advertisement.paymentMethods,
-            quantity: 1
-        }
-
-        addToCart(data);
+        };
+        addToCart(orderItem);
     };
 
     return (

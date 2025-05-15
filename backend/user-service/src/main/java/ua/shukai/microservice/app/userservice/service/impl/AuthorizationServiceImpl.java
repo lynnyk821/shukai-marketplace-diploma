@@ -43,7 +43,9 @@ public class AuthorizationServiceImpl implements AuthorizationService {
         }
 
         UserEntity user = this.userService.create(request);
-        this.kafkaService.sendSignUpEvent(user);
+
+        this.kafkaService.sendSignUpEventForOrderService(user);
+        this.kafkaService.sendSignUpEventForCatalogueService(user);
 
         JwtTokens tokens = this.jwtService.generateTokens(user.getUsername());
         return this.responseBuilder.buildAuthResponse(tokens);

@@ -1,122 +1,89 @@
 import AddProductLayout from "./NewAdvertisementPageLayout.tsx";
-import NewProductPictures from "./components/NewProductPictures/NewProductPictures.tsx";
+import NewProductPictures from "../../common-components/Advertisement/NewProductPictures/NewProductPictures.tsx";
 import {useForm} from "react-hook-form";
-import SubmitButton from "../../common-components/Buttons/SubmitButton/SubmitButton.tsx";
-import {convertToBase64} from "../../utils/helpers/helpers.ts";
+import SubmitButton from "../../common-components/Advertisement/SubmitButton/SubmitButton.tsx";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {newAdSchema} from "../../utils/schemas/new-ad-schema.ts";
-import {NewProductTitle} from "./components/NewProductName/NewProductTitle.tsx";
-import NewProductCategory from "./components/NewProductCategory/NewProductCategory.tsx";
-import AdRegion from "./components/NewAdRegion/AdRegion.tsx";
-import NewProductDescription from "./components/NewProductDescription/NewProductDescription.tsx";
-import {NewAdPrice} from "./components/NewAdPrice/NewAdPrice.tsx";
-import {CreateAdRequest} from "../../types/request/create-ad-request.ts";
-import axios from "axios";
-import {BACKEND_URL} from "../../globals-env.ts";
+import {adSchema} from "../../utils/schemas/ad-schema.ts";
+import {NewProductTitle} from "../../common-components/Advertisement/NewProductName/NewProductTitle.tsx";
+import NewProductCategory from "../../common-components/Advertisement/AdvertisementCategory/NewProductCategory.tsx";
+import AdRegion from "../../common-components/Advertisement/Region/AdRegion.tsx";
+import NewProductDescription from "../../common-components/Advertisement/NewProductDescription/NewProductDescription.tsx";
+import {PriceInput} from "../../common-components/Advertisement/PriceInput/PriceInput.tsx";
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import {AdRequest} from "../../types/request/ad-request.ts";
+import {handleImageDelete, handleImageUpload} from "../../utils/helpers/helpers.ts";
+import {useUserStore} from "../../utils/store/useUserStore.ts";
+import {TokenManager} from "../../utils/helpers/tokenManager.ts";
+import {axiosInstance} from "../../utils/axios/interceptors.ts";
 
 export default function NewAdvertisementPage() {
+    const {user} = useUserStore();
     const navigate = useNavigate();
-
-    const {
-        register,
-        handleSubmit,
-        watch,
-        setValue,
-        trigger,
-        formState: {errors}
-    } = useForm<CreateAdRequest>({
-        resolver: zodResolver(newAdSchema),
+    const { register, handleSubmit, watch, setValue, trigger, formState: {errors} } = useForm<AdRequest>({
+        resolver: zodResolver(adSchema),
         defaultValues: {
             title: "",
-            categoryId: 0,
+            categoryId: -1,
             price: 0,
             images: Array(9).fill(""),
             region: {
+                ref: "",
                 regionName: "",
                 cityName: "",
                 description: "",
             },
             description: "",
-            userId: 1,
+            userId: -1,
             deliveryMethodIds: [1, 2],
             paymentMethodIds: [1, 3]
         },
     });
 
-    const handleImageUpload = async (file: File, index: number) => {
-        const base64 = await convertToBase64(file);
-        const currentPhotos = [...watch("images")];
-        currentPhotos[index] = base64;
-        setValue("images", currentPhotos, { shouldValidate: true });
-    };
+    useEffect(() => {
+        if (user?.id) setValue("userId", user.id);
+    }, [user]);
 
-    const handleImageDelete = (index: number) => {
-        const newPhotos = [...watch("images")];
-        newPhotos[index] = "";
-        setValue("images", newPhotos, { shouldValidate: true });
-    };
-
-    const onSubmit = async (
-        body: CreateAdRequest,
-    ) => {
+    const onSubmit = async (body: AdRequest) => {
         try {
-            await axios.post(`${BACKEND_URL}/catalogue-service/api/catalogue`, body);
+            await axiosInstance.post(`/catalogue-service/api/catalogue/private`, body, {
+                headers: {
+                    Authorization: `Bearer ${TokenManager.getAccessToken()}`
+                }
+            });
             navigate("/home")
-            console.log(body)
         } catch (error) {
-            console.log(body)
             console.error("POST error:", error);
         }
     };
 
     return (
         <AddProductLayout>
-            <form
-                className={"w-full h-fit"}
-                onSubmit={handleSubmit(onSubmit)}
-            >
+            <form className={"w-full h-fit"} onSubmit={handleSubmit(onSubmit)}>
                 <NewProductPictures
                     photos={watch("images")}
-                    onImageUpload={handleImageUpload}
-                    onImageDelete={handleImageDelete}
+                    onImageUpload={(file, index) => handleImageUpload(file, index, setValue, watch)}
+                    onImageDelete={(index) => handleImageDelete(index, setValue, watch)}
                     error={errors.images?.message}
                 />
-
-                <NewProductTitle
-                    register={register}
-                    error={errors.title?.message}
-                />
-
+                <NewProductTitle register={register} error={errors.title?.message} />
                 <NewProductCategory
+                    categoryId={watch("categoryId")}
                     setValue={setValue}
                     trigger={trigger}
                     error={errors.categoryId?.message}
                 />
-
                 <div className={"grid grid-cols-2 gap-10"}>
-                    <NewAdPrice
-                        register={register}
-                        error={errors.price?.message}
-                    />
-
+                    <PriceInput register={register} error={errors.price?.message} />
                     <AdRegion
                         setValue={setValue}
                         region={watch("region")}
                         trigger={trigger}
                         error={errors.region?.message}
                     />
-
                 </div>
-
-                <NewProductDescription
-                    register={register}
-                    error={errors.description?.message}
-                />
-
-                <SubmitButton type={"submit"}>
-                    Опублікувати оголошення
-                </SubmitButton>
+                <NewProductDescription register={register} error={errors.description?.message} />
+                <SubmitButton type={"submit"}>Опублікувати оголошення</SubmitButton>
             </form>
         </AddProductLayout>
     );
